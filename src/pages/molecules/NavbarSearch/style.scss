@@ -1,0 +1,12 @@
+.navbar-search-wrapper {
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+  position: relative;
+
+  .navbar-search-icon {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+  }
+}
