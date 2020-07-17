@@ -1,20 +1,12 @@
 import React from "react";
-import HeaderTop from "./templates/HeaderTop";
-import HeaderBottom from "./templates/HeaderBottom";
-import MainLeft from "./templates/MainLeft";
-import MainRight from "./templates/MainRight";
+import Home from "./Home";
 
 import "./style.scss";
 
 function App() {
   return (
     <div className="App">
-      <HeaderTop />
-      <HeaderBottom />
-      <div className="container">
-        <MainLeft />
-        <MainRight />
-      </div>
+      <Home />
     </div>
   );
 }

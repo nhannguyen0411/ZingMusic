@@ -1,0 +1,15 @@
+.main-left-wrapper {
+  .section-zing-chart {
+    margin-top: 1.5rem;
+  }
+
+  .section-left {
+    border-right: 1px solid #ddd;
+  }
+
+  .section-song-trending {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
+  }
+}

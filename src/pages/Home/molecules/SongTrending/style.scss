@@ -1,0 +1,11 @@
+.song-trending-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 5px 0px;
+    border-bottom: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.last-item {
+    border-bottom: none;
+}

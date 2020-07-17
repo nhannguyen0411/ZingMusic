@@ -1,0 +1,12 @@
+.header-bottom-wrapper {
+  .navbar-bottom {
+    display: grid;
+    grid-template-columns: 1fr 3.3fr 1.5fr;
+    height: 100%;
+
+    .navbar-bottom-icon {
+      align-self: center;
+      justify-self: end;
+    }
+  }
+}
