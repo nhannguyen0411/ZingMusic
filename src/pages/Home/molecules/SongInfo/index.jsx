@@ -1,16 +1,21 @@
 import React from "react";
 import NavbarTitle from "../../atoms/NavbarTitle";
+import { Link } from "react-router-dom";
 
 import "./style.scss";
 
 const SongInfo = (props) => {
-  const { song, singer } = props;
+  const { item } = props;
   return (
     <div className="song-info-wrapper">
-      <NavbarTitle parent="song" name={song} />
+      <Link to={`/product/${item.id}`}>
+        <NavbarTitle parent="song" name={item.song} />
+      </Link>
       <div className="singer-wrapper">
-        {singer.map((item, index) => (
-          <NavbarTitle parent="singer" key={index} name={`${item} `} />
+        {item.singer.map((item, index) => (
+          <Link key={index} to={`/singer/${item}`}>
+            <NavbarTitle parent="singer" name={`${item} `} />
+          </Link>
         ))}
       </div>
     </div>

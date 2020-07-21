@@ -3,12 +3,7 @@ import "./index.scss";
 
 const NavbarInput = (props) => {
   return (
-    <input
-      className="navbar-input"
-      type="text"
-      autoCapitalize={false}
-      placeholder="Search here"
-    />
+    <input className="navbar-input" type="text" placeholder="Search here" />
   );
 };
 

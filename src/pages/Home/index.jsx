@@ -5,7 +5,7 @@ import Footer from "./templates/Footer";
 
 import "./style.scss";
 
-const HomePage = (props) => {
+const HomePage = () => {
   return (
     <div className="home-page-wrapper">
       <Header />

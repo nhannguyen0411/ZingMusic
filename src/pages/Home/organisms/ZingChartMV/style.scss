@@ -1,50 +1,55 @@
 .zing-chart-mv-wrapper {
-    .song-top {
-        .first-song {
-            background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
-            height: 126px;
-            background-position: inherit;
-            background-size: cover;
-            color: white !important;
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: 10px;
+  .song-top {
+    .first-song {
+      background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
+      height: 126px;
+      background-position: inherit;
+      background-size: cover;
+      color: white !important;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 10px;
 
-            .song-rank-video-wrapper {
-                grid-template-columns: 1fr 7fr;
-                border-bottom: none;
-                margin-bottom: 0px;
-                .video-wrapper {
-                    align-self: center;
-                    justify-self: center;
-                    img {
-                        display: none;
-                    }
-                }
-                .song-info-video-wrapper,
-                .song-info-album-wrapper {
-                    display: grid;
-                    grid-template-columns: 8fr 1fr;
-                    grid-template-rows: none;
-                    .song-info-wrapper {
-                        display: grid;
-                        grid-template-rows: 1fr 1fr;
-                        .singer-wrapper {
-                            color: white;
-                        }
-                    }
-                    .song-view {
-                        color: white;
-                    }
-                }
-
-                .song-number {
-                    justify-self: center;
-                    position: unset;
-                    bottom: unset;
-                    left: unset;
-                }
-            }
+      .song-rank-video-wrapper {
+        grid-template-columns: 1fr 7fr;
+        border-bottom: none;
+        margin-bottom: 0px;
+        .video-wrapper {
+          align-self: center;
+          justify-self: center;
+          img {
+            display: none;
+          }
         }
+        .song-info-video-wrapper,
+        .song-info-album-wrapper {
+          display: grid;
+          grid-template-columns: 8fr 1fr;
+          grid-template-rows: none;
+          .song-info-wrapper {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+
+            a {
+              color: white;
+            }
+
+            .singer-wrapper {
+              @extend a;
+            }
+          }
+          .song-view {
+            color: white;
+          }
+        }
+
+        .song-number {
+          justify-self: center;
+          position: unset;
+          bottom: unset;
+          left: unset;
+        }
+      }
     }
+  }
 }

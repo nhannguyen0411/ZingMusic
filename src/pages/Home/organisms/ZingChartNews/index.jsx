@@ -16,7 +16,7 @@ const ZingChartNews = (props) => {
               <HotNews item={item} />
             </div>
           ) : (
-            <HotNews item={item} />
+            <HotNews key={index} item={item} />
           );
         })}
       </div>

@@ -1,11 +1,21 @@
 .song-info-wrapper {
-    align-self: center;
-    display: grid;
-    grid-template-rows: auto auto;
-    font-size: 14px;
+  align-self: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  font-size: 14px;
 
-    .singer-wrapper {
-        font-size: 12px;
-        color: #999;
-    }
+  .singer-wrapper {
+    font-size: 12px;
+    color: #999;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover {
+    color: #a845de;
+    transition: all 0.3s;
+  }
 }

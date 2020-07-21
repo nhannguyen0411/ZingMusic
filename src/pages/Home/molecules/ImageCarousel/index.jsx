@@ -12,10 +12,10 @@ function ImageCarousel(props) {
   ];
   return (
     <div className="image-carousel-wrapper">
-      <div class="carousel">
+      <div className="carousel">
         <img src="https://via.placeholder.com/650x274" alt="image" />
       </div>
-      <div class="image-render">
+      <div className="image-render">
         {arr.map((item, index) => {
           return <img key={index} src={item.url} alt="image" />;
         })}

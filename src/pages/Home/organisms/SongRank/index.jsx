@@ -12,7 +12,7 @@ const SongRank = (props) => {
         parent="song-number"
         name={item.id < 10 ? `0${item.id}` : item.id}
       />
-      <SongInfo song={item.song} singer={item.singer} />
+      <SongInfo item={item} />
       <NavbarTitle parent="song-view" name={item.view} />
     </div>
   );

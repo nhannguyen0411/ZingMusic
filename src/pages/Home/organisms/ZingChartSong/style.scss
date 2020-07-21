@@ -1,32 +1,41 @@
 .zing-chart-song-wrapper {
-    .song-top {
-        .first-song {
-            background-image: url(https://photo-zmp3.zadn.vn/banner/1/2/8/f/128fba5cb8c0adea6f79e4de403e96d5.jpg);
-            height: 126px;
-            background-position: inherit;
-            background-size: cover;
-            color: white;
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: 10px;
+  .song-top {
+    .first-song {
+      background-image: url(https://photo-zmp3.zadn.vn/banner/1/2/8/f/128fba5cb8c0adea6f79e4de403e96d5.jpg);
+      height: 126px;
+      background-position: inherit;
+      background-size: cover;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 10px;
 
-            .song-rank-wrapper {
-                border-bottom: none;
-                margin-bottom: 0px;
-                .song-number {
-                    justify-self: center;
-                }
-
-                .song-info-wrapper {
-                    .singer-wrapper {
-                        color: white;
-                    }
-                }
-
-                .song-view {
-                    color: white;
-                }
-            }
+      .song-rank-wrapper {
+        border-bottom: none;
+        margin-bottom: 0px;
+        .song-number {
+          justify-self: center;
         }
+
+        .song-info-wrapper {
+          a {
+            color: white;
+          }
+
+          a:hover {
+            color: #a845de;
+            transition: all 0.3s;
+          }
+
+          .singer-wrapper {
+            @extend a;
+          }
+        }
+
+        .song-view {
+          color: white;
+        }
+      }
     }
+  }
 }

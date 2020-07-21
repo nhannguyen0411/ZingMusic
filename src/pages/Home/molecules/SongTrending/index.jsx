@@ -4,7 +4,7 @@ import SongInfo from "../SongInfo";
 import "./style.scss";
 
 const SongTrending = (props) => {
-  const { song, singer, length, index } = props;
+  const { item, length, index } = props;
   return (
     <div
       className={`song-trending-wrapper ${
@@ -12,7 +12,7 @@ const SongTrending = (props) => {
       }`}
     >
       <img src="https://via.placeholder.com/50" alt="image" />
-      <SongInfo song={song} singer={singer} />
+      <SongInfo item={item} />
     </div>
   );
 };

@@ -16,9 +16,9 @@ function SongCountry(props) {
           return (
             <SongTrending
               length={arr.length}
+              key={index}
               index={index}
-              song={item.song}
-              singer={item.singer}
+              item={item}
               type={type}
             />
           );

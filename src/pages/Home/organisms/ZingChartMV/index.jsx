@@ -7,9 +7,8 @@ import "./style.scss";
 
 const ZingChartMV = (props) => {
   const { arr, large, news } = props;
-
   const showTopSong = (arr) => {
-    arr.map((item, index) => {
+    return arr.map((item, index) => {
       return item.id === 1 ? (
         <div
           key={index}

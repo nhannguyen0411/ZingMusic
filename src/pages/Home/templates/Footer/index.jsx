@@ -39,13 +39,13 @@ const Footer = () => {
         <div className="connect">
           <div className="third-party">
             <span>
-              <i class="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f"></i>
             </span>
             <span>
-              <i class="fab fa-google-plus-g"></i>
+              <i className="fab fa-google-plus-g"></i>
             </span>
             <span>
-              <i class="fab fa-youtube"></i>
+              <i className="fab fa-youtube"></i>
             </span>
           </div>
           <img

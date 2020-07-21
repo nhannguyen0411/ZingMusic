@@ -7,7 +7,12 @@ const VideoInspired = (props) => {
   const { song, singer, type, image } = props;
   return (
     <div className="video-inspired-wrapper">
-      <img src={image} alt="image" />
+      <div className="photo">
+        <img src={image} alt="image" />
+        <div className="overlay">
+          <i class="far fa-play-circle"></i>
+        </div>
+      </div>
       <div className="song-info-wrapper">
         <NavbarTitle parent="song" name={song} />
         {type && (

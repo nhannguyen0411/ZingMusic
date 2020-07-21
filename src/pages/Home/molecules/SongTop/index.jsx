@@ -8,7 +8,7 @@ const SongTop = (props) => {
   return (
     <div className="song-top-wrapper">
       <img src={item.image} alt="image" />
-      <SongInfo song={item.song} singer={item.singer} />
+      <SongInfo item={item} />
     </div>
   );
 };
