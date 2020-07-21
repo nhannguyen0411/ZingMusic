@@ -5,7 +5,7 @@
             height: 126px;
             background-position: inherit;
             background-size: cover;
-            color: white;
+            color: white !important;
             display: flex;
             align-items: flex-end;
             margin-bottom: 10px;
@@ -24,11 +24,17 @@
                 .song-info-video-wrapper,
                 .song-info-album-wrapper {
                     display: grid;
-                    grid-template-columns: 6fr 1fr;
+                    grid-template-columns: 8fr 1fr;
                     grid-template-rows: none;
-                    .song-info {
+                    .song-info-wrapper {
                         display: grid;
                         grid-template-rows: 1fr 1fr;
+                        .singer-wrapper {
+                            color: white;
+                        }
+                    }
+                    .song-view {
+                        color: white;
                     }
                 }
 

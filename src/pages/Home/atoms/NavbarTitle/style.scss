@@ -17,9 +17,15 @@
   align-self: center;
 }
 
-.song-view {
-  @extend .song-number;
-  justify-self: end;
+.song-rank-wrapper,
+.song-info-video-wrapper,
+.song-info-album-wrapper {
+  .song-view {
+    @extend .song-number;
+    justify-self: end;
+    font-size: 12px;
+    color: #999;
+  }
 }
 
 .title {
@@ -43,5 +49,14 @@
     @extend .title;
     font-size: 18px;
     align-self: center;
+  }
+}
+.song-info-wrapper {
+  .song,
+  .singer {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
   }
 }

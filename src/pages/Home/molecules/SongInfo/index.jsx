@@ -7,8 +7,12 @@ const SongInfo = (props) => {
   const { song, singer } = props;
   return (
     <div className="song-info-wrapper">
-      <NavbarTitle name={song} />
-      <NavbarTitle name={singer} />
+      <NavbarTitle parent="song" name={song} />
+      <div className="singer-wrapper">
+        {singer.map((item, index) => (
+          <NavbarTitle parent="singer" key={index} name={`${item} `} />
+        ))}
+      </div>
     </div>
   );
 };

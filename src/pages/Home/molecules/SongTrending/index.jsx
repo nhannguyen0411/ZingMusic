@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarTitle from "../../atoms/NavbarTitle";
+import SongInfo from "../SongInfo";
 
 import "./style.scss";
 
@@ -12,10 +12,7 @@ const SongTrending = (props) => {
       }`}
     >
       <img src="https://via.placeholder.com/50" alt="image" />
-      <div className="song-info-wrapper">
-        <NavbarTitle name={song} />
-        <NavbarTitle name={singer} />
-      </div>
+      <SongInfo song={song} singer={singer} />
     </div>
   );
 };

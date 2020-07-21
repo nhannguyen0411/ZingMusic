@@ -13,7 +13,7 @@ const ZingChartTopic = (props) => {
         parent="zing-chart-icon-forward"
         icon="fas fa-chevron-right"
       />
-      {news && (
+      {!news && (
         <NavbarIcon parent="zing-chart-icon-play" icon="fas fa-play-circle" />
       )}
     </div>

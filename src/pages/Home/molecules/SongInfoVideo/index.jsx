@@ -9,9 +9,13 @@ const SongInfoVideo = (props) => {
     <div
       className={large ? "song-info-album-wrapper" : "song-info-video-wrapper"}
     >
-      <div className="song-info">
+      <div className="song-info-wrapper">
         <NavbarTitle name={item.song} />
-        <NavbarTitle name={item.singer} />
+        <div className="singer-wrapper">
+          {item.singer.map((name, index) => {
+            return <NavbarTitle key={index} name={`${name} `} />;
+          })}
+        </div>
       </div>
       <NavbarTitle parent="song-view" name={item.view} />
     </div>

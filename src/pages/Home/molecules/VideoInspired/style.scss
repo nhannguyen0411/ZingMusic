@@ -8,4 +8,16 @@
         height: 150px;
         width: 150px;
     }
+
+    .song-info-wrapper {
+        text-align: left;
+        .singer-wrapper {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-transform: capitalize;
+            font-size: 12px;
+            color: #999;
+        }
+    }
 }

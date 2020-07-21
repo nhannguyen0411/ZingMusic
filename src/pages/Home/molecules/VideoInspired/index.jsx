@@ -9,8 +9,14 @@ const VideoInspired = (props) => {
     <div className="video-inspired-wrapper">
       <img src={image} alt="image" />
       <div className="song-info-wrapper">
-        <NavbarTitle name={song} />
-        {type && <NavbarTitle name={singer} />}
+        <NavbarTitle parent="song" name={song} />
+        {type && (
+          <div className="singer-wrapper">
+            {singer.map((item, index) => (
+              <NavbarTitle key={index} parent="singer" name={`${item} `} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

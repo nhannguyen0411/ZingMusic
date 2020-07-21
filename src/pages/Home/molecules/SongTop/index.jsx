@@ -4,11 +4,11 @@ import SongInfo from "../SongInfo";
 import "./style.scss";
 
 const SongTop = (props) => {
-  const { song, singer } = props;
+  const { item } = props;
   return (
     <div className="song-top-wrapper">
-      <img src="https://via.placeholder.com/60" alt="image" />
-      <SongInfo song={song} singer={singer} />
+      <img src={item.image} alt="image" />
+      <SongInfo song={item.song} singer={item.singer} />
     </div>
   );
 };

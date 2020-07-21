@@ -5,10 +5,10 @@ import HotNews from "../HotNews";
 import "./style.scss";
 
 const ZingChartNews = (props) => {
-  const { arr } = props;
+  const { arr, news } = props;
   return (
     <div className="zing-chart-news-wrapper">
-      <ZingChartTopic name={`TIN TỨC ÂM NHẠC`} />
+      <ZingChartTopic news={news} name={`TIN TỨC ÂM NHẠC`} />
       <div className="news-top">
         {arr.map((item, index) => {
           return item.id === 1 ? (
