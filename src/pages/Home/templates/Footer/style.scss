@@ -1,0 +1,50 @@
+.footer-wrapper {
+    background-color: #222428;
+    color: #ddd;
+    .container-footer {
+        width: 63rem;
+        margin: 0 auto;
+        padding: 15px 12px 0;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        .brand {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            color: #888;
+            font-size: 12px;
+        }
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            font-size: 12px;
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                li {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .connect {
+            .third-party {
+                span {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    width: 20px;
+                    text-align: center;
+                    background-color: #888;
+                    margin-left: 10px;
+                }
+            }
+
+            img {
+                margin-top: 15px;
+            }
+
+            p {
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    }
+}

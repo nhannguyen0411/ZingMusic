@@ -8,3 +8,31 @@
 .song-divider {
     align-self: center;
 }
+
+.image-play-wrapper {
+    .icon-play {
+        position: absolute;
+    }
+}
+
+.topic-wrapper {
+    .icon-topic-hot {
+        align-self: center;
+        color: #999;
+    }
+}
+
+.zing-chart-topic-wrapper {
+    .zing-chart-icon-forward {
+        color: purple;
+        font-size: 16px;
+        align-self: center;
+    }
+
+    .zing-chart-icon-play {
+        font-size: 28px;
+        color: #999;
+        align-self: center;
+        justify-self: end;
+    }
+}

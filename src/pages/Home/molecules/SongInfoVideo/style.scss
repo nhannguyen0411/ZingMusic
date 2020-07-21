@@ -1,0 +1,20 @@
+.song-rank-video-wrapper {
+    .song-info-video-wrapper {
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        .song-info {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+        }
+        .song-view {
+            justify-self: start;
+        }
+    }
+
+    .song-info-album-wrapper {
+        .song-info {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+        }
+    }
+}

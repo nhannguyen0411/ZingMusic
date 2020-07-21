@@ -1,0 +1,19 @@
+.section-singer-hot {
+  .singer-hot-wrapper {
+    .singer-in-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 5px;
+
+      .first-singer {
+      }
+
+      .top-singer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.hot-news-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 15px;
+    img {
+        height: 66px;
+        width: 100px;
+    }
+}

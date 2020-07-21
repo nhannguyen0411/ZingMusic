@@ -8,7 +8,7 @@ const VideoInspired = (props) => {
   return (
     <div className="video-inspired-wrapper">
       <img src={image} alt="image" />
-      <div className="song-info">
+      <div className="song-info-wrapper">
         <NavbarTitle name={song} />
         {type && <NavbarTitle name={singer} />}
       </div>

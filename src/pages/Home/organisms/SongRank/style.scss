@@ -1,0 +1,9 @@
+.song-top {
+    .song-rank-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 9fr 1fr;
+        margin-bottom: 10px;
+        padding: 5px 0px;
+        border-bottom: 1px solid #eee;
+    }
+}

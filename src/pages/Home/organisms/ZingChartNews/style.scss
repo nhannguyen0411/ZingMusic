@@ -1,0 +1,30 @@
+.zing-chart-news-wrapper {
+    .news-top {
+        .first-news {
+            background-image: url(https://znews-photo.zadn.vn/w480/Uploaded/wyhktpu/2020_07_15/Song_gio_thumb.jpg);
+            height: 168px;
+            background-position: inherit;
+            background-size: cover;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 15px;
+
+            .hot-news-wrapper {
+                grid-template-columns: unset;
+                margin: 5px 8px;
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .zing-chart-topic-wrapper {
+        font-size: 18px;
+        margin: 10px 0;
+        .zing-chart-word {
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,5 +1,7 @@
-.song-top-wrapper {
-    display: grid;
-    grid-template-columns: auto auto;
-    align-self: center;
+.top-chart-wrapper {
+    .song-top-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        align-self: center;
+    }
 }

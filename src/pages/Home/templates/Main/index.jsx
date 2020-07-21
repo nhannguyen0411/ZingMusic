@@ -1,14 +1,14 @@
 import React from "react";
-import MainLeft from "./MainLeft";
-import MainRight from "./MainRight";
+import MainTop from "./MainTop";
+import MainBottom from "./MainBottom";
 
 import "./style.scss";
 
 const Main = () => {
   return (
     <div className="main-wrapper">
-      <MainLeft />
-      <MainRight />
+      <MainTop />
+      <MainBottom />
     </div>
   );
 };

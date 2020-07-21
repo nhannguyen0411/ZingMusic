@@ -12,7 +12,7 @@ const SongTrending = (props) => {
       }`}
     >
       <img src="https://via.placeholder.com/50" alt="image" />
-      <div className="song-info">
+      <div className="song-info-wrapper">
         <NavbarTitle name={song} />
         <NavbarTitle name={singer} />
       </div>

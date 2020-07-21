@@ -4,7 +4,7 @@ import VideoInspired from "../../molecules/VideoInspired";
 
 import "./style.scss";
 
-function TrendingVideo(props) {
+const TrendingVideo = (props) => {
   const { title, type, arr, image, temp } = props;
   return (
     <div className="trending-video-wrapper">
@@ -15,7 +15,7 @@ function TrendingVideo(props) {
         {arr.map((item, index) => {
           return (
             <VideoInspired
-              image={image}
+              image={item.image}
               key={index}
               song={item.song}
               singer={item.singer}
@@ -26,6 +26,6 @@ function TrendingVideo(props) {
       </div>
     </div>
   );
-}
+};
 
 export default TrendingVideo;

@@ -2,7 +2,7 @@
     .top-chart-wrapper {
         .song-in-top {
             display: grid;
-            grid-template-columns: auto auto auto auto auto;
+            grid-template-columns: 1fr 1fr 10fr 5fr 1fr;
             margin-bottom: 10px;
         }
     }

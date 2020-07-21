@@ -1,0 +1,7 @@
+.main-wrapper {
+    .main-top-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1.4rem;
+    }
+}

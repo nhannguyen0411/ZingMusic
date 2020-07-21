@@ -6,7 +6,7 @@ import "./style.scss";
 const SongInfo = (props) => {
   const { song, singer } = props;
   return (
-    <div className="song-info">
+    <div className="song-info-wrapper">
       <NavbarTitle name={song} />
       <NavbarTitle name={singer} />
     </div>

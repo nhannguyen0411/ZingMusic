@@ -12,7 +12,8 @@
   cursor: pointer;
 }
 
-.song-number {
+.song-number,
+.partner {
   align-self: center;
 }
 
@@ -24,4 +25,23 @@
 .title {
   font-size: 24px;
   color: purple;
+}
+
+.hot-topic-wrapper {
+  .hot-topic {
+    font-weight: 100;
+    @extend .title;
+  }
+
+  .hot-topic-more {
+    color: #999;
+  }
+}
+
+.zing-chart-topic-wrapper {
+  .zing-chart-word {
+    @extend .title;
+    font-size: 18px;
+    align-self: center;
+  }
 }

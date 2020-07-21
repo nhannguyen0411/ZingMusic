@@ -1,0 +1,18 @@
+.country-topic-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .content {
+        padding: 10px 0px;
+        background-color: #ddd;
+        text-align: center;
+    }
+
+    .content:hover {
+        border-top: 2px solid purple;
+    }
+
+    .content:active {
+        border-top: 2px solid purple;
+    }
+}
