@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 
-const NavbarInput = (props) => {
+const NavbarInput = () => {
   return (
     <input className="navbar-input" type="text" placeholder="Search here" />
   );

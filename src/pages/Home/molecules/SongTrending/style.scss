@@ -12,17 +12,18 @@
     top: 35%;
     opacity: 0;
     transition: all 0.3s;
-    i {
+    span {
       margin-right: 8px;
       color: #888;
     }
   }
-}
 
-.song-trending-wrapper:hover .overlay {
-  opacity: 1;
-}
-
-.last-item {
-  border-bottom: none;
+  &:hover {
+    .overlay {
+      opacity: 1;
+    }
+  }
+  &.last-item {
+    border-bottom: none;
+  }
 }

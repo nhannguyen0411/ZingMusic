@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import classNames from "classnames";
 import NavbarTitle from "../../atoms/NavbarTitle";
 import { Link } from "react-router-dom";
 
@@ -18,25 +19,26 @@ const SongInfoVideo: FC<PropTypes> = (props) => {
   const { item, weekAlbum } = props;
   return (
     <div
-      className={
-        weekAlbum ? "song-info-album-wrapper" : "song-info-video-wrapper"
-      }
+      className={classNames({
+        "song-info-album-wrapper": weekAlbum,
+        "song-info-video-wrapper": !weekAlbum,
+      })}
     >
       <div className="song-info-wrapper">
         <Link to={`/product/${item.id}`}>
-          <NavbarTitle parent="song" name={item.song} />
+          <NavbarTitle varClass="song" name={item.song} />
         </Link>
         <div className="singer-wrapper">
           {item.singer.map((name: any, index: any) => {
             return (
               <Link to={`/singer/${name.id}`} key={index}>
-                <NavbarTitle parent="singer" name={`${name.singer} `} />
+                <NavbarTitle varClass="singer" name={`${name.singer} `} />
               </Link>
             );
           })}
         </div>
       </div>
-      <NavbarTitle parent="song-view" name={item.view} />
+      <NavbarTitle varClass="song-view" name={item.view} />
     </div>
   );
 };

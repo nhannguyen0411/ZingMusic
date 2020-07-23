@@ -11,29 +11,33 @@
       margin-bottom: 10px;
 
       .song-rank-wrapper {
-        border-bottom: none;
-        margin-bottom: 0px;
-        .song-number {
-          justify-self: center;
-        }
-
-        .song-info-wrapper {
-          a {
-            color: white;
+        .content {
+          border-bottom: none;
+          margin-bottom: 0px;
+          .song-number {
+            justify-self: center;
           }
 
-          a:hover {
-            color: #a845de;
+          .song-info-wrapper {
+            a {
+              color: white;
+            }
+            .singer-wrapper {
+              .navbar-title-wrapper {
+                &.singer {
+                  color: white;
+                  &:hover {
+                    color: #a845de;
+                  }
+                }
+              }
+            }
+          }
+
+          .song-view {
+            color: white;
             transition: all 0.3s;
           }
-
-          .singer-wrapper {
-            @extend a;
-          }
-        }
-
-        .song-view {
-          color: white;
         }
       }
     }

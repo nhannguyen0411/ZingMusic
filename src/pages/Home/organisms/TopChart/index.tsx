@@ -14,11 +14,11 @@ const TopChart = () => {
       {arr.map((item: any, index: any) => {
         return (
           <div key={index} className="song-in-top">
-            <NavbarTitle parent="song-number" name={`${item.id}`} />
+            <NavbarTitle varClass="song-number" name={`${item.id}`} />
             <NavbarIcon parent="song-divider" icon="fas fa-minus" />
             <SongTop item={item} />
             <SongOptions />
-            <NavbarTitle parent="song-view" name={item.view} />
+            <NavbarTitle varClass="song-view" name={item.view} />
           </div>
         );
       })}

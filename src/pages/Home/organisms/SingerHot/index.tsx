@@ -12,7 +12,7 @@ const SingerHot: FC<PropTypes> = (props) => {
 
   return (
     <div className="singer-hot-wrapper">
-      <NavbarTitle parent="title" name="NGHỆ SĨ HOT" />
+      <NavbarTitle varClass="title" name="NGHỆ SĨ HOT" />
       <div className="singer-in-top">
         <div className="first-singer">
           <img src="https://via.placeholder.com/210x210" alt="image" />

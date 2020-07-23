@@ -1,17 +1,12 @@
 import React from "react";
 import NavbarMore from "../../molecules/NavbarMore";
 import NavbarSearch from "../../molecules/NavbarSearch";
-import "./style.scss";
 import NavbarTitle from "../../atoms/NavbarTitle";
+import navbarTop from "../../../../mocks/NavbarTop";
+
+import "./style.scss";
 
 const NavbarTop = () => {
-  const arr = [
-    { id: 1, name: "MP3" },
-    { id: 2, name: "NEWS" },
-    { id: 3, name: "TV" },
-    { id: 4, name: "ZALO PC" },
-  ];
-
   return (
     <div className="navbar-top-wrapper">
       <div className="navbar-top-image">
@@ -24,9 +19,9 @@ const NavbarTop = () => {
       <NavbarMore
         parent="navbar-top-more"
         child="navbar-top-title-wrapper"
-        arr={arr}
+        arr={navbarTop}
       />
-      <NavbarTitle parent="navbar-top-title-wrapper" name="Đăng Nhập" />
+      <NavbarTitle varClass="navbar-top-title-wrapper" name="Đăng Nhập" />
     </div>
   );
 };

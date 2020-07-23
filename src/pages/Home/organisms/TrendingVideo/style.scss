@@ -10,22 +10,23 @@
 
       .video-inspired-wrapper {
         img {
-          height: 150px;
-          width: 150px;
+          $space: 150px;
+          height: $space;
+          width: $space;
         }
       }
-    }
 
-    .video-hot {
-      grid-column-gap: 27px;
+      &.video-hot {
+        grid-column-gap: 27px;
 
-      img {
-        height: 80px !important;
-        width: 142px !important;
-      }
+        img {
+          height: 80px;
+          width: 142px;
+        }
 
-      .overlay {
-        height: 93% !important;
+        .overlay {
+          height: 93%;
+        }
       }
     }
   }

@@ -13,7 +13,7 @@ const SongCountry: FC<PropTypes> = (props) => {
   return (
     <div className="song-country-wrapper">
       <div className="title">
-        <NavbarTitle parent="title" name={title} />
+        <NavbarTitle varClass="title" name={title} />
       </div>
       <div className="content">
         {arr.map((item: any, index: any) => {

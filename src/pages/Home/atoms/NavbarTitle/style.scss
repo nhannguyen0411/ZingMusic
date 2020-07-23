@@ -1,62 +1,62 @@
-.navbar-top-title-wrapper {
-  padding: 0px 12px;
-  cursor: pointer;
-  color: white;
-  justify-self: start;
-  align-self: center;
-}
+.navbar-title-wrapper {
+  &.navbar-top-title-wrapper {
+    padding: 0px 12px;
+    cursor: pointer;
+    color: white;
+    justify-self: start;
+    align-self: center;
+  }
+  &.navbar-bottom-title-wrapper {
+    color: black;
+    padding: 0px 12px;
+    cursor: pointer;
+  }
 
-.navbar-bottom-title-wrapper {
-  color: black;
-  padding: 0px 12px;
-  cursor: pointer;
-}
+  &.song-number,
+  &.partner {
+    align-self: center;
+  }
 
-.song-number,
-.partner {
-  align-self: center;
-}
-
-.song-rank-wrapper,
-.song-info-video-wrapper,
-.song-info-album-wrapper {
-  .song-view {
+  &.song-view {
     @extend .song-number;
     justify-self: end;
     font-size: 12px;
     color: #999;
   }
-}
 
-.title {
-  font-size: 24px;
-  color: purple;
-}
+  &.title {
+    font-size: 24px;
+    color: purple;
+  }
 
-.hot-topic-wrapper {
-  .hot-topic {
+  &.hot-topic {
     font-weight: 100;
     @extend .title;
   }
 
-  .hot-topic-more {
+  &.hot-topic-more {
     color: #999;
   }
-}
 
-.zing-chart-topic-wrapper {
-  .zing-chart-word {
+  &.zing-chart-word {
     @extend .title;
     font-size: 18px;
     align-self: center;
   }
-}
-.song-info-wrapper {
-  .song,
-  .singer {
+
+  &.song {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: capitalize;
+    transition: all 0.3s;
+    &:hover {
+      color: #a845de;
+    }
+  }
+
+  &.singer {
+    @extend .song;
+    color: #999;
   }
 }

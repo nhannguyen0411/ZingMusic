@@ -1,3 +1,8 @@
+@mixin display-grid($x, $y, $table) {
+  display: grid;
+  grid-template-#{$table}: $x $y;
+}
+
 .zing-chart-mv-wrapper {
   .song-top {
     .first-song {
@@ -11,7 +16,7 @@
       margin-bottom: 10px;
 
       .song-rank-video-wrapper {
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 1fr 10fr;
         border-bottom: none;
         margin-bottom: 0px;
         .video-wrapper {
@@ -23,23 +28,30 @@
         }
         .song-info-video-wrapper,
         .song-info-album-wrapper {
-          display: grid;
-          grid-template-columns: 8fr 1fr;
+          @include display-grid(8fr, 1fr, columns);
           grid-template-rows: none;
           .song-info-wrapper {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
+            @include display-grid(1fr, 1fr, rows);
 
             a {
               color: white;
             }
 
             .singer-wrapper {
-              @extend a;
+              .navbar-title-wrapper {
+                &.singer {
+                  color: white;
+                  transition: all 0.3s;
+                  &:hover {
+                    color: #a845de;
+                  }
+                }
+              }
             }
           }
           .song-view {
             color: white;
+            align-self: center;
           }
         }
 

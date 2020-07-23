@@ -16,10 +16,9 @@
     text-transform: capitalize;
     text-decoration: none;
     color: black;
-  }
-
-  a:hover {
-    color: #a845de;
-    transition: all 0.3s;
+    &:hover {
+      color: #a845de;
+      transition: all 0.3s;
+    }
   }
 }

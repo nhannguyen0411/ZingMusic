@@ -1,5 +1,11 @@
 import React, { FC } from "react";
+import classNames from "classnames";
 import SongInfo from "../SongInfo";
+import {
+  DownloadOutlined,
+  PlusOutlined,
+  ShareAltOutlined,
+} from "@ant-design/icons";
 
 import "./style.scss";
 
@@ -17,16 +23,16 @@ const SongTrending: FC<PropTypes> = (props) => {
   const { item, length, index } = props;
   return (
     <div
-      className={`song-trending-wrapper ${
-        index === length - 1 ? `last-item` : ""
-      }`}
+      className={classNames("song-trending-wrapper", {
+        "last-item": index === length - 1,
+      })}
     >
       <img src="https://via.placeholder.com/50" alt="image" />
       <SongInfo noSinger={true} item={item} />
       <div className="overlay">
-        <i className="fas fa-download"></i>
-        <i className="fas fa-plus"></i>
-        <i className="fas fa-share-alt"></i>
+        <DownloadOutlined />
+        <PlusOutlined />
+        <ShareAltOutlined />
       </div>
     </div>
   );

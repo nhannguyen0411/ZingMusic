@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import classNames from "classnames";
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfoVideo from "../../molecules/SongInfoVideo";
 
@@ -21,13 +22,16 @@ const SongRankVideo: FC<PropTypes> = (props) => {
     <div className="song-rank-video-wrapper">
       <div className="video-wrapper">
         <img
-          className={weekAlbum ? "week-album" : "week-mv"}
-          src={`${item.image}`}
+          className={classNames({
+            "week-album": weekAlbum,
+            "week-mv": !weekAlbum,
+          })}
+          src={item.image}
           alt="image"
         />
         <NavbarTitle
-          parent="song-number"
-          name={item.id < 10 ? `0${item.id}` : `${item.id}`}
+          varClass="song-number"
+          name={item.id.toString().padStart(2, "0")}
         />
       </div>
       <SongInfoVideo weekAlbum={weekAlbum} item={item} />

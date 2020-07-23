@@ -13,7 +13,7 @@ const ZingChartTopic: FC<PropTypes> = (props) => {
   const { name, weekNews } = props;
   return (
     <div className="zing-chart-topic-wrapper">
-      <NavbarTitle parent="zing-chart-word" name={name} />
+      <NavbarTitle varClass="zing-chart-word" name={name} />
       <NavbarIcon
         parent="zing-chart-icon-forward"
         icon="fas fa-chevron-right"

@@ -1,10 +1,35 @@
 .song-top {
-    .song-rank-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 9fr 1fr;
-        margin-bottom: 10px;
-        padding: 5px 0px;
-        border-bottom: 1px solid #eee;
-        text-transform: capitalize;
+  .song-rank-wrapper {
+    position: relative;
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 9fr 1fr;
+      margin-bottom: 10px;
+      padding: 5px 0px;
+      border-bottom: 1px solid #eee;
+      text-transform: capitalize;
     }
+
+    .overlay {
+      position: absolute;
+      right: 0;
+      top: 30%;
+      opacity: 0;
+      transition: all 0.3s;
+      font-size: 1rem;
+      span {
+        margin-right: 8px;
+      }
+    }
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+
+      .song-view {
+        display: none;
+      }
+    }
+  }
 }

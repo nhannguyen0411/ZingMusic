@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import SongInfo from "../SongInfo";
+import { PlayCircleOutlined } from "@ant-design/icons";
 import "./style.scss";
 
 interface PropTypes {
@@ -19,7 +20,7 @@ const VideoInspired: FC<PropTypes> = (props) => {
       <div className="photo">
         <img src={`${item.image}`} alt="image" />
         <div className="overlay">
-          <i className="far fa-play-circle"></i>
+          <PlayCircleOutlined />
         </div>
       </div>
       <SongInfo noSinger={noSinger} item={item} />

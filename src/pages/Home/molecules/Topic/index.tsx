@@ -15,7 +15,7 @@ const Topic: FC<PropTypes> = (props) => {
   const { name, parentTitle, icon, parentIcon } = props;
   return (
     <div className="topic-wrapper">
-      <NavbarTitle parent={parentTitle} name={name} />
+      <NavbarTitle varClass={parentTitle} name={name} />
       <NavbarIcon parent={parentIcon} icon={icon} />
     </div>
   );

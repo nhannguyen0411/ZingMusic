@@ -1,33 +1,40 @@
+@mixin display-grid($x, $y) {
+  display: grid;
+  grid-template-rows: $x $y;
+}
+
+@mixin balance($x, $y) {
+  justify-self: $x;
+  align-self: $y;
+}
+
 .song-rank-video-wrapper {
-    .song-info-video-wrapper {
-        display: grid;
-        grid-template-rows: 2fr 1fr;
-        text-transform: capitalize;
-        .song-info {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
+  .song-info-video-wrapper {
+    @include display-grid(2fr, 1fr);
+    text-transform: capitalize;
+    .song-info {
+      @include display-grid(1fr, 1fr);
 
-            .singer-wrapper {
-                align-self: center;
-            }
-        }
-
-        .song-view {
-            justify-self: start;
-        }
+      .singer-wrapper {
+        @include balance(unset, center);
+      }
     }
 
-    .song-info-album-wrapper {
-        .song-info {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            .singer-wrapper {
-                align-self: center;
-            }
-        }
-
-        .song-view {
-            justify-self: start;
-        }
+    .song-view {
+      @include balance(start, unset);
     }
+  }
+
+  .song-info-album-wrapper {
+    .song-info {
+      @include display-grid(1fr, 1fr);
+      .singer-wrapper {
+        @include balance(unset, center);
+      }
+    }
+
+    .song-view {
+      @include balance(start, unset);
+    }
+  }
 }

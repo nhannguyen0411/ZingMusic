@@ -8,7 +8,7 @@ const NavbarCloseAds = () => {
   return (
     <div className="navbar-close-ads-wrapper">
       <NavbarIcon icon="fas fa-power-off" />
-      <NavbarTitle parent="" name="Tắt Quảng Cáo" />
+      <NavbarTitle varClass="" name="Tắt Quảng Cáo" />
       <NavbarIcon icon="fas fa-cloud-upload-alt" />
     </div>
   );

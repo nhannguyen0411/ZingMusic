@@ -1,8 +1,10 @@
-.navbar-top-more {
-  justify-self: start;
-  align-self: center;
-}
+.navbar-more-wrapper {
+  &.navbar-top-more {
+    justify-self: start;
+    align-self: center;
+  }
 
-.navbar-bottom-more {
-  align-self: center;
+  &.navbar-bottom-more {
+    align-self: center;
+  }
 }

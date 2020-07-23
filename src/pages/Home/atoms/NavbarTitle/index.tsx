@@ -4,17 +4,13 @@ import "./style.scss";
 
 interface PropTypes {
   name: String;
-  parent: String;
+  varClass: String;
 }
 
 const NavbarTitle: FC<PropTypes> = (props) => {
-  const { name, parent } = props;
+  const { name, varClass } = props;
   return (
-    <span
-      className={classNames(`navbar-title-wrapper`, { [`${parent}`]: true })}
-    >
-      {name}
-    </span>
+    <span className={classNames(`navbar-title-wrapper`, varClass)}>{name}</span>
   );
 };
 
