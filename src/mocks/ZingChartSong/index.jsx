@@ -2,7 +2,10 @@ const zingChartSong = [
   {
     id: 1,
     song: "Cứ Thế Rời Xa",
-    singer: ["Yến Tatoo", "Great"],
+    singer: [
+      { id: 13, singer: "Yến Tatoo" },
+      { id: 12, singer: "Great" },
+    ],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/2/d/c/8/2dc8ceef4c94b6ab43ba46dc3d28f6c7.jpg",
@@ -10,7 +13,10 @@ const zingChartSong = [
   {
     id: 2,
     song: "Cho anh say",
-    singer: ["Phan duy anh", "ACV"],
+    singer: [
+      { id: 10, singer: "Phan duy anh" },
+      { id: 11, singer: "ACV" },
+    ],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/2/d/c/8/2dc8ceef4c94b6ab43ba46dc3d28f6c7.jpg",
@@ -18,7 +24,7 @@ const zingChartSong = [
   {
     id: 3,
     song: "Em ơi sang nhà anh chơi",
-    singer: ["Đạt Ozy"],
+    singer: [{ id: 9, singer: "Đạt Ozy" }],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/1/c/1/8/1c18487bc580d6f84343d4fd2633bf50.jpg",
@@ -26,7 +32,10 @@ const zingChartSong = [
   {
     id: 4,
     song: "BigCityBoi",
-    singer: ["Binz", "Touliver"],
+    singer: [
+      { id: 8, singer: "Binz" },
+      { id: 7, singer: "Touliver" },
+    ],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/f/9/6/f/f96f21106a5dc67baa8bd5f06e8e97fc.jpg",
@@ -34,7 +43,7 @@ const zingChartSong = [
   {
     id: 5,
     song: "Em không sai chúng ta sai",
-    singer: ["Erik"],
+    singer: [{ id: 4, singer: "Erik" }],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
@@ -42,7 +51,7 @@ const zingChartSong = [
   {
     id: 6,
     song: "Anh Chưa đủ tư cách",
-    singer: ["Lý Tuấn Kiệt"],
+    singer: [{ id: 14, singer: "Lý Tuấn Kiệt" }],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
@@ -50,7 +59,10 @@ const zingChartSong = [
   {
     id: 7,
     song: "Tình Anh",
-    singer: ["Đình Dũng", "ACV"],
+    singer: [
+      { id: 15, singer: "Đình Dũng" },
+      { id: 16, singer: "ACV" },
+    ],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
@@ -58,7 +70,7 @@ const zingChartSong = [
   {
     id: 8,
     song: "Em đang bận yêu ai",
-    singer: ["Chi Dân"],
+    singer: [{ id: 17, singer: "Chi Dân" }],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
@@ -66,7 +78,10 @@ const zingChartSong = [
   {
     id: 9,
     song: "Không thể cùng nhau suốt kiếp",
-    singer: ["Hòa Minzy", "Mr.Siro"],
+    singer: [
+      { id: 18, singer: "Hòa Minzy" },
+      { id: 19, singer: "Mr.Siro" },
+    ],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
@@ -74,7 +89,7 @@ const zingChartSong = [
   {
     id: 10,
     song: "Thích thì đến",
-    singer: ["Lê Bảo Bình"],
+    singer: [{ id: 20, singer: "Lê Bảo Bình" }],
     view: "1,851",
     image:
       "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",

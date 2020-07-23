@@ -1,7 +1,4 @@
 import React from "react";
-import ImagePlay from "../../molecules/ImagePlay";
-import SongInfo from "../../molecules/SongInfo";
-
 import "./style.scss";
 
 const MusicForYou = () => {

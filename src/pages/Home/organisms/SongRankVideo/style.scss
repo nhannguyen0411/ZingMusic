@@ -1,30 +1,30 @@
 .zing-chart-mv-wrapper {
-    .song-rank-video-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-column-gap: 10px;
-        padding: 5px;
-        border-bottom: 1px solid #eee;
+  .song-rank-video-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
 
-        .video-wrapper {
-            position: relative;
-            .week-mv {
-                height: 62px;
-                width: 110px;
-            }
+    .video-wrapper {
+      position: relative;
+      .week-mv {
+        height: 62px;
+        width: 110px;
+      }
 
-            .week-album {
-                height: 110px;
-                width: 110px;
-            }
+      .week-album {
+        height: 110px;
+        width: 110px;
+      }
 
-            .song-number {
-                position: absolute;
-                bottom: 5px;
-                left: 5px;
-                color: white;
-                font-size: 18px;
-            }
-        }
+      .song-number {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        color: white;
+        font-size: 18px;
+      }
     }
+  }
 }

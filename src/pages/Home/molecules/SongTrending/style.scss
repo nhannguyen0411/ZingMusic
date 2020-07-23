@@ -1,11 +1,28 @@
 .song-trending-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    padding: 5px 0px;
-    border-bottom: 1px solid #ddd;
-    margin-right: 10px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 5px 0px;
+  border-bottom: 1px solid #ddd;
+  margin-right: 10px;
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    right: 0;
+    top: 35%;
+    opacity: 0;
+    transition: all 0.3s;
+    i {
+      margin-right: 8px;
+      color: #888;
+    }
+  }
+}
+
+.song-trending-wrapper:hover .overlay {
+  opacity: 1;
 }
 
 .last-item {
-    border-bottom: none;
+  border-bottom: none;
 }

@@ -1,5 +1,3 @@
-import weekMV from "../WeekMV";
-
 const weekNews = [
   {
     id: 1,

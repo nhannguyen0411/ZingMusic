@@ -5,7 +5,7 @@ import NavbarCloseAds from "../../molecules/NavbarCloseAds";
 
 import "./style.scss";
 
-const NavbarBottom = (props) => {
+const NavbarBottom = () => {
   const arr = [
     { id: 0, name: "Nhạc cá nhân" },
     { id: 8, name: "|" },
