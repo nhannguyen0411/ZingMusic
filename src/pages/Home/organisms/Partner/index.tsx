@@ -4,7 +4,7 @@ import NavbarTitle from "../../atoms/NavbarTitle";
 import "./styles.scss";
 
 interface PropTypes {
-  arr: Array<string>;
+  arr: Array<object>;
 }
 
 const Partner: FC<PropTypes> = (props) => {

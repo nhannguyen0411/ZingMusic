@@ -5,22 +5,22 @@ import VideoInspired from "../../molecules/VideoInspired";
 import "./style.scss";
 
 interface PropTypes {
-  arr: Array<string>;
+  arr: Array<object>;
   title: string;
-  temp: boolean;
-  type: boolean;
+  noSinger: boolean;
+  videoHot: boolean;
 }
 
 const TrendingVideo: FC<PropTypes> = (props) => {
-  const { title, type, arr, temp } = props;
+  const { title, noSinger, arr, videoHot } = props;
   return (
     <div className="trending-video-wrapper">
       <div className="title">
         <NavbarTitle parent="title" name={title} />
       </div>
-      <div className={`content ${temp && "video-hot"}`}>
+      <div className={`content ${videoHot && "video-hot"}`}>
         {arr.map((item: any, index: any) => {
-          return <VideoInspired key={index} item={item} type={type} />;
+          return <VideoInspired key={index} item={item} noSinger={noSinger} />;
         })}
       </div>
     </div>

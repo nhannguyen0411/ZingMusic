@@ -21,7 +21,7 @@ const SongRank: FC<PropTypes> = (props) => {
         parent="song-number"
         name={item.id < 10 ? `0${item.id}` : `${item.id}`}
       />
-      <SongInfo item={item} />
+      <SongInfo noSinger={false} item={item} />
       <NavbarTitle parent="song-view" name={item.view} />
     </div>
   );

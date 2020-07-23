@@ -17,7 +17,7 @@ const SongTop: FC<PropTypes> = (props) => {
   return (
     <div className="song-top-wrapper">
       <img src={`${item.image}`} alt="image" />
-      <SongInfo item={item} />
+      <SongInfo noSinger={false} item={item} />
     </div>
   );
 };

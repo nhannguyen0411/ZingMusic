@@ -4,7 +4,7 @@ import NavbarSearch from "../../molecules/NavbarSearch";
 import "./style.scss";
 import NavbarTitle from "../../atoms/NavbarTitle";
 
-const NavbarTop = (props) => {
+const NavbarTop = () => {
   const arr = [
     { id: 1, name: "MP3" },
     { id: 2, name: "NEWS" },

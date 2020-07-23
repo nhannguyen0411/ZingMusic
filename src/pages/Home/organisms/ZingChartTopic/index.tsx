@@ -6,11 +6,11 @@ import "./style.scss";
 
 interface PropTypes {
   name: string;
-  news: boolean;
+  weekNews: boolean;
 }
 
 const ZingChartTopic: FC<PropTypes> = (props) => {
-  const { name, news } = props;
+  const { name, weekNews } = props;
   return (
     <div className="zing-chart-topic-wrapper">
       <NavbarTitle parent="zing-chart-word" name={name} />
@@ -18,7 +18,7 @@ const ZingChartTopic: FC<PropTypes> = (props) => {
         parent="zing-chart-icon-forward"
         icon="fas fa-chevron-right"
       />
-      {!news && (
+      {!weekNews && (
         <NavbarIcon parent="zing-chart-icon-play" icon="fas fa-play-circle" />
       )}
     </div>

@@ -5,15 +5,15 @@ import HotNews from "../HotNews";
 import "./style.scss";
 
 interface PropTypes {
-  arr: Array<string>;
-  news: boolean;
+  arr: Array<object>;
+  weekNews: boolean;
 }
 
 const ZingChartNews: FC<PropTypes> = (props) => {
-  const { arr, news } = props;
+  const { arr, weekNews } = props;
   return (
     <div className="zing-chart-news-wrapper">
-      <ZingChartTopic news={news} name={`TIN TỨC ÂM NHẠC`} />
+      <ZingChartTopic weekNews={weekNews} name={`TIN TỨC ÂM NHẠC`} />
       <div className="news-top">
         {arr.map((item: any, index: any) => {
           return item.id === 1 ? (

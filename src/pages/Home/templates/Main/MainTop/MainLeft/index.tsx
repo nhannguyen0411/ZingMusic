@@ -10,7 +10,7 @@ import strangeVideo from "../../../../../../mocks/StrangeVideo";
 
 import "./styles.scss";
 
-const MainLeft = (props) => {
+const MainLeft = () => {
   return (
     <div className="main-left-wrapper">
       <MainCarousel />
@@ -22,24 +22,21 @@ const MainLeft = (props) => {
       </div>
       <TrendingVideo
         title="LẠ MÀ VUI"
-        image="https://via.placeholder.com/150"
         arr={strangeVideo}
-        type={false}
-        temp={false}
+        noSinger={false}
+        videoHot={false}
       />
       <TrendingVideo
         title="VIDEO HOT"
-        image="https://via.placeholder.com/142x80"
         arr={albumHot}
-        type={true}
-        temp={true}
+        noSinger={true}
+        videoHot={true}
       />
       <TrendingVideo
         title="ALBUM HOT"
-        image="https://via.placeholder.com/150"
         arr={albumHot}
-        type={true}
-        temp={false}
+        noSinger={true}
+        videoHot={false}
       />
       <div className="section-song-trending">
         <div className="section-left">

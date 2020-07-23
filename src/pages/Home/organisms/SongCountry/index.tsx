@@ -4,7 +4,7 @@ import SongTrending from "../../molecules/SongTrending";
 import "./style.scss";
 
 interface PropTypes {
-  arr: Array<string>;
+  arr: Array<object>;
   title: string;
 }
 

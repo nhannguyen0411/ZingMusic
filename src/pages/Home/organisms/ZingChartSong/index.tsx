@@ -10,7 +10,7 @@ const ZingChartSong = () => {
   const arr = [...zingChartSong];
   return (
     <div className="zing-chart-song-wrapper">
-      <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" news={false} />
+      <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
       <CountryTopic />
       <div className="song-top">
         {arr.map((item: any, index: any) => {

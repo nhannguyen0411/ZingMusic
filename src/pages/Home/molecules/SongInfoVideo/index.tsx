@@ -11,14 +11,16 @@ interface PropTypes {
     singer: Array<string>;
     view: string;
   };
-  large: boolean;
+  weekAlbum: boolean;
 }
 
 const SongInfoVideo: FC<PropTypes> = (props) => {
-  const { item, large } = props;
+  const { item, weekAlbum } = props;
   return (
     <div
-      className={large ? "song-info-album-wrapper" : "song-info-video-wrapper"}
+      className={
+        weekAlbum ? "song-info-album-wrapper" : "song-info-video-wrapper"
+      }
     >
       <div className="song-info-wrapper">
         <Link to={`/product/${item.id}`}>

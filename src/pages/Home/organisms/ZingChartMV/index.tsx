@@ -6,13 +6,13 @@ import CountryTopic from "../../molecules/CountryTopic";
 import "./style.scss";
 
 interface PropTypes {
-  arr: Array<string>;
-  large: boolean;
-  news: boolean;
+  arr: Array<object>;
+  weekAlbum: boolean;
+  weekNews: boolean;
 }
 
 const ZingChartMV: FC<PropTypes> = (props) => {
-  const { arr, large, news } = props;
+  const { arr, weekAlbum, weekNews } = props;
   const showTopSong = (arr: any) => {
     return arr.map((item: any, index: any) => {
       return item.id === 1 ? (
@@ -20,7 +20,7 @@ const ZingChartMV: FC<PropTypes> = (props) => {
           key={index}
           className="first-song"
           style={
-            large
+            weekAlbum
               ? {
                   backgroundImage:
                     "url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg)",
@@ -31,10 +31,10 @@ const ZingChartMV: FC<PropTypes> = (props) => {
                 }
           }
         >
-          <SongRankVideo large={large} item={item} />
+          <SongRankVideo weekAlbum={weekAlbum} item={item} />
         </div>
       ) : (
-        <SongRankVideo large={large} key={index} item={item} />
+        <SongRankVideo weekAlbum={weekAlbum} key={index} item={item} />
       );
     });
   };
@@ -42,8 +42,8 @@ const ZingChartMV: FC<PropTypes> = (props) => {
   return (
     <div className="zing-chart-mv-wrapper">
       <ZingChartTopic
-        news={news}
-        name={large ? `#ZINGCHART TUẦN - ALBUM` : `#ZINGCHART TUẦN - MV`}
+        weekNews={weekNews}
+        name={weekAlbum ? `#ZINGCHART TUẦN - ALBUM` : `#ZINGCHART TUẦN - MV`}
       />
       <CountryTopic />
       <div className="song-top">{showTopSong(arr)}</div>

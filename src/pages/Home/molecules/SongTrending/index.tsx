@@ -22,7 +22,7 @@ const SongTrending: FC<PropTypes> = (props) => {
       }`}
     >
       <img src="https://via.placeholder.com/50" alt="image" />
-      <SongInfo item={item} />
+      <SongInfo noSinger={true} item={item} />
       <div className="overlay">
         <i className="fas fa-download"></i>
         <i className="fas fa-plus"></i>

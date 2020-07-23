@@ -12,16 +12,16 @@ interface PropTypes {
     singer: Array<string>;
     view: string;
   };
-  large: boolean;
+  weekAlbum: boolean;
 }
 
 const SongRankVideo: FC<PropTypes> = (props) => {
-  const { item, large } = props;
+  const { item, weekAlbum } = props;
   return (
     <div className="song-rank-video-wrapper">
       <div className="video-wrapper">
         <img
-          className={large ? "week-album" : "week-mv"}
+          className={weekAlbum ? "week-album" : "week-mv"}
           src={`${item.image}`}
           alt="image"
         />
@@ -30,7 +30,7 @@ const SongRankVideo: FC<PropTypes> = (props) => {
           name={item.id < 10 ? `0${item.id}` : `${item.id}`}
         />
       </div>
-      <SongInfoVideo large={large} item={item} />
+      <SongInfoVideo weekAlbum={weekAlbum} item={item} />
     </div>
   );
 };

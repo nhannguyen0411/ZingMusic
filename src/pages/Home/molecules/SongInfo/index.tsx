@@ -10,22 +10,25 @@ interface PropTypes {
     song: string;
     singer: Array<string>;
   };
+  noSinger: Boolean;
 }
 
 const SongInfo: FC<PropTypes> = (props) => {
-  const { item } = props;
+  const { item, noSinger } = props;
   return (
     <div className="song-info-wrapper">
       <Link to={`/product/${item.id}`}>
         <NavbarTitle parent="song" name={item.song} />
       </Link>
-      <div className="singer-wrapper">
-        {item.singer.map((info: any, index: any) => (
-          <Link key={index} to={`/singer/${info.id}`}>
-            <NavbarTitle parent="singer" name={`${info.singer} `} />
-          </Link>
-        ))}
-      </div>
+      {noSinger && (
+        <div className="singer-wrapper">
+          {item.singer.map((info: any, index: any) => (
+            <Link key={index} to={`/singer/${info.id}`}>
+              <NavbarTitle parent="singer" name={`${info.singer} `} />
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

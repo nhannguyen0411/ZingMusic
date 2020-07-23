@@ -16,9 +16,9 @@ const MainRight = () => {
       <MusicForYou />
       <HotTopic />
       <ZingChartSong />
-      <ZingChartMV arr={mv} large={false} news={false} />
-      <ZingChartMV arr={album} large={true} news={false} />
-      <ZingChartNews arr={news} news={true} />
+      <ZingChartMV arr={mv} weekAlbum={false} weekNews={false} />
+      <ZingChartMV arr={album} weekAlbum={true} weekNews={false} />
+      <ZingChartNews arr={news} weekNews={true} />
     </div>
   );
 };

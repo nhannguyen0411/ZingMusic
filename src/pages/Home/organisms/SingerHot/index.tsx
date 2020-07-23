@@ -4,7 +4,7 @@ import NavbarTitle from "../../atoms/NavbarTitle";
 import "./style.scss";
 
 interface PropTypes {
-  arr: Array<string>;
+  arr: Array<object>;
 }
 
 const SingerHot: FC<PropTypes> = (props) => {

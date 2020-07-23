@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-import NavbarTitle from "../../atoms/NavbarTitle";
-
+import SongInfo from "../SongInfo";
 import "./style.scss";
 
 interface PropTypes {
@@ -10,11 +9,11 @@ interface PropTypes {
     song: string;
     singer: Array<string>;
   };
-  type: Boolean;
+  noSinger: Boolean;
 }
 
 const VideoInspired: FC<PropTypes> = (props) => {
-  const { item, type } = props;
+  const { item, noSinger } = props;
   return (
     <div className="video-inspired-wrapper">
       <div className="photo">
@@ -23,20 +22,7 @@ const VideoInspired: FC<PropTypes> = (props) => {
           <i className="far fa-play-circle"></i>
         </div>
       </div>
-      <div className="song-info-wrapper">
-        <NavbarTitle parent="song" name={item.song} />
-        {type && (
-          <div className="singer-wrapper">
-            {item.singer.map((info: any, index: any) => (
-              <NavbarTitle
-                key={index}
-                parent="singer"
-                name={`${info.singer} `}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      <SongInfo noSinger={noSinger} item={item} />
     </div>
   );
 };
