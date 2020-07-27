@@ -6,11 +6,16 @@ import { useDispatch } from "react-redux";
 import "./style.scss";
 import { addView } from "../../../../actions/topChart";
 
+type infoSinger = {
+  id: Number;
+  singer: string;
+};
+
 interface PropTypes {
   item: {
     id: Number;
     song: string;
-    singer: Array<string>;
+    singer: Array<infoSinger>;
   };
   noSinger: Boolean;
 }
@@ -32,8 +37,8 @@ const SongInfo: FC<PropTypes> = (props) => {
     dispatch(action);
   };
 
-  const showSinger = (list: Array<Object>) => {
-    return list.map((info: any, index) => {
+  const showSinger = (list: Array<infoSinger>) => {
+    return list.map((info: infoSinger, index) => {
       return (
         <span key={index}>
           <Link to={`/singer/${info.id}`}>

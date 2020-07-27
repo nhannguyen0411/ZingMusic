@@ -3,8 +3,21 @@ import NavbarTitle from "../../atoms/NavbarTitle";
 import SongTrending from "../../molecules/SongTrending";
 import "./style.scss";
 
+type infoSinger = {
+  id: Number;
+  singer: string;
+};
+
+type info = {
+  id: number;
+  song: string;
+  singer: Array<infoSinger>;
+  image: string;
+  view: string;
+};
+
 interface PropTypes {
-  arr: Array<object>;
+  arr: Array<info>;
   title: string;
 }
 
@@ -16,7 +29,7 @@ const SongCountry: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className="content">
-        {arr.map((item: any, index) => {
+        {arr.map((item: info, index) => {
           return (
             <SongTrending
               length={arr.length}

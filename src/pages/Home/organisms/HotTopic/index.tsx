@@ -10,7 +10,7 @@ const HotTopic = () => {
     <div className="hot-topic-wrapper">
       <NavbarTitle varClass="hot-topic" name="CHỦ ĐỀ HOT" />
       <div className="list-topic">
-        {hotTopic.map((item: any, index) => {
+        {hotTopic.map((item, index) => {
           return (
             <img
               key={index}

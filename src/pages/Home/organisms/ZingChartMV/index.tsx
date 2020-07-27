@@ -5,16 +5,29 @@ import CountryTopic from "../../molecules/CountryTopic";
 
 import "./style.scss";
 
+type infoSinger = {
+  id: number;
+  singer: string;
+};
+
+type info = {
+  id: Number;
+  image: string;
+  song: string;
+  singer: Array<infoSinger>;
+  view: string;
+};
+
 interface PropTypes {
-  arr: Array<object>;
+  arr: Array<info>;
   weekAlbum: boolean;
   weekNews: boolean;
 }
 
 const ZingChartMV: FC<PropTypes> = (props) => {
   const { arr, weekAlbum, weekNews } = props;
-  const showTopSong = (arr: Array<Object>) => {
-    return arr.map((item: any, index) => {
+  const showTopSong = (arr: Array<info>) => {
+    return arr.map((item: info, index) => {
       return item.id === 1 ? (
         <div
           key={index}

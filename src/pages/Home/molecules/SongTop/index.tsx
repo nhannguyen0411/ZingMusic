@@ -2,13 +2,18 @@ import React, { FC } from "react";
 import SongInfo from "../SongInfo";
 
 import "./style.scss";
+type infoSinger = {
+  id: Number;
+  singer: string;
+};
 
 interface PropTypes {
   item: {
     id: Number;
     song: string;
-    singer: Array<string>;
+    singer: Array<infoSinger>;
     image: string;
+    view: number;
   };
 }
 

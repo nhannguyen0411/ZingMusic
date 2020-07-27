@@ -3,12 +3,17 @@ import SongInfo from "../SongInfo";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import "./style.scss";
 
+type infoSinger = {
+  id: Number;
+  singer: string;
+};
+
 interface PropTypes {
   item: {
     image: String;
     id: Number;
     song: string;
-    singer: Array<string>;
+    singer: Array<infoSinger>;
   };
   noSinger: Boolean;
 }

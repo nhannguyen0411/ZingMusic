@@ -3,8 +3,13 @@ import NavbarTitle from "../../atoms/NavbarTitle";
 
 import "./style.scss";
 
+type infoSinger = {
+  id: Number;
+  image: string;
+};
+
 interface PropTypes {
-  arr: Array<object>;
+  arr: Array<infoSinger>;
 }
 
 const SingerHot: FC<PropTypes> = (props) => {

@@ -5,11 +5,16 @@ import { Link } from "react-router-dom";
 
 import "./style.scss";
 
+type infoSinger = {
+  id: number;
+  singer: string;
+};
+
 interface PropTypes {
   item: {
     id: Number;
     song: string;
-    singer: Array<string>;
+    singer: Array<infoSinger>;
     view: string;
   };
   weekAlbum: boolean;
@@ -17,6 +22,7 @@ interface PropTypes {
 
 const SongInfoVideo: FC<PropTypes> = (props) => {
   const { item, weekAlbum } = props;
+
   return (
     <div
       className={classNames({
@@ -29,7 +35,7 @@ const SongInfoVideo: FC<PropTypes> = (props) => {
           <NavbarTitle varClass="song" name={item.song} />
         </Link>
         <div className="singer-wrapper">
-          {item.singer.map((name: any, index) => {
+          {item.singer.map((name: infoSinger, index) => {
             return (
               <Link to={`/singer/${name.id}`} key={index}>
                 <NavbarTitle varClass="singer" name={`${name.singer} `} />

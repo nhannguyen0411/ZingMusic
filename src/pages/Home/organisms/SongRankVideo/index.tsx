@@ -5,12 +5,17 @@ import SongInfoVideo from "../../molecules/SongInfoVideo";
 
 import "./style.scss";
 
+type infoSinger = {
+  id: number;
+  singer: string;
+};
+
 interface PropTypes {
   item: {
     id: Number;
     image: string;
     song: string;
-    singer: Array<string>;
+    singer: Array<infoSinger>;
     view: string;
   };
   weekAlbum: boolean;
