@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfo from "../../molecules/SongInfo";
+import { useDispatch } from "react-redux";
+import { addNewSong } from "../../../../actions/topChart";
+import { Button } from "antd";
 import {
   DownloadOutlined,
   PlusOutlined,
@@ -20,6 +23,21 @@ interface PropTypes {
 
 const SongRank: FC<PropTypes> = (props) => {
   const { item } = props;
+  const dispatch = useDispatch();
+
+  const _handleAddNewSong = (item: any) => {
+    const newSong = {
+      id: item.id,
+      song: item.song,
+      singer: item.singer,
+      image: item.image,
+      view: item.view,
+    };
+
+    const action = addNewSong(newSong);
+    dispatch(action);
+  };
+
   return (
     <div className="song-rank-wrapper">
       <div className="content">
@@ -31,9 +49,14 @@ const SongRank: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="song-view" name={item.view} />
       </div>
       <div className="overlay">
-        <DownloadOutlined />
-        <PlusOutlined />
-        <ShareAltOutlined />
+        <Button type="link" icon={<DownloadOutlined />} size="middle" />
+        <Button
+          onClick={() => _handleAddNewSong(item)}
+          type="link"
+          icon={<PlusOutlined />}
+          size="middle"
+        />
+        <Button type="link" icon={<ShareAltOutlined />} size="middle" />
       </div>
     </div>
   );

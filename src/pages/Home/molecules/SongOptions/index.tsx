@@ -1,15 +1,21 @@
 import React from "react";
-import NavbarIcon from "../../atoms/NavbarIcon";
+import { Button } from "antd";
+import {
+  DownloadOutlined,
+  PlusOutlined,
+  ShareAltOutlined,
+  YoutubeOutlined,
+} from "@ant-design/icons";
 
 import "./styles.scss";
 
 const SongOptions = () => {
   return (
     <div className="song-options-wrapper">
-      <NavbarIcon parent="song-option" icon="fab fa-youtube" />
-      <NavbarIcon parent="song-option" icon="fas fa-download" />
-      <NavbarIcon parent="song-option" icon="fas fa-plus" />
-      <NavbarIcon parent="song-option" icon="fas fa-share-alt" />
+      <Button type="link" icon={<YoutubeOutlined />} size="middle" />
+      <Button type="link" icon={<DownloadOutlined />} size="middle" />
+      <Button type="link" icon={<PlusOutlined />} size="middle" />
+      <Button type="link" icon={<ShareAltOutlined />} size="middle" />
     </div>
   );
 };

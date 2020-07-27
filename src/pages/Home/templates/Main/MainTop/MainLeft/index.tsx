@@ -15,7 +15,11 @@ const MainLeft = () => {
     <div className="main-left-wrapper">
       <MainCarousel />
       <div className="section-zing-chart">
-        <img src="https://via.placeholder.com/650x280" alt="image" />
+        <img
+          className="img-zing-chart"
+          src={require("../../../../../../images/zingchart.PNG")}
+          alt="image"
+        />
         <div className="song-list">
           <TopChart />
         </div>

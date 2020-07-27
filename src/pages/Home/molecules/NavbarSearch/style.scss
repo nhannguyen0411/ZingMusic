@@ -6,7 +6,11 @@
 
   .navbar-search-icon {
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: 5px;
+
+    .anticon-search {
+      color: #999;
+    }
   }
 }

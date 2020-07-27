@@ -1,3 +1,14 @@
 .navbar-close-ads-wrapper {
   align-self: center;
+  justify-self: end;
+
+  .anticon {
+    &.anticon-poweroff {
+      color: #444;
+    }
+
+    &.anticon-cloud-upload {
+      color: purple;
+    }
+  }
 }

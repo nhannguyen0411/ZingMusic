@@ -5,11 +5,23 @@
       grid-template-columns: 1fr 2fr;
       grid-column-gap: 5px;
 
+      .first-singer {
+        img {
+          width: 13.1rem;
+          height: 13.1rem;
+        }
+      }
+
       .top-singer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-column-gap: 10px;
-        grid-row-gap: 4px;
+        grid-row-gap: 10px;
+
+        img {
+          height: 6.25rem;
+          width: 6.25rem;
+        }
       }
     }
   }

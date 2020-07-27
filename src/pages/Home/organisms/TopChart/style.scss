@@ -1,9 +1,14 @@
 .main-left-wrapper {
     .top-chart-wrapper {
+        margin-top: 0.5rem;
         .song-in-top {
             display: grid;
             grid-template-columns: 1fr 1fr 10fr 5fr 1fr;
             margin-bottom: 10px;
+
+            .anticon-minus {
+                align-self: center;
+            }
 
             .song-view {
                 align-self: center;

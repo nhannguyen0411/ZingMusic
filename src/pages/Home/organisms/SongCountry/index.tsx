@@ -16,7 +16,7 @@ const SongCountry: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className="content">
-        {arr.map((item: any, index: any) => {
+        {arr.map((item: any, index) => {
           return (
             <SongTrending
               length={arr.length}

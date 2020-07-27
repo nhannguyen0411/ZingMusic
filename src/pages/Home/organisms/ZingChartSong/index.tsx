@@ -13,7 +13,7 @@ const ZingChartSong = () => {
       <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
       <CountryTopic />
       <div className="song-top">
-        {arr.map((item: any, index: any) => {
+        {arr.map((item: any, index) => {
           return item.id === 1 ? (
             <div key={index} className="first-song">
               <SongRank item={item} />

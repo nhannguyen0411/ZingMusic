@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import NotFound from "./NotFound";
+import "antd/dist/antd.css";
 
 import "./style.scss";
 

@@ -15,17 +15,14 @@ const SingerHot: FC<PropTypes> = (props) => {
       <NavbarTitle varClass="title" name="NGHỆ SĨ HOT" />
       <div className="singer-in-top">
         <div className="first-singer">
-          <img src="https://via.placeholder.com/210x210" alt="image" />
+          <img
+            src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/7/c/5/a/7c5a9d0ec012cb842476b83dbbc96e84.jpg#home_hotartist_01"
+            alt="image"
+          />
         </div>
         <div className="top-singer">
-          {arr.map((item: any, index: any) => {
-            return (
-              <img
-                key={index}
-                src="https://via.placeholder.com/100"
-                alt="image"
-              />
-            );
+          {arr.map((item: any, index) => {
+            return <img key={index} src={item.image} alt="image" />;
           })}
         </div>
       </div>

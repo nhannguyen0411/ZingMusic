@@ -13,7 +13,7 @@ const Partner: FC<PropTypes> = (props) => {
     <div className="partner-wrapper">
       <NavbarTitle varClass="partner" name="ĐỐI TÁC" />
       <div className="list-partner">
-        {arr.map((item: any, index: any) => {
+        {arr.map((item: any, index) => {
           return <img key={index} src={item.image} alt="image" />;
         })}
       </div>

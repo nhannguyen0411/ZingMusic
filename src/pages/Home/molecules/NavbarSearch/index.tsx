@@ -1,6 +1,9 @@
 import React from "react";
 import NavbarInput from "../../atoms/NavbarInput";
-import NavbarIcon from "../../atoms/NavbarIcon";
+import { SearchOutlined } from "@ant-design/icons";
+
+import { Button } from "antd";
+
 import "./style.scss";
 
 const NavbarSearch = () => {
@@ -8,7 +11,7 @@ const NavbarSearch = () => {
     <div className="navbar-search-wrapper">
       <NavbarInput />
       <div className="navbar-search-icon">
-        <NavbarIcon icon="fas fa-search" />
+        <Button type="link" icon={<SearchOutlined />} size="small" />
       </div>
     </div>
   );

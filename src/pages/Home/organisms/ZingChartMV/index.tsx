@@ -13,8 +13,8 @@ interface PropTypes {
 
 const ZingChartMV: FC<PropTypes> = (props) => {
   const { arr, weekAlbum, weekNews } = props;
-  const showTopSong = (arr: any) => {
-    return arr.map((item: any, index: any) => {
+  const showTopSong = (arr: Array<Object>) => {
+    return arr.map((item: any, index) => {
       return item.id === 1 ? (
         <div
           key={index}

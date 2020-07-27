@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 import NavbarTitle from "../../atoms/NavbarTitle";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import "./style.scss";
+import { addView } from "../../../../actions/topChart";
 
 interface PropTypes {
   item: {
@@ -15,31 +17,40 @@ interface PropTypes {
 
 const SongInfo: FC<PropTypes> = (props) => {
   const { item, noSinger } = props;
+  const dispatch = useDispatch();
 
-  const showSinger = (list: any) => {
-    return list.map((info: any, index: any) => {
-      if (list.length > 1 && index < list.length - 1) {
-        return (
-          <span key={index}>
-            <Link to={`/singer/${info.id}`}>
-              <NavbarTitle varClass="singer" name={`${info.singer}`} />
-            </Link>
-            <span>, </span>
-          </span>
-        );
-      } else {
-        return (
-          <Link key={index} to={`/singer/${info.id}`}>
+  const _handleIncreaseView = (item: any) => {
+    const newSong = {
+      id: item.id,
+      song: item.song,
+      singer: item.singer,
+      image: item.image,
+      view: item.view,
+    };
+
+    const action = addView(newSong);
+    dispatch(action);
+  };
+
+  const showSinger = (list: Array<Object>) => {
+    return list.map((info: any, index) => {
+      return (
+        <span key={index}>
+          <Link to={`/singer/${info.id}`}>
             <NavbarTitle varClass="singer" name={`${info.singer}`} />
           </Link>
-        );
-      }
+          {index < list.length - 1 && <span>, </span>}
+        </span>
+      );
     });
   };
 
   return (
     <div className="song-info-wrapper">
-      <Link to={`/product/${item.id}`}>
+      <Link
+        onClick={() => _handleIncreaseView(item)}
+        to={`/product/${item.id}`}
+      >
         <NavbarTitle varClass="song" name={item.song} />
       </Link>
       {noSinger && (

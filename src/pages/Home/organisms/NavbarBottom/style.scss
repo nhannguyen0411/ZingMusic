@@ -1,12 +1,17 @@
 .header-bottom-wrapper {
   .navbar-bottom-wrapper {
+    width: 63rem;
+    margin: auto;
     display: grid;
-    grid-template-columns: 1fr 3.3fr 1.5fr;
+    grid-template-columns: 0fr 3fr 1fr;
     height: 100%;
 
     .navbar-bottom-icon {
       align-self: center;
       justify-self: end;
+      .anticon-home {
+        color: #444;
+      }
     }
   }
 }

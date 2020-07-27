@@ -2,6 +2,10 @@
   &.navbar-top-more {
     justify-self: start;
     align-self: center;
+
+    .navbar-top-title-wrapper {
+      padding: 0px 12px;
+    }
   }
 
   &.navbar-bottom-more {

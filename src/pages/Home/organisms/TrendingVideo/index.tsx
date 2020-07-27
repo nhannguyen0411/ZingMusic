@@ -20,7 +20,7 @@ const TrendingVideo: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className={classNames("content", { "video-hot": videoHot })}>
-        {arr.map((item: any, index: any) => {
+        {arr.map((item: any, index) => {
           return <VideoInspired key={index} item={item} noSinger={noSinger} />;
         })}
       </div>
