@@ -1,13 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import classNames from "classnames";
 import SongInfo from "../SongInfo";
 import { useDispatch } from "react-redux";
 import { addNewSong } from "../../../../actions/topChart";
-import { Button } from "antd";
+import { Button, Modal, Popover } from "antd";
 import {
   DownloadOutlined,
   PlusOutlined,
   ShareAltOutlined,
+  InstagramFilled,
+  FacebookFilled,
 } from "@ant-design/icons";
 
 import "./style.scss";
@@ -30,6 +32,8 @@ interface PropTypes {
 }
 
 const SongTrending: FC<PropTypes> = (props) => {
+  const [visibleAdd, setVisibleAdd] = useState(false);
+  const [visibleDownload, setVisibleDownload] = useState(false);
   const { item, length, index } = props;
   const dispatch = useDispatch();
 
@@ -46,6 +50,42 @@ const SongTrending: FC<PropTypes> = (props) => {
     dispatch(action);
   };
 
+  const contentPopover = (
+    <div className="popover-wrapper">
+      <Button type="link" icon={<InstagramFilled />} size="middle">
+        Instagram
+      </Button>
+      <Button type="link" icon={<FacebookFilled />} size="middle">
+        Facebook
+      </Button>
+    </div>
+  );
+
+  const modalDownload = () => {
+    return (
+      <div className="modal-download-wrapper">
+        <div className="modal-top"></div>
+        <div className="modal-bottom">
+          <div className="content">
+            <p>Bạn đang muốn tải bài hát này</p>
+            <p>Vui lòng chọn chất lượng mong muốn:</p>
+          </div>
+          <div className="quality-wrapper">
+            <Button type="primary" size="large">
+              Tiêu chuẩn
+            </Button>
+            <Button type="primary" size="large">
+              Chất lượng cao
+            </Button>
+            <Button type="primary" size="large">
+              Chất lượng CD
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div
       className={classNames("song-trending-wrapper", {
@@ -55,14 +95,47 @@ const SongTrending: FC<PropTypes> = (props) => {
       <img src={item.image} alt="image" />
       <SongInfo noSinger={true} item={item} />
       <div className="overlay">
-        <Button type="link" icon={<DownloadOutlined />} size="middle" />
         <Button
-          onClick={() => _handleAddNewSong(item)}
+          onClick={() => setVisibleDownload(true)}
+          type="link"
+          icon={<DownloadOutlined />}
+          size="middle"
+        />
+        <Button
+          //onClick={() => _handleAddNewSong(item)}
+          onClick={() => setVisibleAdd(true)}
           type="link"
           icon={<PlusOutlined />}
           size="middle"
         />
-        <Button type="link" icon={<ShareAltOutlined />} size="middle" />
+        <Popover
+          placement="rightBottom"
+          content={contentPopover}
+          title={null}
+          trigger="click"
+        >
+          <Button type="link" icon={<ShareAltOutlined />} size="middle" />
+        </Popover>
+
+        <Modal
+          title="Đăng Nhập"
+          visible={visibleAdd}
+          onCancel={() => setVisibleAdd(false)}
+          footer={null}
+          width={216}
+          centered={true}
+        >
+          <Button type="primary">Đăng nhập bằng Zalo</Button>
+        </Modal>
+
+        <Modal
+          visible={visibleDownload}
+          onCancel={() => setVisibleDownload(false)}
+          footer={null}
+          centered={true}
+        >
+          {modalDownload()}
+        </Modal>
       </div>
     </div>
   );

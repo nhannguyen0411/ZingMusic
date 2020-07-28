@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
+import { Tooltip } from "antd";
 import "./style.scss";
 
 interface PropTypes {
@@ -10,7 +11,11 @@ interface PropTypes {
 const NavbarTitle: FC<PropTypes> = (props) => {
   const { name, varClass } = props;
   return (
-    <span className={classNames(`navbar-title-wrapper`, varClass)}>{name}</span>
+    <Tooltip placement={"rightBottom"} title={name}>
+      <span className={classNames(`navbar-title-wrapper`, varClass)}>
+        {name}
+      </span>
+    </Tooltip>
   );
 };
 

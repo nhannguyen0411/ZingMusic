@@ -1,22 +1,18 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { AppState } from "../../../../reducers";
 import { useSelector } from "react-redux";
-import { Button } from "antd";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { Pagination } from "antd";
+import { MinusOutlined } from "@ant-design/icons";
 import { PgUp, PgDown } from "../../../../constant";
 
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongTop from "../../molecules/SongTop";
 import SongOptions from "../../molecules/SongOptions";
 import useEventListener from "../../../../Hooks/use-event-listener";
-import useKeyPress from "../../../../Hooks/use-key-press";
 
 import "./style.scss";
 
 const TopChart = () => {
-  const shift = useKeyPress("Shift");
-  const pageDown = useKeyPress("PageDown");
-  const pageUp = useKeyPress("PageUp");
   const [page, setPage] = useState(1);
   const { list } = useSelector((state: AppState) => state.topChart);
 
@@ -52,12 +48,21 @@ const TopChart = () => {
   };
 
   const _handleMoveOnePage = (e: any) => {
-    if (e.keyCode === PgUp && page < list.length / 5) {
-      setPage(page + 1);
-    } else if (e.keyCode === PgDown && page > 1) {
-      setPage(page - 1);
-    } else {
-      return;
+    const keyCode = e.key;
+    const listLength = list.length;
+    switch (keyCode) {
+      case PgUp: {
+        page < listLength / 5 && setPage(page + 1);
+        e.shiftKey && setPage(listLength / 5);
+        break;
+      }
+      case PgDown: {
+        page > 1 && setPage(page - 1);
+        e.shiftKey && setPage(1);
+        break;
+      }
+      default:
+        break;
     }
   };
 
@@ -66,20 +71,15 @@ const TopChart = () => {
   return (
     <div className="top-chart-wrapper">
       <div className={`render-list`}>{_handleShowSong()}</div>
-      <div className={`button-wrapper`}>
-        <Button
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1 ? true : false}
-          type="primary"
-          icon={<MinusOutlined />}
-          size="middle"
-        />
-        <Button
-          onClick={() => setPage(page + 1)}
-          disabled={page === list.length / 5 ? true : false}
-          type="primary"
-          icon={<PlusOutlined />}
-          size="middle"
+      <div className={`pagination-wrapper`}>
+        <Pagination
+          onChange={(page) => {
+            setPage(page);
+          }}
+          defaultPageSize={5}
+          defaultCurrent={page}
+          current={page}
+          total={list.length}
         />
       </div>
     </div>

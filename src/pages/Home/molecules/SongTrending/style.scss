@@ -36,3 +36,30 @@
     border-bottom: none;
   }
 }
+
+.popover-wrapper {
+  display: inline-block;
+  button {
+    display: block;
+    color: #999;
+  }
+}
+
+.modal-download-wrapper {
+  .modal-bottom {
+    .content {
+      text-align: center;
+      p {
+        margin-top: unset;
+      }
+    }
+    .quality-wrapper {
+      display: flex;
+      justify-content: space-around;
+      button {
+        background-color: #721799;
+        border: unset;
+      }
+    }
+  }
+}
