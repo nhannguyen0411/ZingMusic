@@ -38,7 +38,8 @@ const SongInfoVideo: FC<PropTypes> = (props) => {
           {item.singer.map((name: infoSinger, index) => {
             return (
               <Link to={`/singer/${name.id}`} key={index}>
-                <NavbarTitle varClass="singer" name={`${name.singer} `} />
+                <NavbarTitle varClass="singer" name={`${name.singer}`} />
+                {index < item.singer.length - 1 && <span>, </span>}
               </Link>
             );
           })}

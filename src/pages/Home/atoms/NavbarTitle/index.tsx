@@ -11,7 +11,12 @@ interface PropTypes {
 const NavbarTitle: FC<PropTypes> = (props) => {
   const { name, varClass } = props;
   return (
-    <Tooltip placement={"rightBottom"} title={name}>
+    <Tooltip
+      overlayInnerStyle={{ color: "black" }}
+      color="white"
+      placement={"rightBottom"}
+      title={name}
+    >
       <span className={classNames(`navbar-title-wrapper`, varClass)}>
         {name}
       </span>

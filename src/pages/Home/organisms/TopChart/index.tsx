@@ -11,6 +11,7 @@ import SongOptions from "../../molecules/SongOptions";
 import useEventListener from "../../../../Hooks/use-event-listener";
 
 import "./style.scss";
+import FormItemInput from "antd/lib/form/FormItemInput";
 
 const TopChart = () => {
   const [page, setPage] = useState(1);
@@ -40,7 +41,7 @@ const TopChart = () => {
           <NavbarTitle varClass="song-number" name={`${item.id}`} />
           <MinusOutlined />
           <SongTop item={item} />
-          <SongOptions />
+          <SongOptions fourOptions={true} song={item.song} />
           <NavbarTitle varClass="song-view" name={`${item.view}`} />
         </div>
       );

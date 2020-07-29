@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import NavbarTitle from "../../atoms/NavbarTitle";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { addView } from "../../../../actions/topChart";
 
 import "./style.scss";
-import { addView } from "../../../../actions/topChart";
 
 type infoSinger = {
   id: Number;

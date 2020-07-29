@@ -11,17 +11,3 @@ export const addView = (song) => {
     payload: song,
   };
 };
-
-export const pgUp = (page) => {
-  return {
-    type: "PAGE_UP",
-    payload: page,
-  };
-};
-
-export const pgDown = (page) => {
-  return {
-    type: "PAGE_DOWN",
-    payload: page,
-  };
-};

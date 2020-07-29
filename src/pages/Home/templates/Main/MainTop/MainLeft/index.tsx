@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainCarousel from "../../../../organisms/MainCarousel";
 import TopChart from "../../../../organisms/TopChart";
 import TrendingVideo from "../../../../organisms/TrendingVideo";
@@ -7,10 +7,21 @@ import SingerHot from "../../../../organisms/SingerHot";
 import singerHot from "../../../../../../mocks/SingerHot";
 import albumHot from "../../../../../../mocks/AlbumHot";
 import strangeVideo from "../../../../../../mocks/StrangeVideo";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
 
 import "./styles.scss";
+import { AppState } from "../../../../../../reducers";
 
 const MainLeft = () => {
+  const { list } = useSelector((state: AppState) => state.happyVideo);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchHappyVideoListRequest());
+  }, []);
+
+  console.log("list:", list);
   return (
     <div className="main-left-wrapper">
       <MainCarousel />

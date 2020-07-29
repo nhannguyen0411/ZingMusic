@@ -238,33 +238,9 @@ const topChartReducer = (state = initialState, action) => {
 
       const sortList = [...newList];
       sortList.sort((a, b) => b.view - a.view);
-
-      console.log(sortList);
       return {
         ...state,
         list: sortList,
-      };
-    }
-
-    case "PAGE_UP": {
-      const newList = [...state.list];
-      const begin = (++state.page - 1) * 5;
-      const end = ++state.page * 5;
-      const filterList = newList.splice(begin, end);
-      return {
-        ...state,
-        list: filterList,
-      };
-    }
-
-    case "PAGE_DOWN": {
-      const newList = [...state.list];
-      const begin = (--state.page - 1) * 5;
-      const end = --state.page * 5;
-      const filterList = newList.splice(begin, end);
-      return {
-        ...state,
-        list: filterList,
       };
     }
 

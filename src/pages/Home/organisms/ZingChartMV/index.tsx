@@ -32,17 +32,13 @@ const ZingChartMV: FC<PropTypes> = (props) => {
         <div
           key={index}
           className="first-song"
-          style={
-            weekAlbum
-              ? {
-                  backgroundImage:
-                    "url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg)",
-                }
-              : {
-                  backgroundImage:
-                    "url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg)",
-                }
-          }
+          style={{
+            backgroundImage: `${
+              weekAlbum
+                ? "url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg)"
+                : "url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg)"
+            }`,
+          }}
         >
           <SongRankVideo weekAlbum={weekAlbum} item={item} />
         </div>
