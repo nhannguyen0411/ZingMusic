@@ -1,21 +1,26 @@
-import React, { useState } from "react";
-import { AppState } from "../../../../reducers";
-import { useSelector } from "react-redux";
-import { Pagination } from "antd";
 import { MinusOutlined } from "@ant-design/icons";
-import { PgUp, PgDown } from "../../../../constant";
+import { Pagination } from "antd";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { PgDown, PgUp } from "../../../../constant";
 
+import { fetchTopChartListRequest } from "../../../../actions/topChart";
+import { AppState } from "../../../../reducers";
 import NavbarTitle from "../../atoms/NavbarTitle";
-import SongTop from "../../molecules/SongTop";
 import SongOptions from "../../molecules/SongOptions";
+import SongTop from "../../molecules/SongTop";
 import useEventListener from "../../../../Hooks/use-event-listener";
-
 import "./style.scss";
-import FormItemInput from "antd/lib/form/FormItemInput";
+import Loading from "../../molecules/Antd/Loading";
 
 const TopChart = () => {
   const [page, setPage] = useState(1);
-  const { list } = useSelector((state: AppState) => state.topChart);
+  const dispatch = useDispatch();
+  const { list, loading } = useSelector((state: AppState) => state.topChart);
+
+  useEffect(() => {
+    dispatch(fetchTopChartListRequest());
+  }, []);
 
   type infoSinger = {
     id: Number;
@@ -27,7 +32,8 @@ const TopChart = () => {
     song: string;
     singer: Array<infoSinger>;
     image: string;
-    view: number;
+    //view: number;
+    song_id: string;
   };
 
   const _handleShowSong = () => {
@@ -38,11 +44,14 @@ const TopChart = () => {
     return newList.slice(begin, end).map((item: info, index) => {
       return (
         <div key={index} className="song-in-top">
-          <NavbarTitle varClass="song-number" name={`${item.id}`} />
+          <NavbarTitle varClass="song-number" name={`${index}`} />
           <MinusOutlined />
           <SongTop item={item} />
           <SongOptions fourOptions={true} song={item.song} />
-          <NavbarTitle varClass="song-view" name={`${item.view}`} />
+          <NavbarTitle
+            varClass="song-view"
+            name={`${item.song_id.slice(0, 5)}`}
+          />
         </div>
       );
     });
@@ -71,7 +80,9 @@ const TopChart = () => {
 
   return (
     <div className="top-chart-wrapper">
-      <div className={`render-list`}>{_handleShowSong()}</div>
+      <div className={`render-list`}>
+        {loading ? _handleShowSong() : <Loading />}
+      </div>
       <div className={`pagination-wrapper`}>
         <Pagination
           onChange={(page) => {

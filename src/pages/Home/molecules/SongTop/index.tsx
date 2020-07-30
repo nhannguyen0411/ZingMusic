@@ -13,7 +13,8 @@ interface PropTypes {
     song: string;
     singer: Array<infoSinger>;
     image: string;
-    view: number;
+    //view: number;
+    song_id: string;
   };
 }
 
@@ -22,7 +23,7 @@ const SongTop: FC<PropTypes> = (props) => {
   return (
     <div className="song-top-wrapper">
       <img src={`${item.image}`} alt="image" />
-      <SongInfo noSinger={true} item={item} />
+      <SongInfo noSinger={false} item={item} />
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import NavbarTitle from "../../atoms/NavbarTitle";
-import abc from "../../../../mocks/Partner";
-
 import "./styles.scss";
 
 type info = {
