@@ -1,27 +1,40 @@
 import React, { useEffect } from "react";
-import MainCarousel from "../../../../organisms/MainCarousel";
-import TopChart from "../../../../organisms/TopChart";
-import TrendingVideo from "../../../../organisms/TrendingVideo";
-import SongCountry from "../../../../organisms/SongCountry";
-import SingerHot from "../../../../organisms/SingerHot";
-import singerHot from "../../../../../../mocks/SingerHot";
-import albumHot from "../../../../../../mocks/AlbumHot";
-import strangeVideo from "../../../../../../mocks/StrangeVideo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
-
-import "./styles.scss";
+import { fetchHotVideoListRequest } from "../../../../../../actions/hotVideo";
+import { fetchSongTrendingListRequest } from "../../../../../../actions/songTrending";
 import { AppState } from "../../../../../../reducers";
 
+import singerHot from "../../../../../../mocks/SingerHot";
+import MainCarousel from "../../../../organisms/MainCarousel";
+import SingerHot from "../../../../organisms/SingerHot";
+import SongCountry from "../../../../organisms/SongCountry";
+import TopChart from "../../../../organisms/TopChart";
+import TrendingVideo from "../../../../organisms/TrendingVideo";
+import Loading from "../../../../molecules/Antd/Loading";
+
+import "./styles.scss";
+
 const MainLeft = () => {
-  const { list } = useSelector((state: AppState) => state.happyVideo);
+  const { hotVideo, happyVideo, songTrending } = useSelector(
+    (state: AppState) => state
+  );
+  const { hotVideoList, loadingHotVideo } = hotVideo;
+  const { happyVideoList, loadingHappyVideo } = happyVideo;
+  const { songTrendingList, loadingSongTrending } = songTrending;
+
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const _handleCallAPI = () => {
     dispatch(fetchHappyVideoListRequest());
-  }, []);
+    dispatch(fetchHotVideoListRequest());
+    dispatch(fetchSongTrendingListRequest());
+  };
 
-  console.log("list:", list);
+  useEffect(() => {
+    _handleCallAPI();
+  });
+
   return (
     <div className="main-left-wrapper">
       <MainCarousel />
@@ -35,30 +48,56 @@ const MainLeft = () => {
           <TopChart />
         </div>
       </div>
-      <TrendingVideo
-        title="LẠ MÀ VUI"
-        arr={strangeVideo}
-        noSinger={false}
-        videoHot={false}
-      />
-      <TrendingVideo
-        title="VIDEO HOT"
-        arr={albumHot}
-        noSinger={true}
-        videoHot={true}
-      />
-      <TrendingVideo
-        title="ALBUM HOT"
-        arr={albumHot}
-        noSinger={true}
-        videoHot={false}
-      />
+      {loadingHappyVideo ? (
+        <TrendingVideo
+          title="LẠ MÀ VUI"
+          arr={happyVideoList.slice(0, 8)}
+          noSinger={false}
+          videoHot={false}
+        />
+      ) : (
+        <Loading />
+      )}
+      {loadingHotVideo ? (
+        <TrendingVideo
+          title="VIDEO HOT"
+          arr={hotVideoList.slice(0, 12)}
+          noSinger={false}
+          videoHot={true}
+        />
+      ) : (
+        <Loading />
+      )}
+      {loadingHotVideo ? (
+        <TrendingVideo
+          title="ALBUM HOT"
+          arr={hotVideoList.slice(0, 12)}
+          noSinger={false}
+          videoHot={false}
+        />
+      ) : (
+        <Loading />
+      )}
       <div className="section-song-trending">
         <div className="section-left">
-          <SongCountry title="NHẠC VIỆT HOT" arr={albumHot} />
+          {loadingSongTrending ? (
+            <SongCountry
+              title="NHẠC VIỆT HOT"
+              arr={songTrendingList.slice(0, 10)}
+            />
+          ) : (
+            <Loading />
+          )}
         </div>
         <div className="section-right">
-          <SongCountry title="NHẠC VIỆT MỚI" arr={albumHot} />
+          {loadingSongTrending ? (
+            <SongCountry
+              title="NHẠC VIỆT MỚI"
+              arr={songTrendingList.slice(0, 10)}
+            />
+          ) : (
+            <Loading />
+          )}
         </div>
       </div>
       <div className="section-singer-hot">

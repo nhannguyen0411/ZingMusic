@@ -11,7 +11,7 @@ type infoSinger = {
 
 interface PropTypes {
   item: {
-    image: String;
+    image_url: String;
     id: Number;
     song: string;
     singer: Array<infoSinger>;
@@ -25,7 +25,7 @@ const VideoInspired: FC<PropTypes> = (props) => {
     <div className="video-inspired-wrapper">
       <Tooltip title={item.song}>
         <div className="photo">
-          <img src={`${item.image}`} alt="image" />
+          <img src={`${item.image_url}`} alt="image" />
           <div className="overlay">
             <PlayCircleOutlined />
           </div>

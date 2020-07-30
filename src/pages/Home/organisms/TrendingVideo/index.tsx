@@ -14,7 +14,7 @@ type info = {
   id: number;
   song: string;
   singer: Array<infoSinger>;
-  image: string;
+  image_url: string;
 };
 
 interface PropTypes {

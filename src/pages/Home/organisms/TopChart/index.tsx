@@ -31,20 +31,18 @@ const TopChart = () => {
     id: number;
     song: string;
     singer: Array<infoSinger>;
-    image: string;
-    //view: number;
+    image_url: string;
     song_id: string;
   };
 
   const _handleShowSong = () => {
-    const newList = [...list];
     let perPage = 5;
     let begin = (page - 1) * perPage;
     let end = page * perPage;
-    return newList.slice(begin, end).map((item: info, index) => {
+    return list.slice(begin, end).map((item: info, index: number) => {
       return (
         <div key={index} className="song-in-top">
-          <NavbarTitle varClass="song-number" name={`${index}`} />
+          <NavbarTitle varClass="song-number" name={`${index + 1 + begin}`} />
           <MinusOutlined />
           <SongTop item={item} />
           <SongOptions fourOptions={true} song={item.song} />

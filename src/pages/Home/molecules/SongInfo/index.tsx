@@ -1,9 +1,6 @@
 import React, { FC } from "react";
-import NavbarTitle from "../../atoms/NavbarTitle";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addView } from "../../../../actions/topChart";
-
+import NavbarTitle from "../../atoms/NavbarTitle";
 import "./style.scss";
 
 type infoSinger = {
@@ -22,20 +19,6 @@ interface PropTypes {
 
 const SongInfo: FC<PropTypes> = (props) => {
   const { item, noSinger } = props;
-  const dispatch = useDispatch();
-
-  const _handleIncreaseView = (item: any) => {
-    const newSong = {
-      id: item.id,
-      song: item.song,
-      singer: item.singer,
-      image: item.image,
-      view: item.view,
-    };
-
-    const action = addView(newSong);
-    dispatch(action);
-  };
 
   const showSinger = (list: Array<infoSinger>) => {
     return list.map((info: infoSinger, index) => {
@@ -52,10 +35,7 @@ const SongInfo: FC<PropTypes> = (props) => {
 
   return (
     <div className="song-info-wrapper">
-      <Link
-        onClick={() => _handleIncreaseView(item)}
-        to={`/product/${item.id}`}
-      >
+      <Link to={`/product/${item.id}`}>
         <NavbarTitle varClass="song" name={item.song} />
       </Link>
       {noSinger && (

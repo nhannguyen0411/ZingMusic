@@ -1,11 +1,11 @@
 import { fetchAPI } from "../utils/request";
 
-export const fetchHappyVideoListRequest = () => {
+export const fetchHotVideoListRequest = () => {
   return (dispatch) => {
     return fetchAPI()
       .then((res) => res.json())
       .then((json) => {
-        dispatch(fetchHappyVideoList(json.nowplaying));
+        dispatch(fetchHotVideoList(json.nowplaying));
       })
       .catch((err) => {
         console.log(err);
@@ -13,9 +13,9 @@ export const fetchHappyVideoListRequest = () => {
   };
 };
 
-export const fetchHappyVideoList = (nowplaying) => {
+export const fetchHotVideoList = (nowplaying) => {
   return {
-    type: "FETCH_HAPPYVIDEOLIST",
+    type: "FETCH_HOTVIDEOLIST",
     nowplaying,
   };
 };

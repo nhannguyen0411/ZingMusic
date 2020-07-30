@@ -15,8 +15,7 @@ interface PropTypes {
     id: Number;
     song: string;
     singer: Array<infoSinger>;
-    image: string;
-    view: string;
+    image_url: string;
   };
   length: number;
   index: number;
@@ -36,9 +35,9 @@ const SongTrending: FC<PropTypes> = (props) => {
         color="white"
         title={item.song}
       >
-        <img src={item.image} alt="image" />
+        <img src={item.image_url} alt="image" />
       </Tooltip>
-      <SongInfo noSinger={true} item={item} />
+      <SongInfo noSinger={false} item={item} />
       <div className="overlay">
         <SongOptions fourOptions={false} song={item.song} />
       </div>

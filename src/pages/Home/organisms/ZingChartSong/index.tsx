@@ -1,27 +1,45 @@
-import React from "react";
-import ZingChartTopic from "../ZingChartTopic";
-import SongRank from "../SongRank";
+import { Skeleton } from "antd";
+import classNames from "classnames";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchZingChartSongListRequest } from "../../../../actions/zingChartSong";
+import { AppState } from "../../../../reducers";
 import CountryTopic from "../../molecules/CountryTopic";
-import zingChartSong from "../../../../mocks/ZingChartSong";
-
+import SongRank from "../SongRank";
+import ZingChartTopic from "../ZingChartTopic";
 import "./style.scss";
 
 const ZingChartSong = () => {
-  const arr = [...zingChartSong];
+  const dispatch = useDispatch();
+  const { loadingZingChartSong, zingChartSongList } = useSelector(
+    (state: AppState) => state.zingChartSong
+  );
+
+  useEffect(() => {
+    dispatch(fetchZingChartSongListRequest());
+  });
+
   return (
     <div className="zing-chart-song-wrapper">
       <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
       <CountryTopic />
       <div className="song-top">
-        {arr.map((item, index) => {
-          return item.id === 1 ? (
-            <div key={index} className="first-song">
-              <SongRank item={item} />
-            </div>
-          ) : (
-            <SongRank key={index} item={item} />
-          );
-        })}
+        {loadingZingChartSong ? (
+          zingChartSongList.slice(0, 10).map((item: any, index: number) => {
+            return (
+              <div
+                key={index}
+                className={classNames({
+                  "first-song": item.id === 1,
+                })}
+              >
+                <SongRank item={item} />
+              </div>
+            );
+          })
+        ) : (
+          <Skeleton active />
+        )}
       </div>
     </div>
   );
