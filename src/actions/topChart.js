@@ -2,20 +2,34 @@ import { fetchAPI } from "../utils/request";
 
 export const fetchTopChartListRequest = () => {
   return (dispatch) => {
+    dispatch(fetchTopChartListOnPost());
     return fetchAPI()
       .then((res) => res.json())
       .then((json) => {
-        dispatch(fetchTopChartList(json.nowplaying));
+        dispatch(fetchTopChartListOnSuccess(json.nowplaying));
       })
       .catch((err) => {
-        console.log(err);
+        fetchTopChartListOnFailure(err);
       });
   };
 };
 
-export const fetchTopChartList = (nowplaying) => {
+export const fetchTopChartListOnSuccess = (nowplaying) => {
   return {
-    type: "FETCH_TOPCHARTLIST",
+    type: "FETCH_TOPCHARTLIST_ONSUCCESS",
     nowplaying,
+  };
+};
+
+export const fetchTopChartListOnFailure = (err) => {
+  return {
+    type: "FETCH_TOPCHARTLIST_ONFAILURE",
+    err,
+  };
+};
+
+export const fetchTopChartListOnPost = () => {
+  return {
+    type: "FETCH_TOPCHARTLIST_ONPOST",
   };
 };

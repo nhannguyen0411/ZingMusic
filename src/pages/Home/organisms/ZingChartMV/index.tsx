@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import ZingChartTopic from "../ZingChartTopic";
 import SongRankVideo from "../SongRankVideo";
 import CountryTopic from "../../molecules/CountryTopic";
+import classNames from "classnames";
 
 import "./style.scss";
 
@@ -12,10 +13,10 @@ type infoSinger = {
 
 type info = {
   id: Number;
-  image: string;
+  image_url: string;
   song: string;
   singer: Array<infoSinger>;
-  view: string;
+  song_id: string;
 };
 
 interface PropTypes {
@@ -28,22 +29,21 @@ const ZingChartMV: FC<PropTypes> = (props) => {
   const { arr, weekAlbum, weekNews } = props;
   const showTopSong = (arr: Array<info>) => {
     return arr.map((item: info, index) => {
-      return item.id === 1 ? (
+      return (
         <div
           key={index}
-          className="first-song"
-          style={{
-            backgroundImage: `${
-              weekAlbum
-                ? "url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg)"
-                : "url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg)"
-            }`,
-          }}
+          className={classNames({
+            "first-song": index === 0,
+            "thumbnail-mv": !weekAlbum,
+            "thumbnail-album": weekAlbum,
+          })}
         >
-          <SongRankVideo weekAlbum={weekAlbum} item={item} />
+          <SongRankVideo
+            weekAlbum={weekAlbum}
+            item={item}
+            index={`${index + 1}`}
+          />
         </div>
-      ) : (
-        <SongRankVideo weekAlbum={weekAlbum} key={index} item={item} />
       );
     });
   };

@@ -1,5 +1,5 @@
 const initialState = {
-  loading: false,
+  isLoading: false,
   list: [],
   imageList: [
     {
@@ -83,18 +83,34 @@ const initialState = {
         "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
     },
   ],
+  err: "",
 };
 
 const topChartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_TOPCHARTLIST": {
+    case "FETCH_TOPCHARTLIST_ONPOST": {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+
+    case "FETCH_TOPCHARTLIST_ONSUCCESS": {
       return {
         ...state,
         list: action.nowplaying.albums.map((item, index) => ({
           ...item,
           image_url: state.imageList[index].image,
         })),
-        loading: true,
+        isLoading: false,
+      };
+    }
+
+    case "FETCH_TOPCHARTLIST_ONFAILURE": {
+      return {
+        ...state,
+        err: action.err,
+        isLoading: false,
       };
     }
 

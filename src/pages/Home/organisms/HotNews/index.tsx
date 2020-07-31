@@ -5,7 +5,7 @@ import "./style.scss";
 
 interface PropTypes {
   item: {
-    image: string;
+    image_url: string;
     id: Number;
     title: string;
   };
@@ -15,7 +15,7 @@ const HotNews: FC<PropTypes> = (props) => {
   const { item } = props;
   return (
     <div className="hot-news-wrapper">
-      <img src={item.image} alt="image" />
+      <img src={item.image_url} alt="image" />
       <NavbarTitle varClass="hot-news" name={item.title} />
     </div>
   );

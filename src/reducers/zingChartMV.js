@@ -1,5 +1,5 @@
 const initialState = {
-  loadingZingChartMV: false,
+  isLoadingZingChartMV: false,
   zingChartMVList: [],
   imageList: [
     {
@@ -83,18 +83,34 @@ const initialState = {
         "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
     },
   ],
+  err: "",
 };
 
 const zingChartMVReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_ZINGCHARTMVLIST": {
+    case "FETCH_ZINGCHARTMVLIST_ONPOST": {
+      return {
+        ...state,
+        isLoadingZingChartMV: true,
+      };
+    }
+
+    case "FETCH_ZINGCHARTMVLIST_ONSUCCESS": {
       return {
         ...state,
         zingChartMVList: action.nowplaying.albums.map((item, index) => ({
           ...item,
           image_url: state.imageList[index].image,
         })),
-        loadingZingChartMV: true,
+        isLoadingZingChartMV: false,
+      };
+    }
+
+    case "FETCH_ZINGCHARTMVLIST_ONFAILURE": {
+      return {
+        ...state,
+        err: action.err,
+        isLoadingZingChartMV: false,
       };
     }
 

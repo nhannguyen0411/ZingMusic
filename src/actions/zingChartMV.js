@@ -2,20 +2,34 @@ import { fetchAPI } from "../utils/request";
 
 export const fetchZingChartMVListRequest = () => {
   return (dispatch) => {
+    dispatch(fetchZingChartMVListPost());
     return fetchAPI()
       .then((res) => res.json())
       .then((json) => {
-        dispatch(fetchZingChartMVList(json.nowplaying));
+        dispatch(fetchZingChartMVListOnSuccess(json.nowplaying));
       })
       .catch((err) => {
-        console.log(err);
+        dispatch(fetchZingChartMVListOnFailure(err));
       });
   };
 };
 
-export const fetchZingChartMVList = (nowplaying) => {
+export const fetchZingChartMVListOnSuccess = (nowplaying) => {
   return {
-    type: "FETCH_ZINGCHARTMVLIST",
+    type: "FETCH_ZINGCHARTMVLIST_ONSUCCESS",
     nowplaying,
+  };
+};
+
+export const fetchZingChartMVListOnFailure = (err) => {
+  return {
+    type: "FETCH_ZINGCHARTMVLIST_ONFAILURE",
+    err,
+  };
+};
+
+export const fetchZingChartMVListPost = () => {
+  return {
+    type: "FETCH_ZINGCHARTMVLIST_ONPOST",
   };
 };

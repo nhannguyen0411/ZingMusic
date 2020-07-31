@@ -37,7 +37,7 @@ const SongTrending: FC<PropTypes> = (props) => {
       >
         <img src={item.image_url} alt="image" />
       </Tooltip>
-      <SongInfo noSinger={false} item={item} />
+      <SongInfo noSinger={true} item={item} />
       <div className="overlay">
         <SongOptions fourOptions={false} song={item.song} />
       </div>

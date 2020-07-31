@@ -1,12 +1,13 @@
 import React, { FC } from "react";
 import ZingChartTopic from "../ZingChartTopic";
 import HotNews from "../HotNews";
+import classNames from "classnames";
 
 import "./style.scss";
 
 type info = {
   id: Number;
-  image: string;
+  image_url: string;
   title: string;
 };
 
@@ -22,12 +23,13 @@ const ZingChartNews: FC<PropTypes> = (props) => {
       <ZingChartTopic weekNews={weekNews} name={`TIN TỨC ÂM NHẠC`} />
       <div className="news-top">
         {arr.map((item: info, index) => {
-          return item.id === 1 ? (
-            <div key={index} className="first-news">
+          return (
+            <div
+              key={index}
+              className={classNames({ "first-news": index === 0 })}
+            >
               <HotNews item={item} />
             </div>
-          ) : (
-            <HotNews key={index} item={item} />
           );
         })}
       </div>

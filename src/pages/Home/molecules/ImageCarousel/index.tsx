@@ -28,7 +28,7 @@ const ImageCarousel = () => {
   return (
     <div className="image-carousel-wrapper">
       <div className="carousel">
-        <Carousel>
+        <Carousel autoplay>
           {arr.map((item, index) => {
             return (
               <div key={index}>

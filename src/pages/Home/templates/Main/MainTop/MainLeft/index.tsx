@@ -1,39 +1,41 @@
+import { Skeleton } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
 import { fetchHotVideoListRequest } from "../../../../../../actions/hotVideo";
 import { fetchSongTrendingListRequest } from "../../../../../../actions/songTrending";
-import { AppState } from "../../../../../../reducers";
-
 import singerHot from "../../../../../../mocks/SingerHot";
+import { AppState } from "../../../../../../reducers";
 import MainCarousel from "../../../../organisms/MainCarousel";
 import SingerHot from "../../../../organisms/SingerHot";
 import SongCountry from "../../../../organisms/SongCountry";
 import TopChart from "../../../../organisms/TopChart";
 import TrendingVideo from "../../../../organisms/TrendingVideo";
-import Loading from "../../../../molecules/Antd/Loading";
-
 import "./styles.scss";
 
 const MainLeft = () => {
   const { hotVideo, happyVideo, songTrending } = useSelector(
     (state: AppState) => state
   );
-  const { hotVideoList, loadingHotVideo } = hotVideo;
-  const { happyVideoList, loadingHappyVideo } = happyVideo;
-  const { songTrendingList, loadingSongTrending } = songTrending;
+  const { hotVideoList, isLoadingHotVideo } = hotVideo;
+  const { songTrendingList, isLoadingSongTrending } = songTrending;
+  const { happyVideoList, isLoadingHappyVideo } = happyVideo;
 
   const dispatch = useDispatch();
 
   const _handleCallAPI = () => {
     dispatch(fetchHappyVideoListRequest());
-    dispatch(fetchHotVideoListRequest());
-    dispatch(fetchSongTrendingListRequest());
+    setTimeout(() => {
+      dispatch(fetchHotVideoListRequest());
+    }, 1000);
+    setTimeout(() => {
+      dispatch(fetchSongTrendingListRequest());
+    }, 2000);
   };
 
   useEffect(() => {
     _handleCallAPI();
-  });
+  }, []);
 
   return (
     <div className="main-left-wrapper">
@@ -48,55 +50,55 @@ const MainLeft = () => {
           <TopChart />
         </div>
       </div>
-      {loadingHappyVideo ? (
+      {isLoadingHappyVideo ? (
+        <Skeleton active />
+      ) : (
         <TrendingVideo
           title="LẠ MÀ VUI"
           arr={happyVideoList.slice(0, 8)}
           noSinger={false}
           videoHot={false}
         />
-      ) : (
-        <Loading />
       )}
-      {loadingHotVideo ? (
+      {isLoadingHotVideo ? (
+        <Skeleton active />
+      ) : (
         <TrendingVideo
           title="VIDEO HOT"
           arr={hotVideoList.slice(0, 12)}
-          noSinger={false}
+          noSinger={true}
           videoHot={true}
         />
-      ) : (
-        <Loading />
       )}
-      {loadingHotVideo ? (
+      {isLoadingHotVideo ? (
+        <Skeleton active />
+      ) : (
         <TrendingVideo
           title="ALBUM HOT"
           arr={hotVideoList.slice(0, 12)}
-          noSinger={false}
+          noSinger={true}
           videoHot={false}
         />
-      ) : (
-        <Loading />
       )}
       <div className="section-song-trending">
         <div className="section-left">
-          {loadingSongTrending ? (
+          {isLoadingSongTrending ? (
+            <Skeleton active />
+          ) : (
             <SongCountry
               title="NHẠC VIỆT HOT"
               arr={songTrendingList.slice(0, 10)}
             />
-          ) : (
-            <Loading />
           )}
         </div>
         <div className="section-right">
-          {loadingSongTrending ? (
+          {isLoadingSongTrending ? (
+            <Skeleton active />
+          ) : (
             <SongCountry
               title="NHẠC VIỆT MỚI"
               arr={songTrendingList.slice(0, 10)}
             />
-          ) : (
-            <Loading />
           )}
         </div>
       </div>

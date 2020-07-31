@@ -1,5 +1,5 @@
 import { MinusOutlined } from "@ant-design/icons";
-import { Pagination } from "antd";
+import { Pagination, Skeleton } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { PgDown, PgUp } from "../../../../constant";
@@ -16,7 +16,7 @@ import Loading from "../../molecules/Antd/Loading";
 const TopChart = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const { list, loading } = useSelector((state: AppState) => state.topChart);
+  const { list, isLoading } = useSelector((state: AppState) => state.topChart);
 
   useEffect(() => {
     dispatch(fetchTopChartListRequest());
@@ -56,9 +56,9 @@ const TopChart = () => {
   };
 
   const _handleMoveOnePage = (e: any) => {
-    const keyCode = e.key;
+    const { key } = e;
     const listLength = list.length;
-    switch (keyCode) {
+    switch (key) {
       case PgUp: {
         page < listLength / 5 && setPage(page + 1);
         e.shiftKey && setPage(listLength / 5);
@@ -69,8 +69,6 @@ const TopChart = () => {
         e.shiftKey && setPage(1);
         break;
       }
-      default:
-        break;
     }
   };
 
@@ -79,18 +77,20 @@ const TopChart = () => {
   return (
     <div className="top-chart-wrapper">
       <div className={`render-list`}>
-        {loading ? _handleShowSong() : <Loading />}
+        {isLoading ? <Skeleton active /> : _handleShowSong()}
       </div>
       <div className={`pagination-wrapper`}>
-        <Pagination
-          onChange={(page) => {
-            setPage(page);
-          }}
-          defaultPageSize={5}
-          defaultCurrent={page}
-          current={page}
-          total={list.length}
-        />
+        {!isLoading && (
+          <Pagination
+            onChange={(page) => {
+              setPage(page);
+            }}
+            defaultPageSize={5}
+            defaultCurrent={page}
+            current={page}
+            total={list.length}
+          />
+        )}
       </div>
     </div>
   );

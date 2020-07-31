@@ -1,26 +1,26 @@
 const initialState = {
-  isLoadingSongTrending: false,
-  songTrendingList: [],
+  isLoadingZingChartAlbum: false,
+  zingChartAlbumList: [],
   imageList: [
     {
       image:
-        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/d/f/b/7/dfb7117de8f14de267ae81fbdefd62f3.jpg",
+        "https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg",
     },
     {
       image:
-        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/8/a/4/d/8a4dfaca7e32714b09b93c978128d367.jpg",
+        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/2/2/0/a/220a512f4a9bab424e0ab1335737757f.jpg",
     },
     {
       image:
-        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/d/2/8/9/d289d4b3da78ab215afcff5680091a8f.jpg",
+        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/f/1/7/a/f17a4a23d78d15ea791ab46e930f1da3.jpg",
     },
     {
       image:
-        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/3/a/8/9/3a89bf3f3d87c00bbbfe878311a79352.jpg",
+        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/9/e/f/f/9effe4eefccb1c06942adf8d1d26a273.jpg",
     },
     {
       image:
-        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/c/e/4/a/ce4ad9f00a799de5b4aa76b911f347c3.jpg",
+        "https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/1/f/a/9/1fa990c5991dc8ad3d9a8a76c3a0899d.jpg",
     },
     {
       image:
@@ -83,33 +83,34 @@ const initialState = {
         "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
     },
   ],
+  err: "",
 };
 
-const songTrendingReducer = (state = initialState, action) => {
+const zingChartAlbumReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_SONGTRENDINGLIST_ONPOST": {
+    case "FETCH_ZINGCHARTALBUMLIST_ONPOST": {
       return {
         ...state,
-        isLoadingSongTrending: true,
+        isLoadingZingChartAlbum: true,
       };
     }
 
-    case "FETCH_SONGTRENDINGLIST_ONSUCCESS": {
+    case "FETCH_ZINGCHARTALBUMLIST_ONSUCCESS": {
       return {
         ...state,
-        songTrendingList: action.nowplaying.albums.map((item, index) => ({
+        zingChartAlbumList: action.nowplaying.albums.map((item, index) => ({
           ...item,
           image_url: state.imageList[index].image,
         })),
-        isLoadingSongTrending: false,
+        isLoadingZingChartAlbum: false,
       };
     }
 
-    case "FETCH_SONGTRENDINGLIST_ONFAILURE": {
+    case "FETCH_ZINGCHARTALBUMLIST_ONFAILURE": {
       return {
         ...state,
         err: action.err,
-        isLoadingSongTrending: false,
+        isLoadingZingChartAlbum: false,
       };
     }
 
@@ -118,4 +119,4 @@ const songTrendingReducer = (state = initialState, action) => {
   }
 };
 
-export default songTrendingReducer;
+export default zingChartAlbumReducer;

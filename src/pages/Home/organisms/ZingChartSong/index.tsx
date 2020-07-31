@@ -11,34 +11,34 @@ import "./style.scss";
 
 const ZingChartSong = () => {
   const dispatch = useDispatch();
-  const { loadingZingChartSong, zingChartSongList } = useSelector(
+  const { isLoadingZingChartSong, zingChartSongList } = useSelector(
     (state: AppState) => state.zingChartSong
   );
 
   useEffect(() => {
     dispatch(fetchZingChartSongListRequest());
-  });
+  }, []);
 
   return (
     <div className="zing-chart-song-wrapper">
       <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
       <CountryTopic />
       <div className="song-top">
-        {loadingZingChartSong ? (
+        {isLoadingZingChartSong ? (
+          <Skeleton active />
+        ) : (
           zingChartSongList.slice(0, 10).map((item: any, index: number) => {
             return (
               <div
                 key={index}
                 className={classNames({
-                  "first-song": item.id === 1,
+                  "first-song": index === 0,
                 })}
               >
-                <SongRank item={item} />
+                <SongRank index={`${index + 1}`} item={item} />
               </div>
             );
           })
-        ) : (
-          <Skeleton active />
         )}
       </div>
     </div>

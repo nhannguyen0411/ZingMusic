@@ -1,19 +1,31 @@
 const initialState = {
-  loadingZingChartSong: false,
+  isLoadingZingChartSong: false,
   zingChartSongList: [],
+  err: "",
 };
 
 const zingChartSongReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_ZINGCHARTSONGLIST": {
+    case "FETCH_ZINGCHARTSONGLIST_ONPOST": {
+      return {
+        ...state,
+        isLoadingZingChartSong: true,
+      };
+    }
+
+    case "FETCH_ZINGCHARTSONGLIST_ONSUCCESS": {
       return {
         ...state,
         zingChartSongList: action.nowplaying.albums,
-        // songTrendingList: action.nowplaying.albums.map((item, index) => ({
-        //     ...item,
-        //     image_url: state.imageList[index].image,
-        // })),
-        loadingZingChartSong: true,
+        isLoadingZingChartSong: false,
+      };
+    }
+
+    case "FETCH_ZINGCHARTSONGLIST_ONFAILURE": {
+      return {
+        ...state,
+        err: action.err,
+        isLoadingZingChartSong: false,
       };
     }
 

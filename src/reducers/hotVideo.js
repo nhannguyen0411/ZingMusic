@@ -1,5 +1,5 @@
 const initialState = {
-  loadingHotVideo: false,
+  isLoadingHotVideo: false,
   hotVideoList: [],
   imageList: [
     {
@@ -83,18 +83,34 @@ const initialState = {
         "https://photo-resize-zmp3.zadn.vn/w240_r16x9_jpeg/thumb_video/7/1/f/8/71f83f03ddbf820c54fe22694da40b61.jpg",
     },
   ],
+  err: "",
 };
 
 const hotVideoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_HOTVIDEOLIST": {
+    case "FETCH_HOTVIDEOLIST_ONPOST": {
+      return {
+        ...state,
+        isLoadingHotVideo: true,
+      };
+    }
+
+    case "FETCH_HOTVIDEOLIST_ONSUCCESS": {
       return {
         ...state,
         hotVideoList: action.nowplaying.albums.map((item, index) => ({
           ...item,
           image_url: state.imageList[index].image,
         })),
-        loadingHotVideo: true,
+        isLoadingHotVideo: false,
+      };
+    }
+
+    case "FETCH_HOTVIDEOLIST_ONFAILURE": {
+      return {
+        ...state,
+        err: action.err,
+        isLoadingHotVideo: false,
       };
     }
 

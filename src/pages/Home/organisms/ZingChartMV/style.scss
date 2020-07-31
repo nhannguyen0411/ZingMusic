@@ -6,7 +6,6 @@
 .zing-chart-mv-wrapper {
   .song-top {
     .first-song {
-      background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
       height: 126px;
       background-position: inherit;
       background-size: cover;
@@ -15,6 +14,13 @@
       align-items: flex-end;
       margin-bottom: 10px;
 
+      &.thumbnail-mv {
+        background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
+      }
+
+      &.thumbnail-album {
+        background-image: url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg);
+      }
       .song-rank-video-wrapper {
         grid-template-columns: 1fr 10fr;
         border-bottom: none;

@@ -2,20 +2,34 @@ import { fetchAPI } from "../utils/request";
 
 export const fetchHappyVideoListRequest = () => {
   return (dispatch) => {
+    dispatch(fetchHappyVideoListOnPost());
     return fetchAPI()
       .then((res) => res.json())
       .then((json) => {
-        dispatch(fetchHappyVideoList(json.nowplaying));
+        dispatch(fetchHappyVideoListOnSuccess(json.nowplaying));
       })
       .catch((err) => {
-        console.log(err);
+        fetchHappyVideoListOnFailure(err);
       });
   };
 };
 
-export const fetchHappyVideoList = (nowplaying) => {
+export const fetchHappyVideoListOnSuccess = (nowplaying) => {
   return {
-    type: "FETCH_HAPPYVIDEOLIST",
+    type: "FETCH_HAPPYVIDEOLIST_ONSUCCESS",
     nowplaying,
+  };
+};
+
+export const fetchHappyVideoListOnFailure = (err) => {
+  return {
+    type: "FETCH_HAPPYVIDEOLIST_ONFAILURE",
+    err,
+  };
+};
+
+export const fetchHappyVideoListOnPost = () => {
+  return {
+    type: "FETCH_HAPPYVIDEOLIST_ONPOST",
   };
 };

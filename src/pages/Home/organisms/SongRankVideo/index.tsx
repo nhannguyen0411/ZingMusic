@@ -13,16 +13,17 @@ type infoSinger = {
 interface PropTypes {
   item: {
     id: Number;
-    image: string;
+    image_url: string;
     song: string;
     singer: Array<infoSinger>;
-    view: string;
+    song_id: string;
   };
+  index: string;
   weekAlbum: boolean;
 }
 
 const SongRankVideo: FC<PropTypes> = (props) => {
-  const { item, weekAlbum } = props;
+  const { item, weekAlbum, index } = props;
   return (
     <div className="song-rank-video-wrapper">
       <div className="video-wrapper">
@@ -31,13 +32,10 @@ const SongRankVideo: FC<PropTypes> = (props) => {
             "week-album": weekAlbum,
             "week-mv": !weekAlbum,
           })}
-          src={item.image}
+          src={item.image_url}
           alt="image"
         />
-        <NavbarTitle
-          varClass="song-number"
-          name={item.id.toString().padStart(2, "0")}
-        />
+        <NavbarTitle varClass="song-number" name={index.padStart(2, "0")} />
       </div>
       <SongInfoVideo weekAlbum={weekAlbum} item={item} />
     </div>

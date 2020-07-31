@@ -15,7 +15,7 @@ interface PropTypes {
     id: Number;
     song: string;
     singer: Array<infoSinger>;
-    view: string;
+    song_id: string;
   };
   weekAlbum: boolean;
 }
@@ -45,7 +45,7 @@ const SongInfoVideo: FC<PropTypes> = (props) => {
           })}
         </div>
       </div>
-      <NavbarTitle varClass="song-view" name={item.view} />
+      <NavbarTitle varClass="song-view" name={item.song_id} />
     </div>
   );
 };
