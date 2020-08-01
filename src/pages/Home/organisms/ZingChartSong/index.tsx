@@ -1,6 +1,6 @@
 import { Skeleton } from "antd";
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchZingChartSongListRequest } from "../../../../actions/zingChartSong";
 import { AppState } from "../../../../reducers";
@@ -16,18 +16,20 @@ const ZingChartSong = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchZingChartSongListRequest());
+    dispatch(fetchZingChartSongListRequest("VN"));
   }, []);
 
-  return (
-    <div className="zing-chart-song-wrapper">
-      <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
-      <CountryTopic />
+  const _handleChangeCountry = (ct: string) => {
+    dispatch(fetchZingChartSongListRequest(ct));
+  };
+
+  const _handleShowSong = () => {
+    return (
       <div className="song-top">
         {isLoadingZingChartSong ? (
           <Skeleton active />
         ) : (
-          zingChartSongList.slice(0, 10).map((item: any, index: number) => {
+          zingChartSongList.map((item: any, index: number) => {
             return (
               <div
                 key={index}
@@ -41,6 +43,15 @@ const ZingChartSong = () => {
           })
         )}
       </div>
+    );
+  };
+
+  return (
+    <div className="zing-chart-song-wrapper">
+      <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
+      <CountryTopic onHandleChangeCountry={_handleChangeCountry}>
+        {<_handleShowSong />}
+      </CountryTopic>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const zingChartSongReducer = (state = initialState, action) => {
     case "FETCH_ZINGCHARTSONGLIST_ONSUCCESS": {
       return {
         ...state,
-        zingChartSongList: action.nowplaying.albums,
+        zingChartSongList: action.nowplaying,
         isLoadingZingChartSong: false,
       };
     }

@@ -54,7 +54,7 @@ const ZingChartMV: FC<PropTypes> = (props) => {
         weekNews={weekNews}
         name={weekAlbum ? `#ZINGCHART TUẦN - ALBUM` : `#ZINGCHART TUẦN - MV`}
       />
-      <CountryTopic />
+      {/* <CountryTopic /> */}
       <div className="song-top">{showTopSong(arr)}</div>
     </div>
   );

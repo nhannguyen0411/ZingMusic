@@ -1,9 +1,10 @@
 import { fetchAPI } from "../utils/request";
+import { Music, Get } from "../constant";
 
 export const fetchZingChartNewsListRequest = () => {
   return (dispatch) => {
     dispatch(fetchZingChartNewsListPost());
-    return fetchAPI()
+    return fetchAPI(Music, Get)
       .then((res) => res.json())
       .then((json) => {
         dispatch(fetchZingChartNewsListOnSuccess(json.nowplaying));

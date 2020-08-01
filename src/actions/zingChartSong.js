@@ -1,12 +1,19 @@
 import { fetchAPI } from "../utils/request";
+import { Country, Get } from "../constant";
 
-export const fetchZingChartSongListRequest = () => {
+export const fetchZingChartSongListRequest = (country) => {
   return (dispatch) => {
     dispatch(fetchZingChartSongListOnPost());
-    return fetchAPI()
+    return fetchAPI(Country, Get)
       .then((res) => res.json())
       .then((json) => {
-        dispatch(fetchZingChartSongListOnSuccess(json.nowplaying));
+        if (json.success) {
+          const filterCountry = json.countries.find(
+            (item) => item.title === country
+          );
+          console.log("json", filterCountry);
+          dispatch(fetchZingChartSongListOnSuccess(filterCountry.list));
+        }
       })
       .catch((err) => {
         fetchZingChartSongListOnFailure(err);

@@ -1,9 +1,10 @@
 import { fetchAPI } from "../utils/request";
+import { Music, Get } from "../constant";
 
 export const fetchHappyVideoListRequest = () => {
   return (dispatch) => {
     dispatch(fetchHappyVideoListOnPost());
-    return fetchAPI()
+    return fetchAPI(Music, Get)
       .then((res) => res.json())
       .then((json) => {
         dispatch(fetchHappyVideoListOnSuccess(json.nowplaying));
