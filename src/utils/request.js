@@ -1,5 +1,5 @@
-export const fetchAPI = (endpoint, method, body) => {
-  return fetch(`http://localhost:5000/${endpoint}`, {
+export const fetchAPI = (endpoint, method, body) =>
+  fetch(`http://localhost:5000/${endpoint}`, {
     method,
     headers: {
       Accept: "application/json",
@@ -7,4 +7,3 @@ export const fetchAPI = (endpoint, method, body) => {
     },
     body: body ? body : null,
   });
-};

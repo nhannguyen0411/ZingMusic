@@ -12,19 +12,19 @@ import SongTop from "../../molecules/SongTop";
 import "./style.scss";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 type info = {
-  id: number;
+  title: string;
   song: string;
-  singer: Array<infoSinger>;
-  image_url: string;
   song_id: string;
+  image_url: string;
+  singer: Array<infoSinger>;
 };
 
-const TopChart = () => {
+const TopChart = (): JSX.Element => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { list, isLoading } = useSelector((state: AppState) => state.topChart);
@@ -34,9 +34,9 @@ const TopChart = () => {
   }, []);
 
   const _handleShowSong = () => {
-    let perPage = 5;
-    let begin = (page - 1) * perPage;
-    let end = page * perPage;
+    const perPage = 5;
+    const begin = (page - 1) * perPage;
+    const end = page * perPage;
     return list.slice(begin, end).map((item: info, index: number) => (
       <div key={index} className="song-in-top">
         <NavbarTitle varClass="song-number" name={`${index + 1 + begin}`} />
@@ -51,7 +51,7 @@ const TopChart = () => {
     ));
   };
 
-  const _handleMoveOnePage = (e: any) => {
+  const _handleMoveOnePage = (e: { shiftKey?: string; keyCode?: number }) => {
     const { keyCode } = e;
     const listLength = list.length;
     switch (true) {
@@ -80,10 +80,10 @@ const TopChart = () => {
 
   return (
     <div className="top-chart-wrapper">
-      <div className={`render-list`}>
+      <div className="render-list">
         {isLoading ? <Skeleton active /> : _handleShowSong()}
       </div>
-      <div className={`pagination-wrapper`}>
+      <div className="pagination-wrapper">
         {!isLoading && (
           <Pagination
             onChange={(page) => {

@@ -4,13 +4,11 @@ import HeaderBottom from "./HeaderBottom";
 
 import "./style.scss";
 
-const Header = () => {
-  return (
-    <div className="header-wrapper">
-      <HeaderTop />
-      <HeaderBottom />
-    </div>
-  );
-};
+const Header = (): JSX.Element => (
+  <div className="header-wrapper">
+    <HeaderTop />
+    <HeaderBottom />
+  </div>
+);
 
 export default Header;

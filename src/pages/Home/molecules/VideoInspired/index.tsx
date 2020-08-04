@@ -5,18 +5,19 @@ import "./style.scss";
 import { Tooltip } from "antd";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 interface PropTypes {
   item: {
-    image_url: String;
-    id: Number;
+    title: string;
     song: string;
+    song_id: string;
+    image_url: string;
     singer: Array<infoSinger>;
   };
-  noSinger: Boolean;
+  noSinger: boolean;
 }
 
 const VideoInspired: FC<PropTypes> = (props) => {

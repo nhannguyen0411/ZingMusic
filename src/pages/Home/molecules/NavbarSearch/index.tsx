@@ -6,15 +6,13 @@ import { Button } from "antd";
 
 import "./style.scss";
 
-const NavbarSearch = () => {
-  return (
-    <div className="navbar-search-wrapper">
-      <NavbarInput />
-      <div className="navbar-search-icon">
-        <Button type="link" icon={<SearchOutlined />} size="small" />
-      </div>
+const NavbarSearch = (): JSX.Element => (
+  <div className="navbar-search-wrapper">
+    <NavbarInput />
+    <div className="navbar-search-icon">
+      <Button type="link" icon={<SearchOutlined />} size="small" />
     </div>
-  );
-};
+  </div>
+);
 
 export default NavbarSearch;

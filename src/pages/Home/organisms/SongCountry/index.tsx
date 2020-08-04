@@ -4,15 +4,16 @@ import SongTrending from "../../molecules/SongTrending";
 import "./style.scss";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 type info = {
-  id: number;
+  title: string;
   song: string;
-  singer: Array<infoSinger>;
+  song_id: string;
   image_url: string;
+  singer: Array<infoSinger>;
 };
 
 interface PropTypes {
@@ -28,16 +29,14 @@ const SongCountry: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className="content">
-        {arr.map((item: info, index) => {
-          return (
-            <SongTrending
-              length={arr.length}
-              key={index}
-              index={index}
-              item={item}
-            />
-          );
-        })}
+        {arr.map((item: info, index) => (
+          <SongTrending
+            length={arr.length}
+            key={index}
+            index={index}
+            item={item}
+          />
+        ))}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import NavbarTitle from "../../atoms/NavbarTitle";
 import "./style.scss";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   image: string;
 };
 
@@ -26,9 +26,9 @@ const SingerHot: FC<PropTypes> = (props) => {
           />
         </div>
         <div className="top-singer">
-          {arr.map((item: any, index) => {
-            return <img key={index} src={item.image} alt="image" />;
-          })}
+          {arr.map((item: infoSinger, index) => (
+            <img key={index} src={item.image} alt="image" />
+          ))}
         </div>
       </div>
     </div>

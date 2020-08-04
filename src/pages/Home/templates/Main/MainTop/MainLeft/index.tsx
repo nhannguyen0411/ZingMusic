@@ -13,7 +13,7 @@ import TopChart from "../../../../organisms/TopChart";
 import TrendingVideo from "../../../../organisms/TrendingVideo";
 import "./styles.scss";
 
-const MainLeft = () => {
+const MainLeft = (): JSX.Element => {
   const { hotVideo, happyVideo, songTrending } = useSelector(
     (state: AppState) => state
   );

@@ -98,7 +98,7 @@ const zingChartAlbumReducer = (state = initialState, action) => {
     case "FETCH_ZINGCHARTALBUMLIST_ONSUCCESS": {
       return {
         ...state,
-        zingChartAlbumList: action.nowplaying.albums.map((item, index) => ({
+        zingChartAlbumList: action.album.map((item, index) => ({
           ...item,
           image_url: state.imageList[index].image,
         })),

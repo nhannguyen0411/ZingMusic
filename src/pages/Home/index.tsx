@@ -5,16 +5,14 @@ import Footer from "./templates/Footer";
 
 import "./style.scss";
 
-const HomePage = () => {
-  return (
-    <div className="home-page-wrapper">
-      <Header />
-      <div className="container">
-        <Main />
-      </div>
-      <Footer />
+const HomePage = (): JSX.Element => (
+  <div className="home-page-wrapper">
+    <Header />
+    <div className="container">
+      <Main />
     </div>
-  );
-};
+    <Footer />
+  </div>
+);
 
 export default HomePage;

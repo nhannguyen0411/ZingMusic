@@ -4,12 +4,10 @@ import partner from "../../../../../mocks/Partner";
 
 import "./style.scss";
 
-const MainBottom = () => {
-  return (
-    <div className="main-bottom-wrapper">
-      <Partner arr={partner} />
-    </div>
-  );
-};
+const MainBottom = (): JSX.Element => (
+  <div className="main-bottom-wrapper">
+    <Partner arr={partner} />
+  </div>
+);
 
 export default MainBottom;

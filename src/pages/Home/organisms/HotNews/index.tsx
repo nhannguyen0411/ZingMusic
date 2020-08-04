@@ -6,7 +6,7 @@ import "./style.scss";
 interface PropTypes {
   item: {
     image_url: string;
-    id: Number;
+    id: number;
     title: string;
   };
 }

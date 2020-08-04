@@ -1,7 +1,6 @@
 .zing-chart-song-wrapper {
   .song-top {
     .first-song {
-      background-image: url(https://photo-zmp3.zadn.vn/banner/1/2/8/f/128fba5cb8c0adea6f79e4de403e96d5.jpg);
       height: 126px;
       background-position: inherit;
       background-size: cover;
@@ -10,6 +9,17 @@
       align-items: flex-end;
       margin-bottom: 10px;
 
+      &.Viet-Nam {
+        background-image: url(https://photo-zmp3.zadn.vn/banner/1/2/8/f/128fba5cb8c0adea6f79e4de403e96d5.jpg);
+      }
+
+      &.US-UK {
+        background-image: url(https://photo-zmp3.zadn.vn/banner/4/a/a/8/4aa8549b8af6cdcdcc2ec0c46381a6db.jpg);
+      }
+
+      &.K-Pop {
+        background-image: url(https://photo-zmp3.zadn.vn/banner/f/f/6/e/ff6e266c1243825429774d42760d649e.jpg);
+      }
       .song-rank-wrapper {
         .content {
           border-bottom: none;

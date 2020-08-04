@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "antd";
 import "./style.scss";
 
-const ImageCarousel = () => {
+const ImageCarousel = (): JSX.Element => {
   const arr = [
     {
       url:
@@ -29,19 +29,17 @@ const ImageCarousel = () => {
     <div className="image-carousel-wrapper">
       <div className="carousel">
         <Carousel autoplay>
-          {arr.map((item, index) => {
-            return (
-              <div key={index}>
-                <img src={item.url} alt="image" />
-              </div>
-            );
-          })}
+          {arr.map((item, index) => (
+            <div key={index}>
+              <img src={item.url} alt="image" />
+            </div>
+          ))}
         </Carousel>
       </div>
       <div className="image-render">
-        {arr.map((item, index) => {
-          return <img key={index} src={item.url} alt="image" />;
-        })}
+        {arr.map((item, index) => (
+          <img key={index} src={item.url} alt="image" />
+        ))}
       </div>
     </div>
   );

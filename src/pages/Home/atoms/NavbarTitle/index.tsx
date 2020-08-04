@@ -4,8 +4,8 @@ import { Tooltip } from "antd";
 import "./style.scss";
 
 interface PropTypes {
-  name: String;
-  varClass: String;
+  name: string;
+  varClass: string;
 }
 
 const NavbarTitle: FC<PropTypes> = (props) => {
@@ -17,7 +17,7 @@ const NavbarTitle: FC<PropTypes> = (props) => {
       placement={"rightBottom"}
       title={name}
     >
-      <span className={classNames(`navbar-title-wrapper`, varClass)}>
+      <span className={classNames("navbar-title-wrapper", varClass)}>
         {name}
       </span>
     </Tooltip>

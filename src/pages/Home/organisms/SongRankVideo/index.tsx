@@ -12,7 +12,7 @@ type infoSinger = {
 
 interface PropTypes {
   item: {
-    id: Number;
+    id: number;
     image_url: string;
     song: string;
     singer: Array<infoSinger>;

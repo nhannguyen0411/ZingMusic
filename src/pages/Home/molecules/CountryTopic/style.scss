@@ -1,18 +1,15 @@
-// .country-topic-wrapper {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
+.country-topic-wrapper {
+    margin-top: 1rem;
+    .ant-tabs-nav-wrap {
+        .ant-tabs-nav-list {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr;
 
-//   .content {
-//     padding: 10px 0px;
-//     background-color: #ddd;
-//     text-align: center;
-//     border-top: 2px solid #ddd;
-//     cursor: pointer;
-//     &:hover {
-//       border-top: 2px solid purple;
-//     }
-//     &:active {
-//       border-top: 2px solid purple;
-//     }
-//   }
-// }
+            .ant-tabs-tab {
+                margin-right: 0px !important;
+                padding: 8px 17px !important;
+                justify-content: center;
+            }
+        }
+    }
+}

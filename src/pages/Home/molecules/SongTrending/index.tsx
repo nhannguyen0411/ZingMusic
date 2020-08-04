@@ -6,16 +6,17 @@ import "./style.scss";
 import { Tooltip } from "antd";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 interface PropTypes {
   item: {
-    id: Number;
+    title: string;
     song: string;
-    singer: Array<infoSinger>;
+    song_id: string;
     image_url: string;
+    singer: Array<infoSinger>;
   };
   length: number;
   index: number;

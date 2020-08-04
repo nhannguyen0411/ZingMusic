@@ -3,18 +3,17 @@ import SongInfo from "../SongInfo";
 
 import "./style.scss";
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 interface PropTypes {
   item: {
-    id: Number;
+    title: string;
     song: string;
-    singer: Array<infoSinger>;
-    image_url: string;
-    //view: number;
     song_id: string;
+    image_url: string;
+    singer: Array<infoSinger>;
   };
 }
 

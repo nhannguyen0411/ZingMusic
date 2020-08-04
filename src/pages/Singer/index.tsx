@@ -11,15 +11,14 @@ interface PropTypes {
 
 const Singer: FC<PropTypes> = (props) => {
   const { match } = props;
-  const [data, setData] = useState(() => {
-    const findSinger = (id: any) => {
-      return singer.find((item) => {
+  const [data] = useState(() => {
+    const findSinger = (id: string) =>
+      singer.find((item) => {
         if (item.id === parseInt(id)) {
           return item;
         }
         return null;
       });
-    };
     return findSinger(match.params.id);
   });
 

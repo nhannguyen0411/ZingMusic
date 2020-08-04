@@ -10,17 +10,17 @@ type info = {
 
 interface PropTypes {
   arr: Array<info>;
-  parent: String;
-  child: String;
+  parent: string;
+  child: string;
 }
 
 const NavbarMore: FC<PropTypes> = (props) => {
   const { arr, parent, child } = props;
   return (
-    <div className={classNames(`navbar-more-wrapper`, parent)}>
-      {arr.map((item: info, index) => {
-        return <NavbarTitle key={index} varClass={child} name={item.name} />;
-      })}
+    <div className={classNames("navbar-more-wrapper", parent)}>
+      {arr.map((item: info, index) => (
+        <NavbarTitle key={index} varClass={child} name={item.name} />
+      ))}
     </div>
   );
 };

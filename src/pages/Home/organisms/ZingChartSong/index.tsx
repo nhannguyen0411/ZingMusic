@@ -1,6 +1,6 @@
 import { Skeleton } from "antd";
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchZingChartSongListRequest } from "../../../../actions/zingChartSong";
 import { AppState } from "../../../../reducers";
@@ -9,9 +9,22 @@ import SongRank from "../SongRank";
 import ZingChartTopic from "../ZingChartTopic";
 import "./style.scss";
 
-const ZingChartSong = () => {
+type infoSinger = {
+  id: number;
+  singer: string;
+};
+
+type info = {
+  title: string;
+  song: string;
+  song_id: string;
+  image_url: string;
+  singer: Array<infoSinger>;
+};
+
+const ZingChartSong = (): JSX.Element => {
   const dispatch = useDispatch();
-  const { isLoadingZingChartSong, zingChartSongList } = useSelector(
+  const { isLoadingZingChartSong, zingChartSongList, country } = useSelector(
     (state: AppState) => state.zingChartSong
   );
 
@@ -19,38 +32,42 @@ const ZingChartSong = () => {
     dispatch(fetchZingChartSongListRequest("VN"));
   }, []);
 
-  const _handleChangeCountry = (ct: string) => {
-    dispatch(fetchZingChartSongListRequest(ct));
+  const handleChangeCountry = (country: string) => {
+    dispatch(fetchZingChartSongListRequest(country));
   };
 
-  const _handleShowSong = () => {
-    return (
-      <div className="song-top">
-        {isLoadingZingChartSong ? (
-          <Skeleton active />
-        ) : (
-          zingChartSongList.map((item: any, index: number) => {
-            return (
-              <div
-                key={index}
-                className={classNames({
-                  "first-song": index === 0,
-                })}
-              >
-                <SongRank index={`${index + 1}`} item={item} />
-              </div>
-            );
-          })
-        )}
-      </div>
-    );
-  };
+  const handleShowSong = () => (
+    <div className="song-top">
+      {isLoadingZingChartSong ? (
+        <Skeleton active />
+      ) : (
+        zingChartSongList.map((item: info, index: number) => (
+          <div
+            key={index}
+            className={classNames({
+              "first-song": index === 0,
+              "US-UK": country === "US-UK",
+              "K-Pop": country === "K-Pop",
+              "Viet-Nam": country === "VN",
+            })}
+          >
+            <SongRank index={`${index + 1}`} item={item} />
+          </div>
+        ))
+      )}
+    </div>
+  );
 
   return (
     <div className="zing-chart-song-wrapper">
       <ZingChartTopic name="#ZINGCHART TUẦN - BÀI HÁT" weekNews={false} />
-      <CountryTopic onHandleChangeCountry={_handleChangeCountry}>
-        {<_handleShowSong />}
+      <CountryTopic
+        onHandleChangeCountrySong={handleChangeCountry}
+        onHandleChangeCountryVideo={() => console.log("haha")}
+        isSong={true}
+        isAlbum={false}
+      >
+        {handleShowSong()}
       </CountryTopic>
     </div>
   );

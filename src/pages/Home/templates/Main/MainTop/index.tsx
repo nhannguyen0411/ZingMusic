@@ -4,13 +4,11 @@ import MainRight from "./MainRight";
 
 import "./style.scss";
 
-const MainTop = () => {
-  return (
-    <div className="main-top-wrapper">
-      <MainLeft />
-      <MainRight />
-    </div>
-  );
-};
+const MainTop = (): JSX.Element => (
+  <div className="main-top-wrapper">
+    <MainLeft />
+    <MainRight />
+  </div>
+);
 
 export default MainTop;

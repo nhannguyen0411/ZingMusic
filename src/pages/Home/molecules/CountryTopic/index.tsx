@@ -1,32 +1,46 @@
-import React, { FC } from "react";
-import NavbarTitle from "../../atoms/NavbarTitle";
-import countryTopic from "../../../../mocks/CountryTopic";
-
-import "./style.scss";
 import { Tabs } from "antd";
+import React, { FC } from "react";
+import countryTopic from "../../../../mocks/CountryTopic";
+import "./style.scss";
+
 const { TabPane } = Tabs;
 
 interface PropTypes {
-  onHandleChangeCountry: Function;
+  onHandleChangeCountrySong: (country: string) => void;
+  onHandleChangeCountryVideo: (
+    category: string,
+    country: string,
+    isAlbum: boolean
+  ) => void;
+  isSong: boolean;
+  isAlbum: boolean;
 }
 
 const CountryTopic: FC<PropTypes> = (props) => {
-  const { children, onHandleChangeCountry } = props;
+  const {
+    children,
+    onHandleChangeCountrySong,
+    onHandleChangeCountryVideo,
+    isSong,
+    isAlbum,
+  } = props;
   return (
     <div className="country-topic-wrapper">
       <Tabs
         size="large"
         centered={true}
-        onChange={(key) => onHandleChangeCountry(key)}
+        onChange={(key) =>
+          isSong
+            ? onHandleChangeCountrySong(key)
+            : onHandleChangeCountryVideo(isAlbum ? "album" : "MV", key, isAlbum)
+        }
         type="card"
       >
-        {countryTopic.map((item, index) => {
-          return (
-            <TabPane tab={item.name} key={`${item.title}`}>
-              {children}
-            </TabPane>
-          );
-        })}
+        {countryTopic.map((item) => (
+          <TabPane tab={item.name} key={`${item.title}`}>
+            {children}
+          </TabPane>
+        ))}
       </Tabs>
     </div>
   );

@@ -1,36 +1,36 @@
 import { fetchAPI } from "../utils/request";
-import { Music, Get } from "../constant";
+import { Week, Get } from "../constant";
 
-export const fetchZingChartMVListRequest = () => {
-  return (dispatch) => {
-    dispatch(fetchZingChartMVListPost());
-    return fetchAPI(Music, Get)
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch(fetchZingChartMVListOnSuccess(json.nowplaying));
-      })
-      .catch((err) => {
-        dispatch(fetchZingChartMVListOnFailure(err));
-      });
-  };
-};
+export const fetchZingChartMVListOnSuccess = (mv) => ({
+  type: "FETCH_ZINGCHARTMVLIST_ONSUCCESS",
+  mv,
+});
 
-export const fetchZingChartMVListOnSuccess = (nowplaying) => {
-  return {
-    type: "FETCH_ZINGCHARTMVLIST_ONSUCCESS",
-    nowplaying,
-  };
-};
+export const fetchZingChartMVListOnFailure = (err) => ({
+  type: "FETCH_ZINGCHARTMVLIST_ONFAILURE",
+  err,
+});
 
-export const fetchZingChartMVListOnFailure = (err) => {
-  return {
-    type: "FETCH_ZINGCHARTMVLIST_ONFAILURE",
-    err,
-  };
-};
+export const fetchZingChartMVListPost = () => ({
+  type: "FETCH_ZINGCHARTMVLIST_ONPOST",
+});
 
-export const fetchZingChartMVListPost = () => {
-  return {
-    type: "FETCH_ZINGCHARTMVLIST_ONPOST",
-  };
+export const fetchZingChartMVListRequest = (category, country) => (
+  dispatch
+) => {
+  dispatch(fetchZingChartMVListPost());
+  return fetchAPI(Week, Get)
+    .then((res) => res.json())
+    .then((json) => {
+      if (json.success) {
+        const mv = json.weeks
+          .find((item) => item.category === category)
+          .mv.find((item) => item.country === country);
+        console.log(json);
+        dispatch(fetchZingChartMVListOnSuccess(mv.list));
+      }
+    })
+    .catch((err) => {
+      dispatch(fetchZingChartMVListOnFailure(err));
+    });
 };

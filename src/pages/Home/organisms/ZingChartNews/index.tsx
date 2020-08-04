@@ -6,7 +6,7 @@ import classNames from "classnames";
 import "./style.scss";
 
 type info = {
-  id: Number;
+  id: number;
   image_url: string;
   title: string;
 };
@@ -20,18 +20,16 @@ const ZingChartNews: FC<PropTypes> = (props) => {
   const { arr, weekNews } = props;
   return (
     <div className="zing-chart-news-wrapper">
-      <ZingChartTopic weekNews={weekNews} name={`TIN TỨC ÂM NHẠC`} />
+      <ZingChartTopic weekNews={weekNews} name="TIN TỨC ÂM NHẠC" />
       <div className="news-top">
-        {arr.map((item: info, index) => {
-          return (
-            <div
-              key={index}
-              className={classNames({ "first-news": index === 0 })}
-            >
-              <HotNews item={item} />
-            </div>
-          );
-        })}
+        {arr.map((item: info, index) => (
+          <div
+            key={index}
+            className={classNames({ "first-news": index === 0 })}
+          >
+            <HotNews item={item} />
+          </div>
+        ))}
       </div>
     </div>
   );

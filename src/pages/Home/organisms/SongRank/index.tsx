@@ -5,16 +5,17 @@ import SongOptions from "../../molecules/SongOptions";
 import "./style.scss";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 interface PropTypes {
   item: {
-    id: Number;
+    title: string;
     song: string;
-    singer: Array<infoSinger>;
     song_id: string;
+    image_url: string;
+    singer: Array<infoSinger>;
   };
   index: string;
 }

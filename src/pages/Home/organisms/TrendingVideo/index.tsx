@@ -6,15 +6,16 @@ import VideoInspired from "../../molecules/VideoInspired";
 import "./style.scss";
 
 type infoSinger = {
-  id: Number;
+  id: number;
   singer: string;
 };
 
 type info = {
-  id: number;
+  title: string;
   song: string;
-  singer: Array<infoSinger>;
+  song_id: string;
   image_url: string;
+  singer: Array<infoSinger>;
 };
 
 interface PropTypes {
@@ -32,9 +33,9 @@ const TrendingVideo: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className={classNames("content", { "video-hot": videoHot })}>
-        {arr.map((item: info, index) => {
-          return <VideoInspired key={index} item={item} noSinger={noSinger} />;
-        })}
+        {arr.map((item: info, index) => (
+          <VideoInspired key={index} item={item} noSinger={noSinger} />
+        ))}
       </div>
     </div>
   );

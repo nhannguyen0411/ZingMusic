@@ -98,10 +98,7 @@ const zingChartMVReducer = (state = initialState, action) => {
     case "FETCH_ZINGCHARTMVLIST_ONSUCCESS": {
       return {
         ...state,
-        zingChartMVList: action.nowplaying.albums.map((item, index) => ({
-          ...item,
-          image_url: state.imageList[index].image,
-        })),
+        zingChartMVList: action.mv,
         isLoadingZingChartMV: false,
       };
     }
