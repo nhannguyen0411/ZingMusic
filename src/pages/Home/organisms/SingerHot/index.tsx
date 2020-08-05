@@ -1,10 +1,11 @@
+// libs
 import React, { FC } from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
-// others
-import "./style.scss";
 // types
 import { infoPartner } from "../../../../types/Home";
+// others
+import "./style.scss";
 
 interface PropTypes {
   arr: Array<infoPartner>;

@@ -1,14 +1,13 @@
-// hooks
-import React, { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
 // libs
 import { Skeleton } from "antd";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchZingChartAlbumListRequest } from "../../../../actions/zingChartAlbum";
 // components
 import ZingChartMV from "../ZingChartMV";
 import CountryTopic from "../../molecules/CountryTopic";
 // actions
 import { fetchZingChartMVListRequest } from "../../../../actions/zingChartMV";
-import { fetchZingChartAlbumListRequest } from "../../../../actions/zingChartAlbum";
 // reducers
 import type { AppState } from "../../../../reducers";
 
@@ -45,6 +44,7 @@ const ZingChartVideo = (): JSX.Element => {
   return (
     <div className="zing-chart-video-wrapper">
       <CountryTopic
+        name="#ZINGCHART TUẦN - MV"
         onHandleChangeCountrySong={() => console.log("haha")}
         onHandleChangeCountryVideo={handleChangeCountry}
         isSong={false}
@@ -53,14 +53,11 @@ const ZingChartVideo = (): JSX.Element => {
         {isLoadingZingChartMV ? (
           <Skeleton active />
         ) : (
-          <ZingChartMV
-            arr={zingChartMVList.slice(0, 5)}
-            weekAlbum={false}
-            weekNews={false}
-          />
+          <ZingChartMV arr={zingChartMVList.slice(0, 5)} weekAlbum={false} />
         )}
       </CountryTopic>
       <CountryTopic
+        name="#ZINGCHART TUẦN - ALBUM"
         onHandleChangeCountrySong={() => console.log("haha")}
         onHandleChangeCountryVideo={handleChangeCountry}
         isSong={false}
@@ -69,11 +66,7 @@ const ZingChartVideo = (): JSX.Element => {
         {isLoadingZingChartAlbum ? (
           <Skeleton active />
         ) : (
-          <ZingChartMV
-            arr={zingChartAlbumList.slice(0, 5)}
-            weekAlbum={true}
-            weekNews={false}
-          />
+          <ZingChartMV arr={zingChartAlbumList.slice(0, 5)} weekAlbum={true} />
         )}
       </CountryTopic>
     </div>

@@ -1,12 +1,12 @@
+// libs
+import { HomeFilled } from "@ant-design/icons";
+import { Button } from "antd";
 import React from "react";
 // components
 import NavbarMore from "../../molecules/NavbarMore";
 import NavbarCloseAds from "../../molecules/NavbarCloseAds";
 // mocks
 import navbarBotttom from "../../../../mocks/NavbarBottom";
-// libs
-import { HomeFilled } from "@ant-design/icons";
-import { Button } from "antd";
 // others
 import "./style.scss";
 

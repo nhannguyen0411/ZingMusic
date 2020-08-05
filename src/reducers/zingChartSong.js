@@ -2,7 +2,6 @@ const initialState = {
   isLoadingZingChartSong: false,
   zingChartSongList: [],
   err: "",
-  country: "VN",
 };
 
 const zingChartSongReducer = (state = initialState, action) => {
@@ -19,7 +18,6 @@ const zingChartSongReducer = (state = initialState, action) => {
         ...state,
         zingChartSongList: action.nowplaying,
         isLoadingZingChartSong: false,
-        country: action.country,
       };
     }
 

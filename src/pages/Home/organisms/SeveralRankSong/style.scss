@@ -1,0 +1,37 @@
+.several-rank-song-wrapper {
+    position: relative;
+    width: 100%;
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 7fr 1fr;
+        margin-bottom: 10px;
+        padding: 5px 0px;
+        border-bottom: 1px solid #eee;
+        text-transform: capitalize;
+    }
+
+    .overlay-song {
+        position: absolute;
+        right: 0;
+        top: 15%;
+        opacity: 0;
+        font-size: 1rem;
+        .anticon {
+            margin-right: 8px;
+            color: #999;
+            &:hover {
+                color: #a845de;
+            }
+        }
+    }
+
+    &:hover {
+        .overlay-song {
+            opacity: 1;
+        }
+
+        .song-view {
+            display: none;
+        }
+    }
+}

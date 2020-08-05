@@ -1,23 +1,22 @@
-// hooks
-import React, { useEffect, useState, useCallback } from "react";
-import useEventListener from "../../../../Hooks/useEventListener";
-import { useDispatch, useSelector } from "react-redux";
 // libs
 import { MinusOutlined } from "@ant-design/icons";
 import { Pagination, Skeleton } from "antd";
-// actions
-import { fetchTopChartListRequest } from "../../../../actions/topChart";
-// reducers
-import { AppState } from "../../../../reducers";
+import React, { useEffect, useState, useCallback } from "react";
+import useEventListener from "../../../../Hooks/useEventListener";
+import { useDispatch, useSelector } from "react-redux";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongOptions from "../../molecules/SongOptions";
 import SongTop from "../../molecules/SongTop";
+// actions
+import { fetchTopChartListRequest } from "../../../../actions/topChart";
+// reducers
+import { AppState } from "../../../../reducers";
+// types
+import { infoSong } from "../../../../types/Home";
 // others
 import { PgDown, PgUp } from "../../../../constant";
 import "./style.scss";
-// types
-import { infoSong } from "../../../../types/Home";
 
 const TopChart = (): JSX.Element => {
   const [page, setPage] = useState(1);

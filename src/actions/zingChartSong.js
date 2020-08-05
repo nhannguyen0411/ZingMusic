@@ -4,7 +4,6 @@ import { Country, Get } from "../constant";
 export const fetchZingChartSongListOnSuccess = (nowplaying, country) => ({
   type: "FETCH_ZINGCHARTSONGLIST_ONSUCCESS",
   nowplaying,
-  country,
 });
 
 export const fetchZingChartSongListOnFailure = (err) => ({
@@ -25,7 +24,7 @@ export const fetchZingChartSongListRequest = (country) => (dispatch) => {
         const filterCountry = json.countries.find(
           (item) => item.country === country
         );
-        dispatch(fetchZingChartSongListOnSuccess(filterCountry.list, country));
+        dispatch(fetchZingChartSongListOnSuccess(filterCountry.list));
       }
     })
     .catch((err) => {

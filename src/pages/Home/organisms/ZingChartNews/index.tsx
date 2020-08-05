@@ -11,14 +11,13 @@ import "./style.scss";
 
 interface PropTypes {
   arr: Array<infoNews>;
-  weekNews: boolean;
 }
 
 const ZingChartNews: FC<PropTypes> = (props) => {
-  const { arr, weekNews } = props;
+  const { arr } = props;
   return (
     <div className="zing-chart-news-wrapper">
-      <ZingChartTopic weekNews={weekNews} name="TIN TỨC ÂM NHẠC" />
+      <ZingChartTopic name="TIN TỨC ÂM NHẠC" />
       <div className="news-top">
         {arr.map((item: infoNews, index) => (
           <div

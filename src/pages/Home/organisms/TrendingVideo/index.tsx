@@ -1,13 +1,13 @@
-import React, { FC } from "react";
 // libs
+import React, { FC } from "react";
 import classNames from "classnames";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import VideoInspired from "../../molecules/VideoInspired";
-// others
-import "./style.scss";
 // types
 import { infoSong } from "../../../../types/Home";
+// others
+import "./style.scss";
 
 interface PropTypes {
   arr: Array<infoSong>;

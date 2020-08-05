@@ -1,0 +1,81 @@
+@mixin display-grid($x, $y, $table) {
+    display: grid;
+    grid-template-#{$table}: $x $y !important;
+}
+
+@mixin balance($x, $y) {
+    justify-self: $x;
+    align-self: $y;
+}
+
+.song-rank-video-wrapper,
+.song-rank-wrapper {
+    display: unset !important;
+    grid-template-columns: unset !important;
+    grid-column-gap: unset !important;
+    padding: unset !important;
+    border-bottom: unset !important;
+    .first-song-wrapper {
+        position: relative;
+        img {
+            width: 19.5rem;
+            height: 7.875rem;
+        }
+
+        .several-rank-song-wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            .content {
+                border: unset;
+                margin-bottom: unset;
+                color: white;
+                .song-info-wrapper {
+                    a,
+                    .singer-wrapper span {
+                        color: white;
+                    }
+                }
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        .overlay-video {
+            .song-number {
+                justify-self: center;
+            }
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            color: white;
+            .song-info-video-wrapper,
+            .song-info-album-wrapper {
+                @include display-grid(4fr, 1fr, "columns");
+                grid-template-rows: unset !important;
+                text-transform: capitalize;
+                .song-info-wrapper {
+                    @include display-grid(1fr, 1fr, "rows");
+                    a {
+                        color: white !important;
+                    }
+                    .singer-wrapper {
+                        @include balance(unset, center);
+                        a span {
+                            color: white !important;
+                        }
+                    }
+                }
+
+                .song-view {
+                    @include balance(start, center);
+                    color: white;
+                }
+            }
+        }
+    }
+}

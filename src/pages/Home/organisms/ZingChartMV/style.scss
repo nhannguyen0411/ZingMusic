@@ -4,70 +4,70 @@
 }
 
 .zing-chart-mv-wrapper {
-  .song-top {
-    .first-song {
-      height: 126px;
-      background-position: inherit;
-      background-size: cover;
-      color: white !important;
-      display: flex;
-      align-items: flex-end;
-      margin-bottom: 10px;
+  // .song-top {
+  //   .first-song {
+  //     height: 126px;
+  //     background-position: inherit;
+  //     background-size: cover;
+  //     color: white !important;
+  //     display: flex;
+  //     align-items: flex-end;
+  //     margin-bottom: 10px;
 
-      &.thumbnail-mv {
-        background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
-      }
+  //     &.thumbnail-mv {
+  //       background-image: url(https://photo-zmp3.zadn.vn/banner/d/9/7/7/d977bd1206dffc2ac00d4a4d760971cd.jpg);
+  //     }
 
-      &.thumbnail-album {
-        background-image: url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg);
-      }
-      .song-rank-video-wrapper {
-        grid-template-columns: 1fr 10fr;
-        border-bottom: none;
-        margin-bottom: 0px;
-        .video-wrapper {
-          align-self: center;
-          justify-self: center;
-          img {
-            display: none;
-          }
-        }
-        .song-info-video-wrapper,
-        .song-info-album-wrapper {
-          @include display-grid(8fr, 1fr, columns);
-          grid-template-rows: none;
-          .song-info-wrapper {
-            @include display-grid(1fr, 1fr, rows);
+  //     &.thumbnail-album {
+  //       background-image: url(https://photo-zmp3.zadn.vn/banner/3/2/b/5/32b5075d3b0a907f9a2a257ae04233a6.jpg);
+  //     }
+  //     .song-rank-video-wrapper {
+  //       grid-template-columns: 1fr 10fr;
+  //       border-bottom: none;
+  //       margin-bottom: 0px;
+  //       .video-wrapper {
+  //         align-self: center;
+  //         justify-self: center;
+  //         img {
+  //           display: none;
+  //         }
+  //       }
+  //       .song-info-video-wrapper,
+  //       .song-info-album-wrapper {
+  //         @include display-grid(8fr, 1fr, columns);
+  //         grid-template-rows: none;
+  //         .song-info-wrapper {
+  //           @include display-grid(1fr, 1fr, rows);
 
-            a {
-              color: white;
-            }
+  //           a {
+  //             color: white;
+  //           }
 
-            .singer-wrapper {
-              .navbar-title-wrapper {
-                &.singer {
-                  color: white;
-                  transition: all 0.3s;
-                  &:hover {
-                    color: #a845de;
-                  }
-                }
-              }
-            }
-          }
-          .song-view {
-            color: white;
-            align-self: center;
-          }
-        }
+  //           .singer-wrapper {
+  //             .navbar-title-wrapper {
+  //               &.singer {
+  //                 color: white;
+  //                 transition: all 0.3s;
+  //                 &:hover {
+  //                   color: #a845de;
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //         .song-view {
+  //           color: white;
+  //           align-self: center;
+  //         }
+  //       }
 
-        .song-number {
-          justify-self: center;
-          position: unset;
-          bottom: unset;
-          left: unset;
-        }
-      }
-    }
-  }
+  //       .song-number {
+  //         justify-self: center;
+  //         position: unset;
+  //         bottom: unset;
+  //         left: unset;
+  //       }
+  //     }
+  //   }
+  // }
 }

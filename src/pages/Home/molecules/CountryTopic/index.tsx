@@ -1,6 +1,8 @@
 //libs
 import { Tabs } from "antd";
 import React, { FC } from "react";
+// components
+import ZingChartTopic from "../../organisms/ZingChartTopic";
 //mocks
 import countryTopic from "../../../../mocks/CountryTopic";
 //others
@@ -17,6 +19,7 @@ interface PropTypes {
   ) => void;
   isSong: boolean;
   isAlbum: boolean;
+  name: string;
 }
 
 const CountryTopic: FC<PropTypes> = (props) => {
@@ -26,9 +29,11 @@ const CountryTopic: FC<PropTypes> = (props) => {
     onHandleChangeCountryVideo,
     isSong,
     isAlbum,
+    name,
   } = props;
   return (
     <div className="country-topic-wrapper">
+      <ZingChartTopic name={name} />
       <Tabs
         size="large"
         centered={true}

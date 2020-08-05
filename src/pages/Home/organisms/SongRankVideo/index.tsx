@@ -1,12 +1,12 @@
-import React, { FC } from "react";
 // libs
-import classNames from "classnames";
+import React, { FC } from "react";
 // components
-import NavbarTitle from "../../atoms/NavbarTitle";
-import SongInfoVideo from "../../molecules/SongInfoVideo";
+import SeveralRankVideo from "../SeveralRankVideo";
+import FirstSong from "../FirstSong";
+// types
+import { infoSong } from "../../../../types/Home";
 // others
 import "./style.scss";
-import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
   item: infoSong;
@@ -18,18 +18,16 @@ const SongRankVideo: FC<PropTypes> = (props) => {
   const { item, weekAlbum, index } = props;
   return (
     <div className="song-rank-video-wrapper">
-      <div className="video-wrapper">
-        <img
-          className={classNames({
-            "week-album": weekAlbum,
-            "week-mv": !weekAlbum,
-          })}
-          src={item.image_url}
-          alt="images"
+      {parseInt(index) === 1 ? (
+        <FirstSong
+          isZingChartSong={false}
+          index={index}
+          item={item}
+          weekAlbum={weekAlbum}
         />
-        <NavbarTitle varClass="song-number" name={index.padStart(2, "0")} />
-      </div>
-      <SongInfoVideo weekAlbum={weekAlbum} item={item} />
+      ) : (
+        <SeveralRankVideo item={item} weekAlbum={weekAlbum} index={index} />
+      )}
     </div>
   );
 };

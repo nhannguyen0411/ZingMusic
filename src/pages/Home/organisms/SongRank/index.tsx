@@ -1,11 +1,12 @@
+// libs
 import React, { FC } from "react";
 // components
-import NavbarTitle from "../../atoms/NavbarTitle";
-import SongInfo from "../../molecules/SongInfo";
-import SongOptions from "../../molecules/SongOptions";
+import FirstSong from "../FirstSong";
+import SeveralRankSong from "../SeveralRankSong";
+// types
+import { infoSong } from "../../../../types/Home";
 // others
 import "./style.scss";
-import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
   item: infoSong;
@@ -17,14 +18,16 @@ const SongRank: FC<PropTypes> = (props) => {
 
   return (
     <div className="song-rank-wrapper">
-      <div className="content">
-        <NavbarTitle varClass="song-number" name={index.padStart(2, "0")} />
-        <SongInfo noSinger={true} item={item} />
-        <NavbarTitle varClass="song-view" name={item.song_id.slice(0, 4)} />
-      </div>
-      <div className="overlay">
-        <SongOptions song={item.song} fourOptions={false} />
-      </div>
+      {parseInt(index) === 1 ? (
+        <FirstSong
+          item={item}
+          index={index}
+          isZingChartSong={true}
+          weekAlbum={false}
+        />
+      ) : (
+        <SeveralRankSong item={item} index={index} />
+      )}
     </div>
   );
 };

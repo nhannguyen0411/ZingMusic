@@ -41,7 +41,7 @@ const MainRight = (): JSX.Element => {
       {isLoadingZingChartNews ? (
         <Skeleton active />
       ) : (
-        <ZingChartNews arr={zingChartNewsList.slice(0, 5)} weekNews={true} />
+        <ZingChartNews arr={zingChartNewsList.slice(0, 5)} />
       )}
     </div>
   );

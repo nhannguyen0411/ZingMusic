@@ -1,6 +1,6 @@
-@mixin display-grid($x, $y) {
+@mixin display-grid($x, $y, $table) {
   display: grid;
-  grid-template-rows: $x $y;
+  grid-template-#{$table}: $x $y;
 }
 
 @mixin balance($x, $y) {
@@ -10,10 +10,10 @@
 
 .song-rank-video-wrapper {
   .song-info-video-wrapper {
-    @include display-grid(2fr, 1fr);
+    @include display-grid(2fr, 1fr, "rows");
     text-transform: capitalize;
     .song-info {
-      @include display-grid(1fr, 1fr);
+      @include display-grid(1fr, 1fr, "rows");
 
       .singer-wrapper {
         @include balance(unset, center);
@@ -27,7 +27,7 @@
 
   .song-info-album-wrapper {
     .song-info {
-      @include display-grid(1fr, 1fr);
+      @include display-grid(1fr, 1fr, "rows");
       .singer-wrapper {
         @include balance(unset, center);
       }
