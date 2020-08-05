@@ -7,7 +7,7 @@ import { fetchAPI } from "utils/request";
 import * as Yup from "yup";
 import "./style.scss";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [err, setErr] = useState("");
   const history = useHistory();
   const initialValues = {
@@ -17,17 +17,22 @@ const LoginForm = () => {
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().required("This field is required."),
-    password: Yup.string().required("This field is required."),
+    password: Yup.string()
+      .required("This field is required.")
+      .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/, {
+        message:
+          "Password required 6-20 characters include of special character",
+        excludeEmptyString: true,
+      }),
   });
 
-  const handleOnLogin = (values) => {
-    fetchAPI("login", "POST", values)
+  const handleOnRegister = (values) => {
+    fetchAPI("register", "POST", values)
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
           console.log("json", json.message);
-          localStorage.setItem("token", json.token);
-          history.push("/");
+          history.push("/login");
         } else {
           setErr(json.err);
         }
@@ -35,11 +40,11 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-wrapper">
+    <div className="register-form-wrapper">
       <Formik
         validationSchema={validationSchema}
         initialValues={initialValues}
-        onSubmit={(values) => handleOnLogin(values)}
+        //onSubmit={(values) => handleOnRegister(values)}
       >
         {(formikProps) => {
           const { values, errors, touched } = formikProps;
@@ -62,7 +67,7 @@ const LoginForm = () => {
               />
               <button type="submit">Submit</button>
               <p>
-                New to ZingMusic? <Link to="/register">Register</Link>
+                Have you already account? <Link to="/login">Login</Link>
               </p>
               {err && <p>{err}</p>}
             </Form>
@@ -73,4 +78,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

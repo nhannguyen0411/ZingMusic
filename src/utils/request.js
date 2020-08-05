@@ -5,5 +5,5 @@ export const fetchAPI = (endpoint, method, body) =>
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: body ? body : null,
+    body: body ? JSON.stringify({ body }) : null,
   });
