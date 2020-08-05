@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useKeyPress(targetKey) {
+const useKeyPress = (targetKey) => {
   // State for keeping track of whether key is pressed
   const [keyPressed, setKeyPressed] = useState(false);
 
@@ -30,4 +30,6 @@ export default function useKeyPress(targetKey) {
   }, []); // Empty array ensures that effect is only run on mount and unmount
 
   return keyPressed;
-}
+};
+
+export default useKeyPress;

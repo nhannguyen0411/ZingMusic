@@ -1,5 +1,7 @@
-import React from "react";
+// libs
 import { Carousel } from "antd";
+import React from "react";
+// others
 import "./style.scss";
 
 const ImageCarousel = (): JSX.Element => {
@@ -31,14 +33,14 @@ const ImageCarousel = (): JSX.Element => {
         <Carousel autoplay>
           {arr.map((item, index) => (
             <div key={index}>
-              <img src={item.url} alt="image" />
+              <img src={item.url} alt="imagess" />
             </div>
           ))}
         </Carousel>
       </div>
       <div className="image-render">
         {arr.map((item, index) => (
-          <img key={index} src={item.url} alt="image" />
+          <img key={index} src={item.url} alt="imagess" />
         ))}
       </div>
     </div>

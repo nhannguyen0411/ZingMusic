@@ -1,26 +1,20 @@
+// libs
 import { Skeleton } from "antd";
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchZingChartSongListRequest } from "../../../../actions/zingChartSong";
-import { AppState } from "../../../../reducers";
+// components
 import CountryTopic from "../../molecules/CountryTopic";
 import SongRank from "../SongRank";
 import ZingChartTopic from "../ZingChartTopic";
+// actions
+import { fetchZingChartSongListRequest } from "../../../../actions/zingChartSong";
+// reducers
+import { AppState } from "../../../../reducers";
+//types
+import { infoSong } from "../../../../types/Home";
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
-type info = {
-  title: string;
-  song: string;
-  song_id: string;
-  image_url: string;
-  singer: Array<infoSinger>;
-};
 
 const ZingChartSong = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -28,20 +22,24 @@ const ZingChartSong = (): JSX.Element => {
     (state: AppState) => state.zingChartSong
   );
 
-  useEffect(() => {
+  const initFetch = useCallback(() => {
     dispatch(fetchZingChartSongListRequest("VN"));
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    initFetch();
+  }, [initFetch]);
 
   const handleChangeCountry = (country: string) => {
     dispatch(fetchZingChartSongListRequest(country));
   };
 
-  const handleShowSong = () => (
+  const SongRankList = () => (
     <div className="song-top">
       {isLoadingZingChartSong ? (
         <Skeleton active />
       ) : (
-        zingChartSongList.map((item: info, index: number) => (
+        zingChartSongList.map((item: infoSong, index: number) => (
           <div
             key={index}
             className={classNames({
@@ -67,7 +65,7 @@ const ZingChartSong = (): JSX.Element => {
         isSong={true}
         isAlbum={false}
       >
-        {handleShowSong()}
+        <SongRankList />
       </CountryTopic>
     </div>
   );

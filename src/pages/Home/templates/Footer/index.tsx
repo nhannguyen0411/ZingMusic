@@ -1,5 +1,5 @@
 import React from "react";
-
+// others
 import "./style.scss";
 
 const Footer = (): JSX.Element => (
@@ -8,7 +8,7 @@ const Footer = (): JSX.Element => (
       <div className="brand">
         <img
           src="https://static-zmp3.zadn.vn/skins/zmp3-v5.1/images/icon_zing_mp3_60.png"
-          alt="image"
+          alt="images"
         />
         <div className="content">
           <p>© 2015 VNG Corporation</p>
@@ -49,7 +49,7 @@ const Footer = (): JSX.Element => (
         </div>
         <img
           src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=62f851ba-0cde-4801-8326-68a6d66bf97a"
-          alt="image"
+          alt="images"
         />
         <p>Phiên bản Mobile</p>
       </div>

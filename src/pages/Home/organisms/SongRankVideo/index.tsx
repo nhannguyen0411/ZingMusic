@@ -1,23 +1,15 @@
 import React, { FC } from "react";
+// libs
 import classNames from "classnames";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfoVideo from "../../molecules/SongInfoVideo";
-
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
+import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
-  item: {
-    id: number;
-    image_url: string;
-    song: string;
-    singer: Array<infoSinger>;
-    song_id: string;
-  };
+  item: infoSong;
   index: string;
   weekAlbum: boolean;
 }
@@ -33,7 +25,7 @@ const SongRankVideo: FC<PropTypes> = (props) => {
             "week-mv": !weekAlbum,
           })}
           src={item.image_url}
-          alt="image"
+          alt="images"
         />
         <NavbarTitle varClass="song-number" name={index.padStart(2, "0")} />
       </div>

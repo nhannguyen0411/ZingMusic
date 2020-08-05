@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function useEventListener(eventName, handler, element = window) {
+const useEventListener = (eventName, handler, element = window) => {
   // Create a ref that stores handler
   const savedHandler = useRef();
 
@@ -34,4 +34,6 @@ export default function useEventListener(eventName, handler, element = window) {
     },
     [eventName, element] // Re-run if eventName or element changes
   );
-}
+};
+
+export default useEventListener;

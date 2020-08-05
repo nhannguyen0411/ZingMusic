@@ -1,9 +1,10 @@
-import React from "react";
-import NavbarInput from "../../atoms/NavbarInput";
+// libs
 import { SearchOutlined } from "@ant-design/icons";
-
 import { Button } from "antd";
-
+import React from "react";
+// components
+import NavbarInput from "../../atoms/NavbarInput";
+// others
 import "./style.scss";
 
 const NavbarSearch = (): JSX.Element => (

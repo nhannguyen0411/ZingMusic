@@ -1,10 +1,15 @@
-import React, { useEffect } from "react";
-import CountryTopic from "../../molecules/CountryTopic";
+// hooks
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// libs
 import { Skeleton } from "antd";
+// components
 import ZingChartMV from "../ZingChartMV";
+import CountryTopic from "../../molecules/CountryTopic";
+// actions
 import { fetchZingChartMVListRequest } from "../../../../actions/zingChartMV";
 import { fetchZingChartAlbumListRequest } from "../../../../actions/zingChartAlbum";
-import { useDispatch, useSelector } from "react-redux";
+// reducers
 import type { AppState } from "../../../../reducers";
 
 const ZingChartVideo = (): JSX.Element => {
@@ -15,16 +20,16 @@ const ZingChartVideo = (): JSX.Element => {
   const { zingChartAlbumList, isLoadingZingChartAlbum } = zingChartAlbum;
   const dispatch = useDispatch();
 
-  const _handleCallAPI = () => {
+  const initFetch = useCallback(() => {
     dispatch(fetchZingChartMVListRequest("MV", "VN"));
     setTimeout(() => {
       dispatch(fetchZingChartAlbumListRequest("album", "VN"));
     }, 1000);
-  };
+  }, [dispatch]);
 
   useEffect(() => {
-    _handleCallAPI();
-  }, []);
+    initFetch();
+  }, [initFetch]);
 
   const handleChangeCountry = (
     category: string,

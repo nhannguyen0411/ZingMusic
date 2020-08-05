@@ -1,6 +1,8 @@
+// libs
 import React from "react";
+// components
 import NavbarIcon from "../../atoms/NavbarIcon";
-
+// others
 import "./style.scss";
 
 const ImagePlay = (): JSX.Element => (

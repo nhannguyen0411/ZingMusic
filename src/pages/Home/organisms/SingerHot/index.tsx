@@ -1,15 +1,13 @@
 import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
-
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  image: string;
-};
+// types
+import { infoPartner } from "../../../../types/Home";
 
 interface PropTypes {
-  arr: Array<infoSinger>;
+  arr: Array<infoPartner>;
 }
 
 const SingerHot: FC<PropTypes> = (props) => {
@@ -22,12 +20,12 @@ const SingerHot: FC<PropTypes> = (props) => {
         <div className="first-singer">
           <img
             src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/7/c/5/a/7c5a9d0ec012cb842476b83dbbc96e84.jpg#home_hotartist_01"
-            alt="image"
+            alt="images"
           />
         </div>
         <div className="top-singer">
-          {arr.map((item: infoSinger, index) => (
-            <img key={index} src={item.image} alt="image" />
+          {arr.map((item: infoPartner, index) => (
+            <img key={index} src={item.image} alt="images" />
           ))}
         </div>
       </div>

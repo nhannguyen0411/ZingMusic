@@ -1,16 +1,23 @@
+// libs
 import { Skeleton } from "antd";
-import React, { useEffect } from "react";
+// hooks
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// actions
 import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
 import { fetchHotVideoListRequest } from "../../../../../../actions/hotVideo";
 import { fetchSongTrendingListRequest } from "../../../../../../actions/songTrending";
-import singerHot from "../../../../../../mocks/SingerHot";
+// reducers
 import { AppState } from "../../../../../../reducers";
+// mocks
+import singerHot from "../../../../../../mocks/SingerHot";
+// components
 import MainCarousel from "../../../../organisms/MainCarousel";
 import SingerHot from "../../../../organisms/SingerHot";
 import SongCountry from "../../../../organisms/SongCountry";
 import TopChart from "../../../../organisms/TopChart";
 import TrendingVideo from "../../../../organisms/TrendingVideo";
+// others
 import "./styles.scss";
 
 const MainLeft = (): JSX.Element => {
@@ -23,7 +30,7 @@ const MainLeft = (): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const _handleCallAPI = () => {
+  const initFetch = useCallback(() => {
     dispatch(fetchHappyVideoListRequest());
     setTimeout(() => {
       dispatch(fetchHotVideoListRequest());
@@ -31,11 +38,11 @@ const MainLeft = (): JSX.Element => {
     setTimeout(() => {
       dispatch(fetchSongTrendingListRequest());
     }, 2000);
-  };
+  }, [dispatch]);
 
   useEffect(() => {
-    _handleCallAPI();
-  }, []);
+    initFetch();
+  }, [initFetch]);
 
   return (
     <div className="main-left-wrapper">
@@ -44,7 +51,7 @@ const MainLeft = (): JSX.Element => {
         <img
           className="img-zing-chart"
           src={require("../../../../../../images/zingchart.PNG")}
-          alt="image"
+          alt="images"
         />
         <div className="song-list">
           <TopChart />

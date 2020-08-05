@@ -1,6 +1,9 @@
-import React, { FC } from "react";
+// libs
 import classNames from "classnames";
+import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
+// others
 import "./style.scss";
 
 type info = {

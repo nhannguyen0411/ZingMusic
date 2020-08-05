@@ -1,9 +1,10 @@
-import React from "react";
-import NavbarTitle from "../../atoms/NavbarTitle";
+// libs
 import { PoweroffOutlined, CloudUploadOutlined } from "@ant-design/icons";
-
 import { Button } from "antd";
-
+import React from "react";
+// components
+import NavbarTitle from "../../atoms/NavbarTitle";
+// others
 import "./style.scss";
 
 const NavbarCloseAds = (): JSX.Element => (

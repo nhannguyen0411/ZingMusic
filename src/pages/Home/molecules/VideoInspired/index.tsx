@@ -1,22 +1,16 @@
-import React, { FC } from "react";
-import SongInfo from "../SongInfo";
-import { PlayCircleOutlined } from "@ant-design/icons";
-import "./style.scss";
+// libs
 import { Tooltip } from "antd";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
+import React, { FC } from "react";
+import { PlayCircleOutlined } from "@ant-design/icons";
+// components
+import SongInfo from "../SongInfo";
+// types
+import { infoSong } from "../../../../types/Home";
+// others
+import "./style.scss";
 
 interface PropTypes {
-  item: {
-    title: string;
-    song: string;
-    song_id: string;
-    image_url: string;
-    singer: Array<infoSinger>;
-  };
+  item: infoSong;
   noSinger: boolean;
 }
 
@@ -26,7 +20,7 @@ const VideoInspired: FC<PropTypes> = (props) => {
     <div className="video-inspired-wrapper">
       <Tooltip title={item.song}>
         <div className="photo">
-          <img src={`${item.image_url}`} alt="image" />
+          <img src={`${item.image_url}`} alt="images" />
           <div className="overlay">
             <PlayCircleOutlined />
           </div>

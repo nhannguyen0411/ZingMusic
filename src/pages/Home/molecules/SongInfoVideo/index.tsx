@@ -1,22 +1,16 @@
+// libs
+import { Link } from "react-router-dom";
 import React, { FC } from "react";
 import classNames from "classnames";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
-import { Link } from "react-router-dom";
-
+// types
+import { infoSong, infoSinger } from "../../../../types/Home";
+// others
 import "./style.scss";
 
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
 interface PropTypes {
-  item: {
-    id: number;
-    song: string;
-    singer: Array<infoSinger>;
-    song_id: string;
-  };
+  item: infoSong;
   weekAlbum: boolean;
 }
 
@@ -31,7 +25,7 @@ const SongInfoVideo: FC<PropTypes> = (props) => {
       })}
     >
       <div className="song-info-wrapper">
-        <Link to={`/product/${item.id}`}>
+        <Link to={`/product/${item.song_id}`}>
           <NavbarTitle varClass="song" name={item.song} />
         </Link>
         <div className="singer-wrapper">

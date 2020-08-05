@@ -1,17 +1,14 @@
+// libs
 import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import NavbarIcon from "../../atoms/NavbarIcon";
-
+// others
 import "./style.scss";
+// types
+import { PropTopic } from "../../../../types/Home";
 
-interface PropTypes {
-  name: string;
-  parentTitle: string;
-  icon: string;
-  parentIcon: string;
-}
-
-const Topic: FC<PropTypes> = (props) => {
+const Topic: FC<PropTopic> = (props) => {
   const { name, parentTitle, icon, parentIcon } = props;
   return (
     <div className="topic-wrapper">

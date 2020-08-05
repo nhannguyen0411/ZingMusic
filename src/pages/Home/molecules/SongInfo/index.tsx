@@ -1,21 +1,15 @@
-import React, { FC } from "react";
+// libs
 import { Link } from "react-router-dom";
+import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
+// types
+import { infoSinger, infoSong } from "../../../../types/Home";
+// others
 import "./style.scss";
 
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
 interface PropTypes {
-  item: {
-    title: string;
-    song: string;
-    song_id: string;
-    image_url: string;
-    singer: Array<infoSinger>;
-  };
+  item: infoSong;
   noSinger: boolean;
 }
 

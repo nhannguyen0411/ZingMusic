@@ -1,3 +1,4 @@
+// libs
 import {
   DownloadOutlined,
   PlusOutlined,
@@ -6,8 +7,10 @@ import {
 } from "@ant-design/icons";
 import { Button, Modal, Popover } from "antd";
 import React, { FC, useState } from "react";
+// components
 import ContentPopover from "../Antd/ContentPopover";
 import ModalDownload from "../Antd/ModalDownload";
+// others
 import "./styles.scss";
 
 interface PropTypes {

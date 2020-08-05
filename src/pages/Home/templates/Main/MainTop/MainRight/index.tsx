@@ -1,13 +1,19 @@
-import { Skeleton } from "antd";
-import React, { useEffect } from "react";
+// hooks
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchZingChartNewsListRequest } from "../../../../../../actions/zingChartNews";
-import { AppState } from "../../../../../../reducers";
+// libs
+import { Skeleton } from "antd";
+// components
 import HotTopic from "../../../../organisms/HotTopic";
 import MusicForYou from "../../../../organisms/MusicForYou";
 import ZingChartNews from "../../../../organisms/ZingChartNews";
 import ZingChartSong from "../../../../organisms/ZingChartSong";
 import ZingChartVideo from "../../../../organisms/ZingChartVideo";
+// actions
+import { fetchZingChartNewsListRequest } from "../../../../../../actions/zingChartNews";
+// reducers
+import { AppState } from "../../../../../../reducers";
+// others
 import "./style.scss";
 
 const MainRight = (): JSX.Element => {
@@ -16,11 +22,13 @@ const MainRight = (): JSX.Element => {
     (state: AppState) => state.zingChartNews
   );
 
+  const initFetch = useCallback(() => {
+    dispatch(fetchZingChartNewsListRequest());
+  }, [dispatch]);
+
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(fetchZingChartNewsListRequest());
-    }, 2000);
-  }, []);
+    initFetch();
+  }, [initFetch]);
 
   return (
     <div className="main-right-wrapper">

@@ -1,22 +1,14 @@
 import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfo from "../../molecules/SongInfo";
 import SongOptions from "../../molecules/SongOptions";
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
+import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
-  item: {
-    title: string;
-    song: string;
-    song_id: string;
-    image_url: string;
-    singer: Array<infoSinger>;
-  };
+  item: infoSong;
   index: string;
 }
 

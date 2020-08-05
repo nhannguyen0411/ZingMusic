@@ -1,23 +1,13 @@
 import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongTrending from "../../molecules/SongTrending";
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
-type info = {
-  title: string;
-  song: string;
-  song_id: string;
-  image_url: string;
-  singer: Array<infoSinger>;
-};
+import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
-  arr: Array<info>;
+  arr: Array<infoSong>;
   title: string;
 }
 
@@ -29,7 +19,7 @@ const SongCountry: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className="content">
-        {arr.map((item: info, index) => (
+        {arr.map((item: infoSong, index) => (
           <SongTrending
             length={arr.length}
             key={index}

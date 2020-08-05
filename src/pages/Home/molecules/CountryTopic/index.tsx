@@ -1,6 +1,9 @@
+//libs
 import { Tabs } from "antd";
 import React, { FC } from "react";
+//mocks
 import countryTopic from "../../../../mocks/CountryTopic";
+//others
 import "./style.scss";
 
 const { TabPane } = Tabs;

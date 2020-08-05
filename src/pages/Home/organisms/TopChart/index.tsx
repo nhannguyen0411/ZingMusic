@@ -1,43 +1,42 @@
+// hooks
+import React, { useEffect, useState, useCallback } from "react";
+import useEventListener from "../../../../Hooks/useEventListener";
+import { useDispatch, useSelector } from "react-redux";
+// libs
 import { MinusOutlined } from "@ant-design/icons";
 import { Pagination, Skeleton } from "antd";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// actions
 import { fetchTopChartListRequest } from "../../../../actions/topChart";
-import { PgDown, PgUp } from "../../../../constant";
-import useEventListener from "../../../../Hooks/use-event-listener";
+// reducers
 import { AppState } from "../../../../reducers";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongOptions from "../../molecules/SongOptions";
 import SongTop from "../../molecules/SongTop";
+// others
+import { PgDown, PgUp } from "../../../../constant";
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
-type info = {
-  title: string;
-  song: string;
-  song_id: string;
-  image_url: string;
-  singer: Array<infoSinger>;
-};
+// types
+import { infoSong } from "../../../../types/Home";
 
 const TopChart = (): JSX.Element => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { list, isLoading } = useSelector((state: AppState) => state.topChart);
 
-  useEffect(() => {
+  const initFetch = useCallback(() => {
     dispatch(fetchTopChartListRequest());
-  }, []);
+  }, [dispatch]);
 
-  const _handleShowSong = () => {
+  useEffect(() => {
+    initFetch();
+  }, [initFetch]);
+
+  const handleShowSong = () => {
     const perPage = 5;
     const begin = (page - 1) * perPage;
     const end = page * perPage;
-    return list.slice(begin, end).map((item: info, index: number) => (
+    return list.slice(begin, end).map((item: infoSong, index: number) => (
       <div key={index} className="song-in-top">
         <NavbarTitle varClass="song-number" name={`${index + 1 + begin}`} />
         <MinusOutlined />
@@ -81,7 +80,7 @@ const TopChart = (): JSX.Element => {
   return (
     <div className="top-chart-wrapper">
       <div className="render-list">
-        {isLoading ? <Skeleton active /> : _handleShowSong()}
+        {isLoading ? <Skeleton active /> : handleShowSong()}
       </div>
       <div className="pagination-wrapper">
         {!isLoading && (

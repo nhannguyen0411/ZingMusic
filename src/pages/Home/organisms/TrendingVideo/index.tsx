@@ -1,25 +1,16 @@
 import React, { FC } from "react";
+// libs
 import classNames from "classnames";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import VideoInspired from "../../molecules/VideoInspired";
-
+// others
 import "./style.scss";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
-type info = {
-  title: string;
-  song: string;
-  song_id: string;
-  image_url: string;
-  singer: Array<infoSinger>;
-};
+// types
+import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
-  arr: Array<info>;
+  arr: Array<infoSong>;
   title: string;
   noSinger: boolean;
   videoHot: boolean;
@@ -33,7 +24,7 @@ const TrendingVideo: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="title" name={title} />
       </div>
       <div className={classNames("content", { "video-hot": videoHot })}>
-        {arr.map((item: info, index) => (
+        {arr.map((item: infoSong, index) => (
           <VideoInspired key={index} item={item} noSinger={noSinger} />
         ))}
       </div>

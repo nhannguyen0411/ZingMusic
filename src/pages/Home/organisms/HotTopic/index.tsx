@@ -1,8 +1,10 @@
 import React from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import Topic from "../../molecules/Topic";
+// mocks
 import hotTopic from "../../../../mocks/HotTopic";
-
+// others
 import "./style.scss";
 
 const HotTopic = (): JSX.Element => (
@@ -14,7 +16,7 @@ const HotTopic = (): JSX.Element => (
           key={index}
           className="img-responsive"
           src={item.image}
-          alt="image"
+          alt="images"
         />
       ))}
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+// others
 import "./style.scss";
 
 const MusicForYou = (): JSX.Element => (

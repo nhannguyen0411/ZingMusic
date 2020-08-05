@@ -1,27 +1,21 @@
+// libs
 import React, { FC } from "react";
+// components
 import SongInfo from "../SongInfo";
-
+// types
+import { infoSong } from "../../../../types/Home";
+// others
 import "./style.scss";
-type infoSinger = {
-  id: number;
-  singer: string;
-};
 
 interface PropTypes {
-  item: {
-    title: string;
-    song: string;
-    song_id: string;
-    image_url: string;
-    singer: Array<infoSinger>;
-  };
+  item: infoSong;
 }
 
 const SongTop: FC<PropTypes> = (props) => {
   const { item } = props;
   return (
     <div className="song-top-wrapper">
-      <img src={`${item.image_url}`} alt="image" />
+      <img src={`${item.image_url}`} alt="images" />
       <SongInfo noSinger={true} item={item} />
     </div>
   );

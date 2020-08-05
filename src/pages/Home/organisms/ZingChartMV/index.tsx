@@ -1,31 +1,24 @@
-import classNames from "classnames";
 import React, { FC } from "react";
+// libs
+import classNames from "classnames";
+// components
 import SongRankVideo from "../SongRankVideo";
 import ZingChartTopic from "../ZingChartTopic";
+//others
 import "./style.scss";
-type infoSinger = {
-  id: number;
-  singer: string;
-};
-
-type info = {
-  id: number;
-  image_url: string;
-  song: string;
-  singer: Array<infoSinger>;
-  song_id: string;
-};
+// types
+import { infoSong } from "../../../../types/Home";
 
 interface PropTypes {
-  arr: Array<info>;
+  arr: Array<infoSong>;
   weekAlbum: boolean;
   weekNews: boolean;
 }
 
 const ZingChartMV: FC<PropTypes> = (props) => {
   const { arr, weekAlbum, weekNews } = props;
-  const showTopSong = (arr: Array<info>) =>
-    arr.map((item: info, index) => (
+  const showTopSong = (arr: Array<infoSong>) =>
+    arr.map((item: infoSong, index) => (
       <div
         key={index}
         className={classNames({

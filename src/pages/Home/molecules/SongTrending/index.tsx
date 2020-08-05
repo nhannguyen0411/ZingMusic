@@ -1,23 +1,17 @@
-import classNames from "classnames";
+// libs
+import { Tooltip } from "antd";
 import React, { FC } from "react";
+import classNames from "classnames";
+// components
 import SongInfo from "../SongInfo";
 import SongOptions from "../SongOptions";
+// types
+import { infoSong } from "../../../../types/Home";
+// others
 import "./style.scss";
-import { Tooltip } from "antd";
-
-type infoSinger = {
-  id: number;
-  singer: string;
-};
 
 interface PropTypes {
-  item: {
-    title: string;
-    song: string;
-    song_id: string;
-    image_url: string;
-    singer: Array<infoSinger>;
-  };
+  item: infoSong;
   length: number;
   index: number;
 }
@@ -36,7 +30,7 @@ const SongTrending: FC<PropTypes> = (props) => {
         color="white"
         title={item.song}
       >
-        <img src={item.image_url} alt="image" />
+        <img src={item.image_url} alt="images" />
       </Tooltip>
       <SongInfo noSinger={true} item={item} />
       <div className="overlay">

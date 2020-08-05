@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+// components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import NavbarIcon from "../../atoms/NavbarIcon";
-
+// others
 import "./style.scss";
 
 interface PropTypes {

@@ -26,7 +26,6 @@ export const fetchZingChartMVListRequest = (category, country) => (
         const mv = json.weeks
           .find((item) => item.category === category)
           .mv.find((item) => item.country === country);
-        console.log(json);
         dispatch(fetchZingChartMVListOnSuccess(mv.list));
       }
     })
