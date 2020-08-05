@@ -2,15 +2,15 @@
 import { Tabs } from "antd";
 import React, { FC } from "react";
 // components
-import ZingChartTopic from "../../organisms/ZingChartTopic";
+import ZingChartTopic from "pages/Home/organisms/ZingChartTopic";
 //mocks
-import countryTopic from "../../../../mocks/CountryTopic";
+import countryTopic from "mocks/CountryTopic";
 //others
 import "./style.scss";
 
 const { TabPane } = Tabs;
 
-interface PropTypes {
+type PropTypes = {
   onHandleChangeCountrySong: (country: string) => void;
   onHandleChangeCountryVideo: (
     category: string,
@@ -20,7 +20,7 @@ interface PropTypes {
   isSong: boolean;
   isAlbum: boolean;
   name: string;
-}
+};
 
 const CountryTopic: FC<PropTypes> = (props) => {
   const {
@@ -53,5 +53,9 @@ const CountryTopic: FC<PropTypes> = (props) => {
     </div>
   );
 };
+
+// CountryTopic.defaultProps = {
+//   onHandleChangeCountrySong: null,
+// };
 
 export default CountryTopic;

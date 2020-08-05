@@ -1,5 +1,6 @@
 // libs
 import React from "react";
+import { Link } from "react-router-dom";
 // components
 import NavbarMore from "../../molecules/NavbarMore";
 import NavbarSearch from "../../molecules/NavbarSearch";
@@ -23,7 +24,15 @@ const NavbarTop = (): JSX.Element => (
       child="navbar-top-title-wrapper"
       arr={navbarTop}
     />
-    <NavbarTitle varClass="navbar-top-title-wrapper" name="Đăng Nhập" />
+    <div className="options-wrapper">
+      <Link to="/Login">
+        <NavbarTitle varClass="navbar-top-title-wrapper" name="Đăng Nhập" />
+      </Link>
+      <span className="separate"> / </span>
+      <Link to="/Register">
+        <NavbarTitle varClass="navbar-top-title-wrapper" name="Đăng Ký" />
+      </Link>
+    </div>
   </div>
 );
 

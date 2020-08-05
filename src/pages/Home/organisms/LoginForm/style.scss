@@ -1,0 +1,14 @@
+.login-form-wrapper {
+  text-align: center;
+  .ant-input-affix-wrapper {
+  }
+  .error-input {
+    margin-bottom: 1rem;
+    color: red;
+    text-align: left;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}

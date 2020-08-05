@@ -10,6 +10,8 @@ const About = React.lazy(() => import("./About"));
 const Contact = React.lazy(() => import("./Contact"));
 const Product = React.lazy(() => import("./Product"));
 const Singer = React.lazy(() => import("./Singer"));
+const Login = React.lazy(() => import("./Login"));
+const Register = React.lazy(() => import("./Register"));
 
 type describe = {
   params: {
@@ -31,6 +33,8 @@ const routes = [
   },
   { path: "/about", exact: false, main: () => <About /> },
   { path: "/contact", exact: false, main: () => <Contact /> },
+  { path: "/login", exact: false, main: () => <Login /> },
+  { path: "/register", exact: false, main: () => <Register /> },
   { path: "", exact: false, main: () => <NotFound /> },
 ];
 
