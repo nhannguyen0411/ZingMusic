@@ -6,7 +6,6 @@ import "./style.scss";
 const Login = () => {
   return (
     <div className="login-wrapper">
-      <p className="header">Đăng nhập</p>
       <LoginForm />
     </div>
   );

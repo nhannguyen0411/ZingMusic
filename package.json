@@ -10,6 +10,7 @@
     "@types/classnames": "^2.2.10",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
+    "@types/yup": "^0.29.4",
     "antd": "^4.4.2",
     "formik": "^2.1.5",
     "node-sass": "^4.14.1",

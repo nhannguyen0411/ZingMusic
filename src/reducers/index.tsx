@@ -7,6 +7,7 @@ import zingChartSongReducer from "./zingChartSong";
 import zingChartMVReducer from "./zingChartMV";
 import zingChartAlbumReducer from "./zingChartAlbum";
 import zingChartNewsReducer from "./zingChartNews";
+import userBehaviorReducer from "./userBehavior";
 
 const rootReducer = combineReducers({
   topChart: topChartReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   zingChartMV: zingChartMVReducer,
   zingChartAlbum: zingChartAlbumReducer,
   zingChartNews: zingChartNewsReducer,
+  userBehavior: userBehaviorReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

@@ -1,8 +1,13 @@
 // libs
 import { Skeleton } from "antd";
-// hooks
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// components
+import MainCarousel from "../../../../organisms/MainCarousel";
+import SingerHot from "../../../../organisms/SingerHot";
+import SongCountry from "../../../../organisms/SongCountry";
+import TopChart from "../../../../organisms/TopChart";
+import TrendingVideo from "../../../../organisms/TrendingVideo";
 // actions
 import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
 import { fetchHotVideoListRequest } from "../../../../../../actions/hotVideo";
@@ -11,12 +16,6 @@ import { fetchSongTrendingListRequest } from "../../../../../../actions/songTren
 import { AppState } from "../../../../../../reducers";
 // mocks
 import singerHot from "../../../../../../mocks/SingerHot";
-// components
-import MainCarousel from "../../../../organisms/MainCarousel";
-import SingerHot from "../../../../organisms/SingerHot";
-import SongCountry from "../../../../organisms/SongCountry";
-import TopChart from "../../../../organisms/TopChart";
-import TrendingVideo from "../../../../organisms/TrendingVideo";
 // others
 import "./styles.scss";
 

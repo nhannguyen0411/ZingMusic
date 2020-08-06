@@ -1,6 +1,9 @@
-import { Input } from "antd";
+// libs
+import { Input, Form } from "antd";
 import PropTypes from "prop-types";
 import React from "react";
+// others
+import "./styles.scss";
 
 InputField.prototype = {
   field: PropTypes.object.isRequired,
@@ -20,23 +23,53 @@ InputField.defaultProps = {
 };
 
 function InputField(props) {
-  const { field, label, disabled, form, placeholder, type, icon } = props;
+  const {
+    field,
+    disabled,
+    form,
+    placeholder,
+    type,
+    icon,
+    submitCount,
+    hasFeedBack,
+  } = props;
+
   const { errors, touched } = form;
   const { name } = field;
-  const showError = errors[name] && touched[name];
+
+  const submitted = submitCount > 0;
+  const hasError = errors[name];
+  const touchedErr = touched[name];
+  const submittedError = hasError && submitted;
+  const touchedError = hasError && touchedErr;
+
+  //const showError = errors[name] && touched[name];
   return (
-    <div>
-      <Input
+    <div className="block-input">
+      {/* <Input
         id={name}
         {...field}
         type={type}
         disabled={disabled}
         placeholder={placeholder}
         prefix={icon}
-        invalid="true"
-      />
-
-      {showError && <p className="error-input">{errors[name]}</p>}
+      /> */}
+      <Form.Item
+        hasFeedback={
+          (hasFeedBack && submitted) || (hasFeedBack && touched) ? true : false
+        }
+        help={submittedError || touchedError ? hasError : false}
+        validateStatus={submittedError || touchedError ? "error" : "success"}
+      >
+        <Input
+          id={name}
+          {...field}
+          type={type}
+          disabled={disabled}
+          placeholder={placeholder}
+          prefix={icon}
+        />
+      </Form.Item>
     </div>
   );
 }

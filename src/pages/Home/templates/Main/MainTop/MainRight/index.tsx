@@ -1,8 +1,7 @@
-// hooks
-import React, { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
 // libs
 import { Skeleton } from "antd";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // components
 import HotTopic from "../../../../organisms/HotTopic";
 import MusicForYou from "../../../../organisms/MusicForYou";
