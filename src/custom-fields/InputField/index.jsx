@@ -1,5 +1,5 @@
 // libs
-import { Input, Form } from "antd";
+import { Form, Input } from "antd";
 import PropTypes from "prop-types";
 import React from "react";
 // others
@@ -43,17 +43,8 @@ function InputField(props) {
   const submittedError = hasError && submitted;
   const touchedError = hasError && touchedErr;
 
-  //const showError = errors[name] && touched[name];
   return (
     <div className="block-input">
-      {/* <Input
-        id={name}
-        {...field}
-        type={type}
-        disabled={disabled}
-        placeholder={placeholder}
-        prefix={icon}
-      /> */}
       <Form.Item
         hasFeedback={
           (hasFeedBack && submitted) || (hasFeedBack && touched) ? true : false

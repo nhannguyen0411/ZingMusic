@@ -30,6 +30,12 @@ const ZingChartVideo = (): JSX.Element => {
     initFetch();
   }, [initFetch]);
 
+  /**
+   * Switch country
+   * @param {string} category - The name of the category
+   * @param {string} country - The name of the country
+   * @param {boolean} isAlbum - Base on this to send album or mv request.
+   */
   const handleChangeCountry = (
     category: string,
     country: string,

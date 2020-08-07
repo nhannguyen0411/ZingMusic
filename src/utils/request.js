@@ -7,3 +7,12 @@ export const fetchAPI = async (endpoint, method, body) =>
     },
     body: body ? JSON.stringify({ body }) : null,
   });
+
+export const parseJwt = (token) => {
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.name;
+  } catch (e) {
+    return null;
+  }
+};

@@ -1,6 +1,6 @@
 const initialState = {
   isLoading: false,
-  token: "",
+  token: localStorage.getItem("token") || "",
   err: "",
 };
 
@@ -55,6 +55,7 @@ const userBehaviorReducer = (state = initialState, action) => {
     }
 
     case "FETCH_LOGOUT": {
+      localStorage.removeItem("token");
       return {
         ...state,
         token: "",

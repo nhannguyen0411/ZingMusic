@@ -37,6 +37,10 @@ const LoginForm = () => {
     router.push("/");
   };
 
+  /**
+   * Handle login request
+   * @param {object} values - Send info of user is pressed from keyboard
+   */
   const handleOnLogin = (values: { username: string; password: string }) => {
     dispatch(fetchLoginRequest(values, handleOnLoginSuccess));
   };

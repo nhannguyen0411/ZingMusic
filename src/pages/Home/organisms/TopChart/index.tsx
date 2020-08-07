@@ -31,6 +31,9 @@ const TopChart = (): JSX.Element => {
     initFetch();
   }, [initFetch]);
 
+  /**
+   * Show list song
+   */
   const handleShowSong = () => {
     const perPage = 5;
     const begin = (page - 1) * perPage;
@@ -49,7 +52,11 @@ const TopChart = (): JSX.Element => {
     ));
   };
 
-  const _handleMoveOnePage = (e: { shiftKey?: string; keyCode?: number }) => {
+  /**
+   * Increase or Decrease page by press Page Up or Page Down
+   * @param {Object} e - Event DOM
+   */
+  const _handleMovePage = (e: { shiftKey?: string; keyCode?: number }) => {
     const { keyCode } = e;
     const listLength = list.length;
     switch (true) {
@@ -74,7 +81,7 @@ const TopChart = (): JSX.Element => {
     }
   };
 
-  useEventListener("keydown", _handleMoveOnePage);
+  useEventListener("keydown", _handleMovePage);
 
   return (
     <div className="top-chart-wrapper">

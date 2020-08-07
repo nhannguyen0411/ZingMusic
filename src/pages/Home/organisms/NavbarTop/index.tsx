@@ -1,5 +1,5 @@
 // libs
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "antd";
@@ -15,13 +15,20 @@ import { AppState } from "reducers";
 import navbarTop from "../../../../mocks/NavbarTop";
 // others
 import "./style.scss";
+import { parseJwt } from "utils/request";
 
 const NavbarTop = () => {
+  const [name, setName] = useState("");
   const { token } = useSelector((state: AppState) => state.userBehavior);
   const dispatch = useDispatch();
   const handleOnLogOut = () => {
     dispatch(fetchLogoutRequest());
   };
+
+  useEffect(() => {
+    setName(parseJwt(token));
+  }, [token]);
+
   return (
     <div className="navbar-top-wrapper">
       <div className="navbar-top-image">
@@ -38,7 +45,7 @@ const NavbarTop = () => {
       />
       {token ? (
         <div className="options-wrapper">
-          <span>Hello there</span>
+          <span>{name}</span>
           <span className="separate">/</span>
           <Button type="link" onClick={handleOnLogOut}>
             Đăng Xuất

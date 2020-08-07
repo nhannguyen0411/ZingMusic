@@ -28,6 +28,10 @@ const ZingChartSong = (): JSX.Element => {
     initFetch();
   }, [initFetch]);
 
+  /**
+   * Switch country
+   * @param {string} country - The name of the country
+   */
   const handleChangeCountry = (country: string) => {
     dispatch(fetchZingChartSongListRequest(country));
   };

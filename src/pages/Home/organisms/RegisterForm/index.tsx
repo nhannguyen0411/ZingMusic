@@ -17,6 +17,7 @@ import { useRouter } from "Hooks/useRouter";
 // others
 import { IsRequired, Login } from "constant";
 import "./style.scss";
+import PasswordField from "custom-fields/PasswordField";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,10 @@ const RegisterForm = () => {
     router.push(`/${Login}`);
   };
 
+  /**
+   * Handle register request
+   * @param {object} values - Send info of user is pressed from keyboard
+   */
   const handleOnRegister = (values: { username: string; password: string }) => {
     dispatch(fetchRegisterRequest(values, handleOnRegisterSuccess));
   };
@@ -62,57 +67,64 @@ const RegisterForm = () => {
         initialValues={initialValues}
         onSubmit={(values) => handleOnRegister(values)}
       >
-        {(formikProps) => (
-          <Form>
-            <FastField
-              name="username"
-              label="Username"
-              component={InputField}
-              placeholder="Eg: admin..."
-              icon={<UserOutlined className="site-form-item-icon" />}
-              hasFeedBack
-            />
-            <FastField
-              name="email"
-              label="Username"
-              type="email"
-              component={InputField}
-              placeholder="Eg: example@citynow.com"
-              icon={<MailOutlined className="site-form-item-icon" />}
-              hasFeedBack
-            />
-            <FastField
-              name="password"
-              label="Password"
-              type="password"
-              component={InputField}
-              placeholder="Eg: 123456..."
-              icon={<KeyOutlined className="site-form-item-icon" />}
-              hasFeedBack
-            />
-            <FastField
-              name="passwordConfirmation"
-              label="PasswordConfirmation"
-              type="password"
-              component={InputField}
-              placeholder="Eg: 123456..."
-              icon={<KeyOutlined className="site-form-item-icon" />}
-              hasFeedBack
-            />
-            <Spin spinning={isLoading}>
-              <button
-                className="btn-submit ant-btn ant-btn-primary"
-                type="submit"
-              >
-                Đăng ký
-              </button>
-            </Spin>
-            <p>
-              Have you already account? <Link to="/login">Login</Link>
-            </p>
-            {err && <p>{err}</p>}
-          </Form>
-        )}
+        {(formikProps) => {
+          const { submitCount } = formikProps;
+          return (
+            <Form>
+              <FastField
+                name="username"
+                label="Username"
+                component={InputField}
+                placeholder="Eg: admin..."
+                icon={<UserOutlined className="site-form-item-icon" />}
+                submitCount={submitCount}
+                hasFeedBack
+              />
+              <FastField
+                name="email"
+                label="Username"
+                type="email"
+                component={InputField}
+                placeholder="Eg: example@citynow.com"
+                icon={<MailOutlined className="site-form-item-icon" />}
+                submitCount={submitCount}
+                hasFeedBack
+              />
+              <FastField
+                name="password"
+                label="Password"
+                type="password"
+                component={PasswordField}
+                placeholder="Eg: 123456..."
+                icon={<KeyOutlined className="site-form-item-icon" />}
+                submitCount={submitCount}
+                hasFeedBack
+              />
+              <FastField
+                name="passwordConfirmation"
+                label="PasswordConfirmation"
+                type="password"
+                component={InputField}
+                placeholder="Eg: 123456..."
+                icon={<KeyOutlined className="site-form-item-icon" />}
+                submitCount={submitCount}
+                hasFeedBack
+              />
+              <Spin spinning={isLoading}>
+                <button
+                  className="btn-submit ant-btn ant-btn-primary"
+                  type="submit"
+                >
+                  Đăng ký
+                </button>
+              </Spin>
+              <p>
+                Have you already account? <Link to="/login">Login</Link>
+              </p>
+              {err && <p>{err}</p>}
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );
