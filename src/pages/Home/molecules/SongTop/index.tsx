@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import SongInfo from "../SongInfo";
 // types
@@ -11,12 +11,12 @@ interface PropTypes {
   item: infoSong;
 }
 
-const SongTop: FC<PropTypes> = (props) => {
+const SongTop = (props: PropTypes) => {
   const { item } = props;
   return (
     <div className="song-top-wrapper">
       <img src={`${item.image_url}`} alt="images" />
-      <SongInfo noSinger={true} item={item} />
+      <SongInfo item={item} />
     </div>
   );
 };

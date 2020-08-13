@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 import classNames from "classnames";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
@@ -16,7 +16,7 @@ interface PropTypes {
   videoHot: boolean;
 }
 
-const TrendingVideo: FC<PropTypes> = (props) => {
+const TrendingVideo = (props: PropTypes) => {
   const { title, noSinger, arr, videoHot } = props;
   return (
     <div className="trending-video-wrapper">
@@ -30,6 +30,11 @@ const TrendingVideo: FC<PropTypes> = (props) => {
       </div>
     </div>
   );
+};
+
+TrendingVideo.defaultProps = {
+  noSinger: true,
+  videoHot: false,
 };
 
 export default TrendingVideo;

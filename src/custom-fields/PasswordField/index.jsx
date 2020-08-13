@@ -62,12 +62,12 @@ function PasswordField(props) {
       <p>Your password must have:</p>
       <ul className="rules">
         <li>
-          {renderCondition(/(?=[A-Z])/, value)}
+          {renderCondition(/(?=.*[A-Z])/, value)}
           At least a Uppercase letter
         </li>
-        <li>{renderCondition(/[a-z0-9]{8,}/, value)}8 or more characters</li>
+        <li>{renderCondition(/[a-zA-Z0-9]{8,}/, value)}8 or more characters</li>
         <li>
-          {renderCondition(/[a-z][0-9]/, value)}
+          {renderCondition(/(?=.*\d)(?=.*[a-z])/, value)}
           Contain both letters and numbers
         </li>
         <li>

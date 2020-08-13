@@ -42,7 +42,7 @@ const ZingChartSong = (): JSX.Element => {
         <Skeleton active />
       ) : (
         zingChartSongList.map((item: infoSong, index: number) => (
-          <SongRank index={`${index + 1}`} item={item} />
+          <SongRank key={index} index={`${index + 1}`} item={item} />
         ))
       )}
     </div>
@@ -53,9 +53,7 @@ const ZingChartSong = (): JSX.Element => {
       <CountryTopic
         name="#ZINGCHART TUẦN - BÀI HÁT"
         onHandleChangeCountrySong={handleChangeCountry}
-        onHandleChangeCountryVideo={() => console.log("haha")}
         isSong={true}
-        isAlbum={false}
       >
         <SongRankList />
       </CountryTopic>

@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfo from "../../molecules/SongInfo";
@@ -14,7 +14,7 @@ interface PropTypes {
   index: string;
 }
 
-const SeveralRankSong: FC<PropTypes> = (props) => {
+const SeveralRankSong = (props: PropTypes) => {
   const { item, index } = props;
   return (
     <div className="several-rank-song-wrapper">
@@ -24,7 +24,7 @@ const SeveralRankSong: FC<PropTypes> = (props) => {
         <NavbarTitle varClass="song-view" name={item.song_id.slice(0, 4)} />
       </div>
       <div className="overlay-song">
-        <SongOptions song={item.song} fourOptions={false} />
+        <SongOptions song={item.song} />
       </div>
     </div>
   );

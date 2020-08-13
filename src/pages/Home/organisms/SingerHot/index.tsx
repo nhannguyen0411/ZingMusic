@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 // types
@@ -11,7 +11,7 @@ interface PropTypes {
   arr: Array<infoPartner>;
 }
 
-const SingerHot: FC<PropTypes> = (props) => {
+const SingerHot = (props: PropTypes) => {
   const { arr } = props;
 
   return (

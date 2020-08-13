@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import SongRankVideo from "../SongRankVideo";
 // types
@@ -12,12 +12,13 @@ interface PropTypes {
   weekAlbum: boolean;
 }
 
-const ZingChartMV: FC<PropTypes> = (props) => {
+const ZingChartMV = (props: PropTypes) => {
   const { arr, weekAlbum } = props;
   const TopSongList = () => (
     <div className="song-top">
       {arr.map((item: infoSong, index) => (
         <SongRankVideo
+          key={index}
           weekAlbum={weekAlbum}
           item={item}
           index={`${index + 1}`}
@@ -31,6 +32,10 @@ const ZingChartMV: FC<PropTypes> = (props) => {
       <TopSongList />
     </div>
   );
+};
+
+ZingChartMV.defaultProps = {
+  weekAlbum: false,
 };
 
 export default ZingChartMV;

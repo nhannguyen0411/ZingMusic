@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import NavbarIcon from "../../atoms/NavbarIcon";
@@ -10,7 +10,7 @@ interface PropTypes {
   name: string;
 }
 
-const ZingChartTopic: FC<PropTypes> = (props) => {
+const ZingChartTopic = (props: PropTypes) => {
   const { name } = props;
   return (
     <div className="zing-chart-topic-wrapper">
@@ -21,6 +21,10 @@ const ZingChartTopic: FC<PropTypes> = (props) => {
       />
     </div>
   );
+};
+
+ZingChartTopic.defaultProps = {
+  name: "",
 };
 
 export default ZingChartTopic;

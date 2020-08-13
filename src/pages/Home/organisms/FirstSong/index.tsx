@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongInfoVideo from "../../molecules/SongInfoVideo";
@@ -16,7 +16,7 @@ interface PropTypes {
   isZingChartSong: boolean;
 }
 
-const FirstSong: FC<PropTypes> = (props) => {
+const FirstSong = (props: PropTypes) => {
   const { item, weekAlbum, index, isZingChartSong } = props;
   return (
     <div className="first-song-wrapper">
@@ -31,6 +31,11 @@ const FirstSong: FC<PropTypes> = (props) => {
       )}
     </div>
   );
+};
+
+FirstSong.defaultProps = {
+  isZingChartSong: false,
+  weekAlbum: false,
 };
 
 export default FirstSong;

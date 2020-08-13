@@ -6,7 +6,7 @@ import {
   YoutubeOutlined,
 } from "@ant-design/icons";
 import { Button, Modal, Popover } from "antd";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 // components
 import ContentPopover from "../Antd/ContentPopover";
 import ModalDownload from "../Antd/ModalDownload";
@@ -18,7 +18,7 @@ interface PropTypes {
   fourOptions: boolean;
 }
 
-const SongOptions: FC<PropTypes> = (props) => {
+const SongOptions = (props: PropTypes) => {
   const { song, fourOptions } = props;
   const [visibleAdd, setVisibleAdd] = useState(false);
   const [visibleDownload, setVisibleDownload] = useState(false);
@@ -70,6 +70,10 @@ const SongOptions: FC<PropTypes> = (props) => {
       </Modal>
     </div>
   );
+};
+
+SongOptions.defaultProps = {
+  fourOptions: false,
 };
 
 export default SongOptions;

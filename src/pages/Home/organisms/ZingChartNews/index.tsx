@@ -1,6 +1,6 @@
 // libs
 import classNames from "classnames";
-import React, { FC } from "react";
+import React from "react";
 // components
 import ZingChartTopic from "../ZingChartTopic";
 import HotNews from "../HotNews";
@@ -13,7 +13,7 @@ interface PropTypes {
   arr: Array<infoNews>;
 }
 
-const ZingChartNews: FC<PropTypes> = (props) => {
+const ZingChartNews = (props: PropTypes) => {
   const { arr } = props;
   return (
     <div className="zing-chart-news-wrapper">

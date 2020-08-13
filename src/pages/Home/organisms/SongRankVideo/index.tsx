@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import SeveralRankVideo from "../SeveralRankVideo";
 import FirstSong from "../FirstSong";
@@ -14,17 +14,12 @@ interface PropTypes {
   weekAlbum: boolean;
 }
 
-const SongRankVideo: FC<PropTypes> = (props) => {
+const SongRankVideo = (props: PropTypes) => {
   const { item, weekAlbum, index } = props;
   return (
     <div className="song-rank-video-wrapper">
       {parseInt(index) === 1 ? (
-        <FirstSong
-          isZingChartSong={false}
-          index={index}
-          item={item}
-          weekAlbum={weekAlbum}
-        />
+        <FirstSong index={index} item={item} weekAlbum={weekAlbum} />
       ) : (
         <SeveralRankVideo item={item} weekAlbum={weekAlbum} index={index} />
       )}

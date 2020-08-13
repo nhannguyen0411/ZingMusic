@@ -29,8 +29,20 @@ const LoginForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required(IsRequired),
-    password: Yup.string().required(IsRequired),
+    username: Yup.string()
+      .required(IsRequired)
+      .matches(/^(?=.*\d)(?=.*[a-z]).{6,20}$/, {
+        message:
+          "Username required 6-20 characters contain both letters and number",
+        excludeEmptyString: true,
+      }),
+    password: Yup.string()
+      .required(IsRequired)
+      .matches(/^(?=.*\d)(?=.*[a-z]).{6,20}$/, {
+        message:
+          "Password required 6-20 characters contain both letters and number",
+        excludeEmptyString: true,
+      }),
   });
 
   const handleOnLoginSuccess = () => {

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // components
 import InputField from "custom-fields/InputField";
+import PasswordField from "custom-fields/PasswordField";
 // actions
 import { fetchRegisterRequest } from "actions/userBehavior";
 // reducers
@@ -17,7 +18,6 @@ import { useRouter } from "Hooks/useRouter";
 // others
 import { IsRequired, Login } from "constant";
 import "./style.scss";
-import PasswordField from "custom-fields/PasswordField";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -33,13 +33,19 @@ const RegisterForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required(IsRequired),
+    username: Yup.string()
+      .required(IsRequired)
+      .matches(/^(?=.*\d)(?=.*[a-z]).{6,20}$/, {
+        message:
+          "Username required 6-20 characters contain both letters and number",
+        excludeEmptyString: true,
+      }),
     email: Yup.string().required(IsRequired).email("Email is invalid!!!"),
     password: Yup.string()
       .required(IsRequired)
       .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/, {
         message:
-          "Password required 6-20 characters include of special character",
+          "Password required 6-20 characters include of uppercase character",
         excludeEmptyString: true,
       }),
     passwordConfirmation: Yup.string()

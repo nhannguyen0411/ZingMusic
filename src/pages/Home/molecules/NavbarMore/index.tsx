@@ -1,6 +1,6 @@
 // libs
 import classNames from "classnames";
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 // others
@@ -17,7 +17,7 @@ interface PropTypes {
   child: string;
 }
 
-const NavbarMore: FC<PropTypes> = (props) => {
+const NavbarMore = (props: PropTypes) => {
   const { arr, parent, child } = props;
   return (
     <div className={classNames("navbar-more-wrapper", parent)}>

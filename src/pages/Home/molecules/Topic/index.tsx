@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import NavbarIcon from "../../atoms/NavbarIcon";
@@ -8,7 +8,7 @@ import "./style.scss";
 // types
 import { PropTopic } from "../../../../types/Home";
 
-const Topic: FC<PropTopic> = (props) => {
+const Topic = (props: PropTopic) => {
   const { name, parentTitle, icon, parentIcon } = props;
   return (
     <div className="topic-wrapper">

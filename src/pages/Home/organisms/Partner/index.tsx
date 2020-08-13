@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 // others
@@ -10,7 +10,7 @@ interface PropTypes {
   arr: Array<infoPartner>;
 }
 
-const Partner: FC<PropTypes> = (props) => {
+const Partner = (props: PropTypes) => {
   const { arr } = props;
 
   return (

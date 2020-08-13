@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 // components
 import MainCarousel from "../../../../organisms/MainCarousel";
 import SingerHot from "../../../../organisms/SingerHot";
-import SongCountry from "../../../../organisms/SongCountry";
 import TopChart from "../../../../organisms/TopChart";
 import TrendingVideo from "../../../../organisms/TrendingVideo";
+import SectionSongTrending from "pages/Home/organisms/SectionSongTrending";
 // actions
 import { fetchHappyVideoListRequest } from "../../../../../../actions/happyVideo";
 import { fetchHotVideoListRequest } from "../../../../../../actions/hotVideo";
-import { fetchSongTrendingListRequest } from "../../../../../../actions/songTrending";
 // reducers
 import { AppState } from "../../../../../../reducers";
 // mocks
@@ -20,11 +19,8 @@ import singerHot from "../../../../../../mocks/SingerHot";
 import "./styles.scss";
 
 const MainLeft = (): JSX.Element => {
-  const { hotVideo, happyVideo, songTrending } = useSelector(
-    (state: AppState) => state
-  );
+  const { hotVideo, happyVideo } = useSelector((state: AppState) => state);
   const { hotVideoList, isLoadingHotVideo } = hotVideo;
-  const { songTrendingList, isLoadingSongTrending } = songTrending;
   const { happyVideoList, isLoadingHappyVideo } = happyVideo;
 
   const dispatch = useDispatch();
@@ -34,9 +30,6 @@ const MainLeft = (): JSX.Element => {
     setTimeout(() => {
       dispatch(fetchHotVideoListRequest());
     }, 1000);
-    setTimeout(() => {
-      dispatch(fetchSongTrendingListRequest());
-    }, 2000);
   }, [dispatch]);
 
   useEffect(() => {
@@ -63,7 +56,6 @@ const MainLeft = (): JSX.Element => {
           title="LẠ MÀ VUI"
           arr={happyVideoList.slice(0, 8)}
           noSinger={false}
-          videoHot={false}
         />
       )}
       {isLoadingHotVideo ? (
@@ -72,42 +64,15 @@ const MainLeft = (): JSX.Element => {
         <TrendingVideo
           title="VIDEO HOT"
           arr={hotVideoList.slice(0, 12)}
-          noSinger={true}
           videoHot={true}
         />
       )}
       {isLoadingHotVideo ? (
         <Skeleton active />
       ) : (
-        <TrendingVideo
-          title="ALBUM HOT"
-          arr={hotVideoList.slice(0, 12)}
-          noSinger={true}
-          videoHot={false}
-        />
+        <TrendingVideo title="ALBUM HOT" arr={hotVideoList.slice(0, 12)} />
       )}
-      <div className="section-song-trending">
-        <div className="section-left">
-          {isLoadingSongTrending ? (
-            <Skeleton active />
-          ) : (
-            <SongCountry
-              title="NHẠC VIỆT HOT"
-              arr={songTrendingList.slice(0, 10)}
-            />
-          )}
-        </div>
-        <div className="section-right">
-          {isLoadingSongTrending ? (
-            <Skeleton active />
-          ) : (
-            <SongCountry
-              title="NHẠC VIỆT MỚI"
-              arr={songTrendingList.slice(0, 10)}
-            />
-          )}
-        </div>
-      </div>
+      <SectionSongTrending />
       <div className="section-singer-hot">
         <SingerHot arr={singerHot} />
       </div>

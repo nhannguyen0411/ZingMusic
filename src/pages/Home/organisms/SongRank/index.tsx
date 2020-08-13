@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import FirstSong from "../FirstSong";
 import SeveralRankSong from "../SeveralRankSong";
@@ -13,18 +13,13 @@ interface PropTypes {
   index: string;
 }
 
-const SongRank: FC<PropTypes> = (props) => {
+const SongRank = (props: PropTypes) => {
   const { item, index } = props;
 
   return (
     <div className="song-rank-wrapper">
       {parseInt(index) === 1 ? (
-        <FirstSong
-          item={item}
-          index={index}
-          isZingChartSong={true}
-          weekAlbum={false}
-        />
+        <FirstSong item={item} index={index} isZingChartSong={true} />
       ) : (
         <SeveralRankSong item={item} index={index} />
       )}

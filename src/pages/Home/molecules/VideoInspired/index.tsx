@@ -1,6 +1,6 @@
 // libs
 import { Tooltip } from "antd";
-import React, { FC } from "react";
+import React from "react";
 import { PlayCircleOutlined } from "@ant-design/icons";
 // components
 import SongInfo from "../SongInfo";
@@ -14,7 +14,7 @@ interface PropTypes {
   noSinger: boolean;
 }
 
-const VideoInspired: FC<PropTypes> = (props) => {
+const VideoInspired = (props: PropTypes) => {
   const { item, noSinger } = props;
   return (
     <div className="video-inspired-wrapper">

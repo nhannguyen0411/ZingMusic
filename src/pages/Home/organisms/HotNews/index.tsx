@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 // types
@@ -11,7 +11,7 @@ interface PropTypes {
   item: infoNews;
 }
 
-const HotNews: FC<PropTypes> = (props) => {
+const HotNews = (props: PropTypes) => {
   const { item } = props;
   return (
     <div className="hot-news-wrapper">

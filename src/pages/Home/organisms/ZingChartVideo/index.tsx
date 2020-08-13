@@ -51,22 +51,17 @@ const ZingChartVideo = (): JSX.Element => {
     <div className="zing-chart-video-wrapper">
       <CountryTopic
         name="#ZINGCHART TUẦN - MV"
-        onHandleChangeCountrySong={() => console.log("haha")}
         onHandleChangeCountryVideo={handleChangeCountry}
-        isSong={false}
-        isAlbum={false}
       >
         {isLoadingZingChartMV ? (
           <Skeleton active />
         ) : (
-          <ZingChartMV arr={zingChartMVList.slice(0, 5)} weekAlbum={false} />
+          <ZingChartMV arr={zingChartMVList.slice(0, 5)} />
         )}
       </CountryTopic>
       <CountryTopic
         name="#ZINGCHART TUẦN - ALBUM"
-        onHandleChangeCountrySong={() => console.log("haha")}
         onHandleChangeCountryVideo={handleChangeCountry}
-        isSong={false}
         isAlbum={true}
       >
         {isLoadingZingChartAlbum ? (

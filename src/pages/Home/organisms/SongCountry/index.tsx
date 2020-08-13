@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 import SongTrending from "../../molecules/SongTrending";
@@ -13,7 +13,7 @@ interface PropTypes {
   title: string;
 }
 
-const SongCountry: FC<PropTypes> = (props) => {
+const SongCountry = (props: PropTypes) => {
   const { title, arr } = props;
   return (
     <div className="song-country-wrapper">

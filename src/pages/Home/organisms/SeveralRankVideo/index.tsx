@@ -1,5 +1,5 @@
 // libs
-import React, { FC } from "react";
+import React from "react";
 import classNames from "classnames";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
@@ -15,7 +15,7 @@ interface PropTypes {
   index: string;
 }
 
-const SeveralRankVideo: FC<PropTypes> = (props) => {
+const SeveralRankVideo = (props: PropTypes) => {
   const { item, weekAlbum, index } = props;
   return (
     <div className="several-rank-video-wrapper">

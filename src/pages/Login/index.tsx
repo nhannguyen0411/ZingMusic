@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
 import LoginForm from "pages/Home/organisms/LoginForm";
-
+import React from "react";
 import "./style.scss";
-import { useSelector } from "react-redux";
-import { AppState } from "reducers";
-import { useRouter } from "Hooks/useRouter";
 
 const Login = () => {
-  const { token } = useSelector((state: AppState) => state.userBehavior);
-  const router = useRouter();
-
-  useEffect(() => {
-    token && router.push("/");
-  }, [token, router]);
+  // if (token) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <div className="login-wrapper">

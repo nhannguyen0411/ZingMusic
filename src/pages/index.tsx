@@ -5,6 +5,7 @@ import NotFound from "./NotFound";
 import "antd/dist/antd.css";
 
 import "./style.scss";
+import PrivateRoute from "./PrivateRoute";
 
 const About = React.lazy(() => import("./About"));
 const Contact = React.lazy(() => import("./Contact"));
@@ -23,19 +24,35 @@ const routes = [
   { path: "/", exact: true, main: () => <Home /> },
   {
     path: "/product/:id",
-    exact: true,
+    exact: false,
     main: ({ match }: { match: describe }) => <Product match={match} />,
   },
   {
     path: "/singer/:id",
-    exact: true,
+    exact: false,
     main: ({ match }: { match: describe }) => <Singer match={match} />,
   },
   { path: "/about", exact: false, main: () => <About /> },
   { path: "/contact", exact: false, main: () => <Contact /> },
-  { path: "/login", exact: false, main: () => <Login /> },
-  { path: "/register", exact: false, main: () => <Register /> },
-  { path: "", exact: false, main: () => <NotFound /> },
+  {
+    path: "/login",
+    exact: false,
+    main: () => (
+      <PrivateRoute>
+        <Login />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/register",
+    exact: false,
+    main: () => (
+      <PrivateRoute>
+        <Register />
+      </PrivateRoute>
+    ),
+  },
+  { path: "*", exact: false, main: () => <NotFound /> },
 ];
 
 const App = (): JSX.Element => {

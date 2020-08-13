@@ -1,6 +1,6 @@
 //libs
 import { Tabs } from "antd";
-import React, { FC } from "react";
+import React from "react";
 // components
 import ZingChartTopic from "pages/Home/organisms/ZingChartTopic";
 //mocks
@@ -10,7 +10,7 @@ import "./style.scss";
 
 const { TabPane } = Tabs;
 
-type PropTypes = {
+interface PropTypes {
   onHandleChangeCountrySong: (country: string) => void;
   onHandleChangeCountryVideo: (
     category: string,
@@ -20,9 +20,10 @@ type PropTypes = {
   isSong: boolean;
   isAlbum: boolean;
   name: string;
-};
+  children: JSX.Element;
+}
 
-const CountryTopic: FC<PropTypes> = (props) => {
+const CountryTopic = (props: PropTypes) => {
   const {
     children,
     onHandleChangeCountrySong,
@@ -54,8 +55,12 @@ const CountryTopic: FC<PropTypes> = (props) => {
   );
 };
 
-// CountryTopic.defaultProps = {
-//   onHandleChangeCountrySong: null,
-// };
+CountryTopic.defaultProps = {
+  onHandleChangeCountrySong: () => {},
+  onHandleChangeCountryVideo: () => {},
+  isSong: false,
+  isAlbum: false,
+  name: "",
+};
 
 export default CountryTopic;

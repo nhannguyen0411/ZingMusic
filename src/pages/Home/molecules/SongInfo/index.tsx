@@ -1,6 +1,6 @@
 // libs
 import { Link } from "react-router-dom";
-import React, { FC } from "react";
+import React from "react";
 // components
 import NavbarTitle from "../../atoms/NavbarTitle";
 // types
@@ -13,7 +13,7 @@ interface PropTypes {
   noSinger: boolean;
 }
 
-const SongInfo: FC<PropTypes> = (props) => {
+const SongInfo = (props: PropTypes) => {
   const { item, noSinger } = props;
 
   const showSinger = (list: Array<infoSinger>) =>
@@ -36,6 +36,10 @@ const SongInfo: FC<PropTypes> = (props) => {
       )}
     </div>
   );
+};
+
+SongInfo.defaultProps = {
+  noSinger: true,
 };
 
 export default SongInfo;
