@@ -20,7 +20,7 @@ const FirstSong = (props: PropTypes) => {
   const { item, weekAlbum, index, isZingChartSong } = props;
   return (
     <div className="first-song-wrapper">
-      <img src={item.image_url} alt="images" />
+      <img loading="lazy" src={item.image_url} alt="images" />
       {isZingChartSong ? (
         <SeveralRankSong item={item} index={index} />
       ) : (

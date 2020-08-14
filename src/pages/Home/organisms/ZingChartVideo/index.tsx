@@ -21,9 +21,7 @@ const ZingChartVideo = (): JSX.Element => {
 
   const initFetch = useCallback(() => {
     dispatch(fetchZingChartMVListRequest("MV", "VN"));
-    setTimeout(() => {
-      dispatch(fetchZingChartAlbumListRequest("album", "VN"));
-    }, 1000);
+    dispatch(fetchZingChartAlbumListRequest("album", "VN"));
   }, [dispatch]);
 
   useEffect(() => {

@@ -21,6 +21,7 @@ const SeveralRankVideo = (props: PropTypes) => {
     <div className="several-rank-video-wrapper">
       <div className="video-wrapper">
         <img
+          loading="lazy"
           className={classNames({
             "week-album": weekAlbum,
             "week-mv": !weekAlbum,

@@ -25,7 +25,7 @@ const useEventListener = (eventName, handler, element = window) => {
       };
 
       // Add event listener
-      element.addEventListener(eventName, eventListener);
+      element.addEventListener(eventName, eventListener, { passive: true });
 
       // Remove event listener on cleanup
       return () => {

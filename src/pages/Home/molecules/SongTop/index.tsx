@@ -15,7 +15,9 @@ const SongTop = (props: PropTypes) => {
   const { item } = props;
   return (
     <div className="song-top-wrapper">
-      <img src={`${item.image_url}`} alt="images" />
+      <div className="aspect-ratio-169">
+        <img loading="lazy" src={`${item.image_url}`} alt="images" />
+      </div>
       <SongInfo item={item} />
     </div>
   );

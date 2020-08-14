@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import { Spin } from "antd";
+import { Button } from "antd";
 import { AppState } from "reducers";
 import { FastField, Form, Formik } from "formik";
 // components
@@ -66,7 +66,7 @@ const LoginForm = () => {
         onSubmit={(values) => handleOnLogin(values)}
       >
         {(formikProps) => {
-          const { submitCount } = formikProps;
+          const { submitCount, handleSubmit } = formikProps;
           return (
             <Form>
               <FastField
@@ -89,14 +89,14 @@ const LoginForm = () => {
                 hasFeedBack
               />
 
-              <Spin spinning={isLoading}>
-                <button
-                  className="btn-submit ant-btn ant-btn-primary"
-                  type="submit"
-                >
-                  Đăng nhập
-                </button>
-              </Spin>
+              <Button
+                onClick={() => handleSubmit()}
+                loading={isLoading}
+                type="primary"
+              >
+                Login
+              </Button>
+
               <p>
                 New to ZingMusic? <Link to="/register">Register</Link>
               </p>

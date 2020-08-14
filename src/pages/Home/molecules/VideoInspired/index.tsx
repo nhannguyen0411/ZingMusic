@@ -20,7 +20,7 @@ const VideoInspired = (props: PropTypes) => {
     <div className="video-inspired-wrapper">
       <Tooltip title={item.song}>
         <div className="photo">
-          <img src={`${item.image_url}`} alt="images" />
+          <img loading="lazy" src={`${item.image_url}`} alt="images" />
           <div className="overlay">
             <PlayCircleOutlined />
           </div>

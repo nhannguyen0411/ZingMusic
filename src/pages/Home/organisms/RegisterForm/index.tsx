@@ -1,7 +1,7 @@
 // libs
 import React from "react";
 import * as Yup from "yup";
-import { Spin } from "antd";
+import { Button } from "antd";
 import { MailOutlined, UserOutlined, KeyOutlined } from "@ant-design/icons";
 import { FastField, Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
@@ -74,7 +74,7 @@ const RegisterForm = () => {
         onSubmit={(values) => handleOnRegister(values)}
       >
         {(formikProps) => {
-          const { submitCount } = formikProps;
+          const { submitCount, handleSubmit } = formikProps;
           return (
             <Form>
               <FastField
@@ -116,14 +116,13 @@ const RegisterForm = () => {
                 submitCount={submitCount}
                 hasFeedBack
               />
-              <Spin spinning={isLoading}>
-                <button
-                  className="btn-submit ant-btn ant-btn-primary"
-                  type="submit"
-                >
-                  Đăng ký
-                </button>
-              </Spin>
+              <Button
+                onClick={() => handleSubmit()}
+                loading={isLoading}
+                type="primary"
+              >
+                Register
+              </Button>
               <p>
                 Have you already account? <Link to="/login">Login</Link>
               </p>

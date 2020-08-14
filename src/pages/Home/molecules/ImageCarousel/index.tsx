@@ -33,14 +33,14 @@ const ImageCarousel = (): JSX.Element => {
         <Carousel autoplay>
           {arr.map((item, index) => (
             <div key={index}>
-              <img src={item.url} alt="imagess" />
+              <img loading="lazy" src={item.url} alt="imagess" />
             </div>
           ))}
         </Carousel>
       </div>
       <div className="image-render">
         {arr.map((item, index) => (
-          <img key={index} src={item.url} alt="imagess" />
+          <img loading="lazy" key={index} src={item.url} alt="imagess" />
         ))}
       </div>
     </div>

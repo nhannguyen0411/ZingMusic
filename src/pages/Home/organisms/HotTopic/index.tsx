@@ -13,12 +13,15 @@ const HotTopic = (): JSX.Element => (
     <NavbarTitle varClass="hot-topic" name="CHỦ ĐỀ HOT" />
     <div className="list-topic">
       {hotTopic.map((item, index) => (
-        <img
-          key={index}
-          className="img-responsive"
-          src={item.image}
-          alt="images"
-        />
+        <div className="aspect-ratio-294">
+          <img
+            loading="lazy"
+            key={index}
+            className="img-responsive"
+            src={item.image}
+            alt="images"
+          />
+        </div>
       ))}
     </div>
     <Topic

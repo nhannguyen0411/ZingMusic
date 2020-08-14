@@ -27,9 +27,7 @@ const MainLeft = (): JSX.Element => {
 
   const initFetch = useCallback(() => {
     dispatch(fetchHappyVideoListRequest());
-    setTimeout(() => {
-      dispatch(fetchHotVideoListRequest());
-    }, 1000);
+    dispatch(fetchHotVideoListRequest());
   }, [dispatch]);
 
   useEffect(() => {
@@ -41,6 +39,7 @@ const MainLeft = (): JSX.Element => {
       <MainCarousel />
       <div className="section-zing-chart">
         <img
+          loading="lazy"
           className="img-zing-chart"
           src={require("../../../../../../images/zingchart.PNG")}
           alt="images"

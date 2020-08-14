@@ -20,13 +20,14 @@ const SingerHot = (props: PropTypes) => {
       <div className="singer-in-top">
         <div className="first-singer">
           <img
+            loading="lazy"
             src="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/avatars/7/c/5/a/7c5a9d0ec012cb842476b83dbbc96e84.jpg#home_hotartist_01"
             alt="images"
           />
         </div>
         <div className="top-singer">
           {arr.map((item: infoPartner, index) => (
-            <img key={index} src={item.image} alt="images" />
+            <img loading="lazy" key={index} src={item.image} alt="images" />
           ))}
         </div>
       </div>

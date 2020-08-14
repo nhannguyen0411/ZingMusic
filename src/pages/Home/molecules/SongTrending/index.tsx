@@ -30,7 +30,7 @@ const SongTrending = (props: PropTypes) => {
         color="white"
         title={item.song}
       >
-        <img src={item.image_url} alt="images" />
+        <img loading="lazy" src={item.image_url} alt="images" />
       </Tooltip>
       <SongInfo item={item} />
       <div className="overlay">
