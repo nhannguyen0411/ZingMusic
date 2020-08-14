@@ -45,8 +45,7 @@ function PasswordField(props) {
   const touchedError = hasError && touchedErr;
 
   const regexTest = (pattern, letters) => {
-    if (pattern.test(letters)) return 1;
-    return 0;
+    return pattern.test(letters) ? 1 : 0;
   };
 
   const renderCondition = (pattern, letters) => {
@@ -71,7 +70,7 @@ function PasswordField(props) {
           Contain both letters and numbers
         </li>
         <li>
-          {renderCondition(/^[a-zA-Z0-9]*\S$/, value)}
+          {renderCondition(/^[\w]*\S$/, value)}
           Do not contain whitespace
         </li>
       </ul>
